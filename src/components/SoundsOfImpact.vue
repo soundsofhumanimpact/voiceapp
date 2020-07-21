@@ -2,6 +2,7 @@
   <div id="background">
     <h1 class="messageOne">{{ msg }}</h1>
     <h3 class="messageTwo">{{ msg2 }}</h3> 
+    <span></span>
     <ul id="birds" >
       <li class="card" v-bind:style="{color: birdColor1}" v-show="card1"><!-- <img class="card" :alt="birdName1" :src="birdImage1"> -->{{birdName1}}</li>
       <li class="card" v-bind:style="{color: birdColor2}" v-show="card2"><!-- <img class="card" :alt="birdName2" :src="birdImage2"> -->{{birdName2}}</li>
@@ -10,8 +11,8 @@
     </ul>
     <Modal v-show="isModalVisible" @voice="this.reInitiateVoiceControl" @close="isModalVisible = false"/> 
     <button id="generateButton" v-if="!isHidden" v-on:click="aboutHidden=true; isHidden=true; generateSoundscape()">Generate Soundscape</button>
-    <button id="nineteenSeventyButton" v-if="isHidden" v-on:click="nineteenSeventy">1970</button>
-    <button id="twentyTwentyButton" v-if="isHidden" v-on:click="twentyTwenty">2020</button>
+    <button id="nineteenSeventyButton" v-if="isHidden" v-on:click="nineteenSeventy">Play 1970</button>
+    <button id="twentyTwentyButton" v-if="isHidden" v-on:click="twentyTwenty">Play 2020</button>
     <p>
       <button id="resetButton" v-if="isHidden" v-on:click="aboutHidden=false; isHidden=false;reset()">Reset</button>
       <button id="aboutButton" v-if="!aboutHidden" v-on:click="isModalVisible=true">About</button>
@@ -70,6 +71,7 @@ export default {
       birdColor3: 'violet',
       birdColor4: 'orange',
       isModalVisible: false,
+      stop: false
     }
   },
 mounted: function () {
@@ -96,29 +98,29 @@ mounted: function () {
         } else {
           interimTranscript += transcript;
         }
-          if (interimTranscript == "generate soundscape") {
+          if (transcript == "generate soundscape") {
             this.generateSoundscape()
             this.isHidden = true
             this.aboutHidden = true
             this.reInitiateVoiceControl()
           }
-          else if (interimTranscript == "about") {
+          if (transcript == "about") {
             this.isModalVisible = true
             this.reInitiateVoiceControl()
           }
-          else if (interimTranscript == "close") {
+          if (transcript == "close") {
             this.isModalVisible = false
             this.reInitiateVoiceControl()
           }
-          else if (interimTranscript == "play 1970") {
+          if (transcript == "play 1970") {
             this.nineteenSeventy()
             this.reInitiateVoiceControl()
           }
-          else if (interimTranscript == "play 2020") {
+          if (transcript == "play 2020") {
             this.twentyTwenty()
             this.reInitiateVoiceControl()
           }
-          else if (interimTranscript == "reset") {
+          if (transcript == "reset") {
             this.reset()
             this.aboutHidden = false
             this.isHidden = false
@@ -205,6 +207,7 @@ recognition.start();
         this.card2 = false; 
         this.card3 = true; 
         this.card4 = true;
+        this.stop = true; 
         this.sleep(500).then(() => {
           this.visualizeNineteenSeventy()
         })
@@ -223,9 +226,13 @@ recognition.start();
         this.card2 = true; 
         this.card3 = true; 
         this.card4 = true;
+        this.stop = true; 
         this.sleep(500).then(() => {
           this.visualizeTwentyTwenty()
         })
+    },
+    end: function (){
+      this.placeHolder.stop();
     },
     reset: function () {
         this.msg = "BYRD BOT"
@@ -234,10 +241,16 @@ recognition.start();
         this.card2 = false; 
         this.card3 = false; 
         this.card4 = false;
-        this.placeHolder.stop();
         var canvas = document.getElementsByTagName("canvas")[0]
         canvas.width = 0
         canvas.height = 0
+        if (this.stop == false){
+          this.placeHolder = new Pizzicato.Sound("https://wompwompwomp.com/audio/f06f6a8e.sad-trombone-56.mp3")
+          this.end()
+        }
+        if (this.stop == true){
+          this.end()
+        }
      },   
      visualizeNineteenSeventy: function (){
        this.placeHolder.play()
