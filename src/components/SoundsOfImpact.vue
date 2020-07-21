@@ -8,12 +8,15 @@
       <li class="card" v-bind:style="{color: birdColor3}" v-show="card3"><!-- <img class="card" :alt="birdName3" :src="birdImage3"> -->{{birdName3}}</li>
       <li class="card" v-bind:style="{color: birdColor4}" v-show="card4"><!-- <img class="card" :alt="birdName4" :src="birdImage4"> -->{{birdName4}}</li>
     </ul>
-    <button id="aboutButton" v-if="!aboutHidden" v-on:click="isModalVisible=true">About</button>
-    <Modal v-show="isModalVisible" @close="isModalVisible = false"/> 
+    <Modal v-show="isModalVisible" @voice="this.reInitiateVoiceControl" @close="isModalVisible = false"/> 
     <button id="generateButton" v-if="!isHidden" v-on:click="aboutHidden=true; isHidden=true; generateSoundscape()">Generate Soundscape</button>
     <button id="nineteenSeventyButton" v-if="isHidden" v-on:click="nineteenSeventy">1970</button>
     <button id="twentyTwentyButton" v-if="isHidden" v-on:click="twentyTwenty">2020</button>
-    <p><button id="resetButton" v-if="isHidden" v-on:click="aboutHidden=false; isHidden=false;reset()">Reset</button></p>
+    <p>
+      <button id="resetButton" v-if="isHidden" v-on:click="aboutHidden=false; isHidden=false;reset()">Reset</button>
+      <button id="aboutButton" v-if="!aboutHidden" v-on:click="isModalVisible=true">About</button>
+      <button id="voiceButton" v-if="!aboutHidden" v-on:click="initiateVoiceControl()">Enable Voice Control</button>
+    </p>
    <p><canvas></canvas></p> 
   </div>
 </template>
@@ -72,7 +75,6 @@ export default {
 mounted: function () {
       this.msg = "BYRD BOT"
       this.msg2 = ""
-      this.initiateVoiceControl()
     },
   methods: {
   initiateVoiceControl: function () {
@@ -261,7 +263,7 @@ recognition.start();
           ctx.clearRect(0, 0, canvas.width, canvas.height)
 
           var centerY = canvas.height / 3
-          ctx.strokeStyle = 'mediumturquoise'
+          ctx.strokeStyle = 'limegreen'
           scope.draw(ctx, 0, centerY, undefined, centerY)
 
           window.requestAnimationFrame(drawLoop)
@@ -328,8 +330,17 @@ button {
 #generateButton {
 background-color: mediumturquoise;
 }
+#voiceButton {
+background-color: orange; 
+font-size: small; 
+font-size: 12; 
+padding: 7px 16px;
+}
 #aboutButton {
 background-color: purple;
+font-size: small; 
+font-size: 12; 
+padding: 7px 16px;
 }
 #resetButton {
 background-color: black;  

@@ -32,6 +32,7 @@
             Byrd Bot expresses differences in bird populations between 1970 and 2020 as unique soundscapes, composed computationally using known bird population data and the Audubon Society's database of bird songs. <p>The application is born out of the Sounds of Human Impact project, a collaborative effort between communication studies and environmental science scholars interested to explore the role of sound as a means to expressing the impacts of the Anthroprocene. </p><p>When the user clicks <button id="generate">Generate Soundscape</button> the software will generate a new soundscape, based on probabilities in which birds might be heard in <button id="nineteenSeventy">1970</button>. Then, the system generates a soundscape of those very same bird sounds, using probabilities for <button id="twentyTwenty">2020</button>. </p><p> The listener is invited to listen deeply for the differences in ecology between these two time periods.  </p>
 
         </div>
+
         <footer class="modal-footer">
          
 <button @click="close">Close </button>
@@ -53,6 +54,9 @@ button {
   font-size: 16px;
   font-weight: bold;  
   font-size: large;  
+}
+#voice {
+background-color: orange; 
 }
 #generate {
 background-color: mediumturquoise;
