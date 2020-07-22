@@ -12,7 +12,7 @@
     <Modal v-show="isModalVisible" @voice="this.reInitiateVoiceControl" @close="isModalVisible = false"/> 
     <button id="generateButton" v-if="!isHidden" v-on:click="aboutHidden=true; isHidden=true; generateSoundscape()">Generate Soundscape</button>
     <button id="nineteenSeventyButton" v-if="isHidden" v-on:click="nineteenSeventy">Play 1970</button>
-    <button id="twentyTwentyButton" v-if="isHidden" v-on:click="twentyTwenty">Play 2020</button>
+    <button id="twentyTwentyButton" v-if="isHidden" v-on:click="twentyTwenty">Play Today</button>
     <p>
       <button id="resetButton" v-if="isHidden" v-on:click="aboutHidden=false; isHidden=false;reset()">Reset</button>
       <button id="aboutButton" v-if="!aboutHidden" v-on:click="isModalVisible=true">About</button>
@@ -71,7 +71,8 @@ export default {
       birdColor3: 'violet',
       birdColor4: 'orange',
       isModalVisible: false,
-      stop: false
+      stop: false, 
+      doItAgain: false
     }
   },
 mounted: function () {
@@ -102,37 +103,46 @@ mounted: function () {
             this.generateSoundscape()
             this.isHidden = true
             this.aboutHidden = true
+            this.doItAgain = true
             this.reInitiateVoiceControl()
           }
           if (transcript == "about") {
             this.isModalVisible = true
+            this.doItAgain = true
             this.reInitiateVoiceControl()
           }
           if (transcript == "close") {
             this.isModalVisible = false
+            this.doItAgain = true
             this.reInitiateVoiceControl()
           }
           if (transcript == "play 1970") {
             this.nineteenSeventy()
+            this.doItAgain = true
             this.reInitiateVoiceControl()
           }
-          if (transcript == "play 2020") {
+          if (transcript == "play today") {
             this.twentyTwenty()
+            this.doItAgain = true
             this.reInitiateVoiceControl()
           }
           if (transcript == "reset") {
             this.reset()
             this.aboutHidden = false
             this.isHidden = false
+            this.doItAgain = true
             this.reInitiateVoiceControl()
           }
       }
     console.log("transcript: " + finalTranscript + interimTranscript)
+    setTimeout(this.reInitiateVoiceControl, 1000)
   }
-recognition.start();
+recognition.start()
   },
      reInitiateVoiceControl: function (){
+     if (this.doItAgain == true){
        this.initiateVoiceControl()
+       }
   },
      generateSoundscape: function () {
      var self = this; 
