@@ -99,47 +99,57 @@ mounted: function () {
         } else {
           interimTranscript += transcript;
         }
-          if (transcript == "generate soundscape") {
+          if (interimTranscript == "generate soundscape") {
             this.generateSoundscape()
             this.isHidden = true
             this.aboutHidden = true
             this.doItAgain = true
             this.reInitiateVoiceControl()
           }
-          if (transcript == "about") {
+          if (interimTranscript == "about") {
             this.isModalVisible = true
             this.doItAgain = true
             this.reInitiateVoiceControl()
           }
-          if (transcript == "close") {
+          if (interimTranscript == "close") {
             this.isModalVisible = false
             this.doItAgain = true
             this.reInitiateVoiceControl()
           }
-          if (transcript == "play 1970") {
+          if (interimTranscript == "play 1970") {
             this.nineteenSeventy()
             this.doItAgain = true
             this.reInitiateVoiceControl()
           }
-          if (transcript == "play today") {
+          if (interimTranscript == "play today") {
             this.twentyTwenty()
             this.doItAgain = true
             this.reInitiateVoiceControl()
           }
-          if (transcript == "reset") {
+          if (interimTranscript == "reset") {
             this.reset()
             this.aboutHidden = false
             this.isHidden = false
             this.doItAgain = true
             this.reInitiateVoiceControl()
           }
+          if (interimTranscript == "disable voice control") {
+             recognition.abort();
+             console.log('voice control disabled')
+             this.doItAgain = false
+          }
+          else {
+              this.sleep(3500).then(() => {
+              this.reInitiateVoiceControl()
+              }) 
+          }
       }
-    console.log("transcript: " + finalTranscript + interimTranscript)
-    setTimeout(this.reInitiateVoiceControl, 1000)
+    console.log("transcript: " + finalTranscript)
   }
 recognition.start()
   },
      reInitiateVoiceControl: function (){
+     console.log('reinitiate')
      if (this.doItAgain == true){
        this.initiateVoiceControl()
        }
