@@ -10,13 +10,13 @@
       <li class="card" v-bind:style="{color: birdColor4}" v-show="card4"><!-- <img class="card" :alt="birdName4" :src="birdImage4"> -->{{birdName4}}</li>
     </ul>
     <Modal v-show="isModalVisible" @voice="this.reInitiateVoiceControl" @close="isModalVisible = false"/> 
-    <button id="generateButton" v-if="!isHidden" v-on:click="aboutHidden=true; isHidden=true; generateSoundscape()">Generate Soundscape</button>
+    <button id="generateButton" v-if="!isHidden" v-on:click="aboutHidden=true; voiceHidden=true;  isHidden=true; generateSoundscape()">Generate Soundscape</button>
     <button id="nineteenSeventyButton" v-if="isHidden" v-on:click="nineteenSeventy">Play 1970</button>
     <button id="twentyTwentyButton" v-if="isHidden" v-on:click="twentyTwenty">Play Today</button>
     <p>
       <button id="resetButton" v-if="isHidden" v-on:click="aboutHidden=false; isHidden=false;reset()">Reset</button>
       <button id="aboutButton" v-if="!aboutHidden" v-on:click="isModalVisible=true">About</button>
-      <button id="voiceButton" v-if="!aboutHidden" v-on:click="initiateVoiceControl()">Enable Voice Control</button>
+      <button id="voiceButton" v-if="!voiceHidden" v-on:click="initiateVoiceControl()">Enable Voice Control</button>
     </p>
    <p><canvas></canvas></p> 
   </div>
@@ -78,6 +78,11 @@ export default {
 mounted: function () {
       this.msg = "BYRD BOT"
       this.msg2 = ""
+      if ('webkitSpeechRecognition' in window) {
+        this.voiceHidden = false; 
+      } else {
+        this.voiceHidden = true; 
+	}
     },
   methods: {
   initiateVoiceControl: function () {
