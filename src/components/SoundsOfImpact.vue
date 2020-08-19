@@ -1,8 +1,12 @@
 <template>
   <div id="background">
-    <h1 class="messageOne">{{ msg }}</h1>
+    <h2 class="messageOne">{{ msg }}</h2>
+    <h1 class="messageThree" v-bind:style="{ color: activeColor}">{{ msg3 }}</h1> 
     <h3 class="messageTwo">{{ msg2 }}</h3> 
     <span></span>
+    <button class="landscape" id="woodlands" v-if="isHidden3" v-on:click="; isWoodLand(); generateSoundscape(); isHidden3=false; isHidden2=true">Woodlands</button>  
+    <button class="landscape" id="coast" v-if="isHidden3" v-on:click="; isWoodLand(); generateSoundscape(); isHidden3=false; isHidden2=true">Coast</button>  
+    <button class="landscape" id="backyard" v-if="isHidden3" v-on:click="; isWoodLand(); generateSoundscape(); isHidden3=false; isHidden2=true">Backyard</button>  
     <ul id="birds" >
       <li class="card" v-bind:style="{color: birdColor1}" v-show="card1"><!-- <img class="card" :alt="birdName1" :src="birdImage1"> -->{{birdName1}}</li>
       <li class="card" v-bind:style="{color: birdColor2}" v-show="card2"><!-- <img class="card" :alt="birdName2" :src="birdImage2"> -->{{birdName2}}</li>
@@ -10,11 +14,11 @@
       <li class="card" v-bind:style="{color: birdColor4}" v-show="card4"><!-- <img class="card" :alt="birdName4" :src="birdImage4"> -->{{birdName4}}</li>
     </ul>
     <Modal v-show="isModalVisible" @voice="this.reInitiateVoiceControl" @close="isModalVisible = false"/> 
-    <button id="generateButton" v-if="!isHidden" v-on:click="aboutHidden=true; voiceHidden=true;  isHidden=true; generateSoundscape()">Generate Soundscape</button>
-    <button id="nineteenSeventyButton" v-if="isHidden" v-on:click="nineteenSeventy">Play 1970</button>
-    <button id="twentyTwentyButton" v-if="isHidden" v-on:click="twentyTwenty">Play Today</button>
+    <button id="generateButton" v-if="!isHidden" v-on:click="aboutHidden=true; voiceHidden=true; isHidden=true; isHidden3=true; biome()">Generate Soundscape</button>
+    <button id="nineteenSeventyButton" v-if="isHidden2" v-on:click="nineteenSeventy">Play 1970</button>
+    <button id="twentyTwentyButton" v-if="isHidden2" v-on:click="twentyTwenty">Play Today</button>
     <p>
-      <button id="resetButton" v-if="isHidden" v-on:click="aboutHidden=false; isHidden=false;reset()">Reset</button>
+      <button id="resetButton" v-if="isHidden2" v-on:click="aboutHidden=false; isHidden2=false;reset()">Reset</button>
       <button id="aboutButton" v-if="!aboutHidden" v-on:click="isModalVisible=true">About</button>
       <button id="voiceButton" v-if="!voiceHidden" v-on:click="initiateVoiceControl()">Enable Voice Control</button>
     </p>
@@ -58,7 +62,7 @@ export default {
       birdSound4Pan: '',
       group1: [],
       group2: [],
-      isHidden: false, 
+      isHidden2: false, 
       aboutHidden: false, 
       card1: false, 
       card2: false, 
@@ -72,7 +76,9 @@ export default {
       birdColor4: 'orange',
       isModalVisible: false,
       stop: false, 
-      doItAgain: false
+      doItAgain: false, 
+      woodLand: false, 
+      activeColor: "white"
     }
   },
 mounted: function () {
@@ -106,7 +112,7 @@ mounted: function () {
         }
           if (interimTranscript == "generate soundscape") {
             this.generateSoundscape()
-            this.isHidden = true
+            this.isHidden2 = true
             this.aboutHidden = true
             this.doItAgain = true
             this.reInitiateVoiceControl()
@@ -134,7 +140,7 @@ mounted: function () {
           if (interimTranscript == "reset") {
             this.reset()
             this.aboutHidden = false
-            this.isHidden = false
+            this.isHidden2 = false
             this.doItAgain = true
             this.reInitiateVoiceControl()
           }
@@ -158,6 +164,14 @@ recognition.start()
      if (this.doItAgain == true){
        this.initiateVoiceControl()
        }
+  },
+  biome: function (){
+  this.msg = "Select a Biome"
+  },
+  isWoodLand: function (){
+    this.woodLand = true
+    this.msg3 = "Woodlands"
+    this.activeColor = "green"
   },
      generateSoundscape: function () {
      var self = this; 
@@ -353,6 +367,19 @@ border-style: solid;
 border-width: 1px;
 padding: 5px; 
 }
+.landscape {
+height: 200px; 
+width: 150px; 
+}
+#woodlands {
+  background-color: green;
+}
+#coast {
+  background-color: lightblue;
+}
+#backyard {
+  background-color: limegreen;
+}
 button {
   background-color: limegreen; /* Green */
   border: none;
@@ -389,7 +416,7 @@ padding: 8px 8px;
   background-color: violet;
 }
 #nineteenSeventyButton{
-background-color: limegreen;  
+background-color: mediumturquoise;  
 }
 #twentyTwentyButton {
 background-color: salmon; 
