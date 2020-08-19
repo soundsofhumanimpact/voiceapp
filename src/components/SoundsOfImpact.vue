@@ -73,7 +73,11 @@ export default {
       stop: false, 
       doItAgain: false, 
       woodLand: false, 
-      activeColor: "white"
+      activeColor: "white", 
+      integer: "", 
+      coast: false, 
+      backYard: false,
+      filteredResults: [] 
     }
   },
 mounted: function () {
@@ -172,25 +176,51 @@ recognition.start()
       alert('Coming soon! Current variables are set to Woodlands.')
       this.msg3 = "Woodlands"
       this.activeColor = "green"
+      //this.cast = true
   },
     isBackYard: function (){
       alert('Coming soon! Current variables are set to Woodlands.')
       this.msg3 = "Woodlands"
       this.activeColor = "green"
+      //this.backYard = true
   },
      generateSoundscape: function () {
      var self = this; 
      Pizzicato.context.resume();
        axios.get("https://raw.githubusercontent.com/soundsofhumanimpact/data/master/birdsAndSounds.json")
        .then(function (response) { 
+      
+      if (self.woodLand ==true) { 
+        self.filteredResults = response.data.filter(function(item){
+        return item.scape == "woodlands";         
+        })
+      }
+      
+      if (self.coast ==true) { 
+        self.filteredResults = response.data.filter(function(item){
+        return item.scape == "coast";         
+        })
+      }
+      
+      if (self.backYard ==true) { 
+        self.filteredResults = response.data.filter(function(item){
+        return item.scape == "backyard";         
+        })
+      }
        
+     console.log("filtered results: " + self.filteredResults )
+     
           self.msg = "Soundscape Variables Generated"
           self.msg2 = "Select a Time Period to Listen"
           
+          
           var soundConstructor = "sound" + Math.floor(Math.random()*4+1) + "_url"
+          self.integer = Math.random()
+          console.log(self.integer)
        
-          self.birdName1 = response.data[0].species
-          self.birdNumber1 = response.data[0][soundConstructor]
+       
+          self.birdName1 = self.filteredResults[0].species
+          self.birdNumber1 = self.filteredResults[0][soundConstructor]
           console.log(self.birdNumber1)
           self.birdSound1 = new Pizzicato.Sound(self.birdNumber1, function() {
           self.birdSound1Pan = new Pizzicato.Effects.StereoPanner({pan: Math.random()*2 - 1});
@@ -199,8 +229,8 @@ recognition.start()
           self.birdAudio1 = self.birdSound1.clone();
           });
           
-          self.birdName2 =  response.data[1].species
-          self.birdNumber2 = response.data[1][soundConstructor]
+          self.birdName2 =  self.filteredResults[1].species
+          self.birdNumber2 = self.filteredResults[1][soundConstructor]
           self.birdSound2 = new Pizzicato.Sound(self.birdNumber2, function() {
           self.birdSound2Pan = new Pizzicato.Effects.StereoPanner({pan: Math.random()*2 - 1});
           self.birdSound2.volume = Math.random(); 
@@ -208,8 +238,8 @@ recognition.start()
           self.birdAudio2 = self.birdSound2.clone();
           });
           
-          self.birdName3 =  response.data[2].species
-          self.birdNumber3 = response.data[2][soundConstructor]
+          self.birdName3 =  self.filteredResults[2].species
+          self.birdNumber3 = self.filteredResults[2][soundConstructor]
           self.birdSound3 = new Pizzicato.Sound(self.birdNumber3, function() {
           self.birdSound3Pan = new Pizzicato.Effects.StereoPanner({pan: Math.random()*2 - 1});
           self.birdSound3.volume = Math.random(); 
@@ -217,8 +247,8 @@ recognition.start()
           self.birdAudio3 = self.birdSound3.clone();
           });
           
-          self.birdName4 =  response.data[3].species
-          self.birdNumber4 = response.data[3][soundConstructor]
+          self.birdName4 =  self.filteredResults[3].species
+          self.birdNumber4 = self.filteredResults[3][soundConstructor]
           self.birdSound4 = new Pizzicato.Sound(self.birdNumber4, function() {
           self.birdSound4Pan = new Pizzicato.Effects.StereoPanner({pan: Math.random()*2 - 1});
           self.birdSound4.volume = Math.random(); 
