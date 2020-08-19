@@ -12,6 +12,8 @@
       <li class="card" v-bind:style="{color: birdColor2}" v-show="card2"><!-- <img class="card" :alt="birdName2" :src="birdImage2"> -->{{birdName2}}</li>
       <li class="card" v-bind:style="{color: birdColor3}" v-show="card3"><!-- <img class="card" :alt="birdName3" :src="birdImage3"> -->{{birdName3}}</li>
       <li class="card" v-bind:style="{color: birdColor4}" v-show="card4"><!-- <img class="card" :alt="birdName4" :src="birdImage4"> -->{{birdName4}}</li>
+      <li class="card" v-bind:style="{color: birdColor5}" v-show="card5"><!-- <img class="card" :alt="birdName4" :src="birdImage4"> -->{{birdName5}}</li>
+
     </ul>
     <Modal v-show="isModalVisible" @voice="this.reInitiateVoiceControl" @close="isModalVisible = false"/> 
     <button id="generateButton" v-if="!isHidden" v-on:click="aboutHidden=true; voiceHidden=true; isHidden=true; isHidden3=true; biome()">Generate Soundscape</button>
@@ -44,31 +46,41 @@ export default {
       birdNumber1: '', 
       birdSound1: '',
       birdSound1Pan: '',
+      birdAudio1: '', 
       birdName2: '', 
       birdNumber2: '',  
       birdSound2: '',
       birdSound2Pan: '',
+      birdAudio2: '',
       birdName3: '', 
       birdNumber3: '',
       birdSound3: '',
       birdSound3Pan: '',
+      birdAudio3: '',
       birdName4: '', 
       birdSound4: '',
       birdSound4Pan: '',
-      group1: [],
-      group2: [],
+      birdAudio4: '',
+      birdName5: '', 
+      birdSound5: '',
+      birdSound5Pan: '',
+      birdAudio5: '',
+      group: [],
       isHidden2: false, 
       aboutHidden: false, 
       card1: false, 
       card2: false, 
       card3: false, 
       card4: false, 
+      card5: false, 
       twenty: false, 
       placeHolder: [], 
+      placeHolder2: [], 
       birdColor1: 'salmon', 
       birdColor2: 'turquoise', 
       birdColor3: 'violet',
       birdColor4: 'orange',
+      birdColor5: 'yellow',
       isModalVisible: false,
       stop: false, 
       doItAgain: false, 
@@ -77,7 +89,9 @@ export default {
       integer: "", 
       coast: false, 
       backYard: false,
-      filteredResults: [] 
+      filteredResults: [], 
+      seventyStop: false, 
+      twentyStop: false 
     }
   },
 mounted: function () {
@@ -172,7 +186,7 @@ recognition.start()
     this.msg3 = "Woodlands"
     this.activeColor = "green"
   },
-    isCoast: function (){
+	isCoast: function (){
       alert('Coming soon! Current variables are set to Woodlands.')
       this.msg3 = "Woodlands"
       this.activeColor = "green"
@@ -221,12 +235,11 @@ recognition.start()
        
           self.birdName1 = self.filteredResults[0].species
           self.birdNumber1 = self.filteredResults[0][soundConstructor]
-          console.log(self.birdNumber1)
           self.birdSound1 = new Pizzicato.Sound(self.birdNumber1, function() {
           self.birdSound1Pan = new Pizzicato.Effects.StereoPanner({pan: Math.random()*2 - 1});
           self.birdSound1.volume = Math.random(); 
-          self.birdSound1.addEffect(self.birdSound1Pan);
-          self.birdAudio1 = self.birdSound1.clone();
+          self.birdSound1.addEffect(self.birdSound1Pan)
+          self.birdAudio1 = self.birdSound1
           });
           
           self.birdName2 =  self.filteredResults[1].species
@@ -234,8 +247,8 @@ recognition.start()
           self.birdSound2 = new Pizzicato.Sound(self.birdNumber2, function() {
           self.birdSound2Pan = new Pizzicato.Effects.StereoPanner({pan: Math.random()*2 - 1});
           self.birdSound2.volume = Math.random(); 
-          self.birdSound2.addEffect(self.birdSound2Pan);
-          self.birdAudio2 = self.birdSound2.clone();
+          self.birdSound2.addEffect(self.birdSound2Pan)
+          self.birdAudio2 = self.birdSound2
           });
           
           self.birdName3 =  self.filteredResults[2].species
@@ -243,8 +256,8 @@ recognition.start()
           self.birdSound3 = new Pizzicato.Sound(self.birdNumber3, function() {
           self.birdSound3Pan = new Pizzicato.Effects.StereoPanner({pan: Math.random()*2 - 1});
           self.birdSound3.volume = Math.random(); 
-          self.birdSound3.addEffect(self.birdSound3Pan);
-          self.birdAudio3 = self.birdSound3.clone();
+          self.birdSound3.addEffect(self.birdSound3Pan)
+          self.birdAudio3 = self.birdSound3
           });
           
           self.birdName4 =  self.filteredResults[3].species
@@ -252,12 +265,20 @@ recognition.start()
           self.birdSound4 = new Pizzicato.Sound(self.birdNumber4, function() {
           self.birdSound4Pan = new Pizzicato.Effects.StereoPanner({pan: Math.random()*2 - 1});
           self.birdSound4.volume = Math.random(); 
-          self.birdSound4.addEffect(self.birdSound4Pan);
-          self.birdAudio4 = self.birdSound4.clone();
+          self.birdSound4.addEffect(self.birdSound4Pan)
+          self.birdAudio4 = self.birdSound4
           });
           
-          self.group1 = new Pizzicato.Group([self.birdSound1, self.birdSound2, self.birdSound3, self.birdSound4]);
-
+          self.birdName5 =  self.filteredResults[4].species
+          self.birdNumber5 = self.filteredResults[4][soundConstructor]
+          self.birdSound5 = new Pizzicato.Sound(self.birdNumber5, function() {
+          self.birdSound5Pan = new Pizzicato.Effects.StereoPanner({pan: Math.random()*2 - 1});
+          self.birdSound5.volume = Math.random(); 
+          self.birdSound5.addEffect(self.birdSound5Pan)
+          self.birdAudio5 = self.birdSound5
+          });
+          
+          self.group = new Pizzicato.Group([]);
        })
        .catch(function (error) {
        console.log(error);
@@ -266,46 +287,87 @@ recognition.start()
     sleep: function (milliseconds){
       return new Promise(resolve => setTimeout(resolve, milliseconds))
     },
+        loopOne: function () {
+      this.nineteenSeventy()
+    }, 
+        loopTwo: function () {
+      this.twentyTwenty()
+    },
     nineteenSeventy: function (){
+        if (this.seventyStop == true) {
+          this.group.stop()
+          this.group.removeSound(this.birdAudio1)
+          this.group.removeSound(this.birdAudio2)
+          this.group.removeSound(this.birdAudio3)
+          this.group.removeSound(this.birdAudio4)
+          this.group.removeSound(this.birdAudio5)
+          this.seventyStop = false
+          this.sleep(700).then(() => {
+            this.loopOne()
+          })
+          
+        }
+        else {
         var canvas = document.getElementsByTagName("canvas")[0]
         canvas.width = 0
         canvas.height = 0
-        this.group1.stop();
+        this.group.addSound(this.birdSound1)
+        this.group.addSound(this.birdSound2)
+        this.group.addSound(this.birdSound3)
+        this.group.addSound(this.birdSound4)
+        this.group.addSound(this.birdSound5)
+        
         this.msg = "1970"
         this.msg2 = ""
-        this.group1.removeSound(this.birdSound1)
-        this.group1.removeSound(this.birdSound2)
-        this.placeHolder = this.group1
-        this.card1 = false; 
-        this.card2 = false; 
-        this.card3 = true; 
-        this.card4 = true;
-        this.stop = true; 
-        this.sleep(500).then(() => {
-          this.visualizeNineteenSeventy()
-        })
-    },
-    twentyTwenty: function (){
-        var canvas = document.getElementsByTagName("canvas")[0]
-        canvas.width = 0
-        canvas.height = 0
-        this.group1.stop();
-        this.msg = "2020"
-        this.msg2 = ""
-        this.group1.addSound(this.birdSound1)
-        this.group1.addSound(this.birdSound2)
-        this.placeHolder = this.group1
         this.card1 = true; 
         this.card2 = true; 
         this.card3 = true; 
         this.card4 = true;
+        this.card5 = true;
         this.stop = true; 
-        this.sleep(500).then(() => {
+        this.sleep(700).then(() => {
+          this.visualizeNineteenSeventy()
+        })
+        }
+    },
+    twentyTwenty: function (){
+        if (this.twentyStop == true) {
+          this.group.stop()
+          this.group.removeSound(this.birdSound1)
+          this.group.removeSound(this.birdSound2)
+          this.group.removeSound(this.birdSound3)
+          this.group.removeSound(this.birdSound4)
+          this.group.removeSound(this.birdSound5)
+          this.twentyStop = false
+          this.sleep(700).then(() => {
+            this.loopTwo()
+          })
+        }
+        else {
+        var canvas = document.getElementsByTagName("canvas")[0]
+        canvas.width = 0
+        canvas.height = 0
+        this.group.addSound(this.birdAudio1)
+        this.group.addSound(this.birdAudio2)
+        this.group.addSound(this.birdAudio3)
+        this.group.addSound(this.birdAudio4)
+        this.group.addSound(this.birdAudio5)
+        
+        this.msg = "Today"
+        this.msg2 = ""
+        this.card1 = true; 
+        this.card2 = true; 
+        this.card3 = true; 
+        this.card4 = true;
+        this.card5 = true;
+        this.stop = true; 
+        this.sleep(700).then(() => {
           this.visualizeTwentyTwenty()
         })
+        }
     },
     end: function (){
-      this.placeHolder.stop();
+      this.group.stop();
     },
     reset: function () {
         this.msg = "BYRD BOT"
@@ -315,11 +377,13 @@ recognition.start()
         this.card2 = false; 
         this.card3 = false; 
         this.card4 = false;
+        this.card5 = false;
         var canvas = document.getElementsByTagName("canvas")[0]
         canvas.width = 0
         canvas.height = 0
         if (this.stop == false){
           this.placeHolder = new Pizzicato.Sound("https://wompwompwomp.com/audio/f06f6a8e.sad-trombone-56.mp3")
+          this.placeHolder2 = new Pizzicato.Sound("https://wompwompwomp.com/audio/f06f6a8e.sad-trombone-56.mp3")
           this.end()
         }
         if (this.stop == true){
@@ -327,15 +391,17 @@ recognition.start()
         }
      },   
      visualizeNineteenSeventy: function (){
-       this.placeHolder.play()
        var audioContext = Pizzicato.context;
+       this.group.play()
+       this.twentyStop = true
+
        
        var canvas = document.getElementsByTagName("canvas")[0]
        canvas.width = window.innerWidth
        canvas.height = window.innerHeight
        
        var analyser = Pizzicato.context.createAnalyser();
-       this.placeHolder.connect(analyser);
+       this.group.connect(analyser);
        
        var scope = new Oscilloscope(analyser)
 
@@ -359,13 +425,15 @@ recognition.start()
     },
     visualizeTwentyTwenty: function () {
        var audioContext = Pizzicato.context;
-       this.placeHolder.play()
+       this.group.play()
+       this.seventyStop = true
+       
        var canvas = document.getElementsByTagName("canvas")[0]
        canvas.width = window.innerWidth
        canvas.height = window.innerHeight
        
        var analyser = Pizzicato.context.createAnalyser();
-       this.placeHolder.connect(analyser);
+       this.group.connect(analyser);
        
        var scope = new Oscilloscope(analyser)
 
