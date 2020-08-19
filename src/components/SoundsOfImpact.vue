@@ -18,7 +18,7 @@
     <button id="nineteenSeventyButton" v-if="isHidden2" v-on:click="nineteenSeventy">Play 1970</button>
     <button id="twentyTwentyButton" v-if="isHidden2" v-on:click="twentyTwenty">Play Today</button>
     <p>
-      <button id="resetButton" v-if="isHidden2" v-on:click="aboutHidden=false; isHidden2=false;reset()">Reset</button>
+      <button id="resetButton" v-if="isHidden2" v-on:click="aboutHidden=false; isHidden=false; isHidden2=false; reset(); voiceHidden=false">Reset</button>
       <button id="aboutButton" v-if="!aboutHidden" v-on:click="isModalVisible=true">About</button>
       <button id="voiceButton" v-if="!voiceHidden" v-on:click="initiateVoiceControl()">Enable Voice Control</button>
     </p>
@@ -41,23 +41,18 @@ export default {
       msg: '',
       msg2: '',  
       birdName1: '', 
-      birdImage1: '',
       birdNumber1: '', 
       birdSound1: '',
       birdSound1Pan: '',
       birdName2: '', 
-      birdImage2: '',
       birdNumber2: '',  
       birdSound2: '',
       birdSound2Pan: '',
       birdName3: '', 
-      birdImage3: '', 
       birdNumber3: '',
       birdSound3: '',
       birdSound3Pan: '',
       birdName4: '', 
-      birdImage4: '', 
-      birdNumber4: '',
       birdSound4: '',
       birdSound4Pan: '',
       group1: [],
@@ -186,15 +181,17 @@ recognition.start()
      generateSoundscape: function () {
      var self = this; 
      Pizzicato.context.resume();
-       axios.get("https://raw.githubusercontent.com/soundsofhumanimpact/data/master/birdData.json")
+       axios.get("https://raw.githubusercontent.com/soundsofhumanimpact/data/master/birdsAndSounds.json")
        .then(function (response) { 
        
           self.msg = "Soundscape Variables Generated"
           self.msg2 = "Select a Time Period to Listen"
+          
+          var soundConstructor = "sound" + Math.floor(Math.random()*4+1) + "_url"
        
-          self.birdName1 = response.data.raptors[1][0]
-          self.birdImage1 = response.data.raptors[1][2]
-          self.birdNumber1 = response.data.raptors[1][Math.floor(Math.random()*4+3)]
+          self.birdName1 = response.data[0].species
+          self.birdNumber1 = response.data[0][soundConstructor]
+          console.log(self.birdNumber1)
           self.birdSound1 = new Pizzicato.Sound(self.birdNumber1, function() {
           self.birdSound1Pan = new Pizzicato.Effects.StereoPanner({pan: Math.random()*2 - 1});
           self.birdSound1.volume = Math.random(); 
@@ -202,9 +199,8 @@ recognition.start()
           self.birdAudio1 = self.birdSound1.clone();
           });
           
-          self.birdName2 =  response.data.raptors[3][0]
-          self.birdImage2 = response.data.raptors[3][2]
-          self.birdNumber2 = response.data.raptors[1][Math.floor(Math.random()*4+3)]
+          self.birdName2 =  response.data[1].species
+          self.birdNumber2 = response.data[1][soundConstructor]
           self.birdSound2 = new Pizzicato.Sound(self.birdNumber2, function() {
           self.birdSound2Pan = new Pizzicato.Effects.StereoPanner({pan: Math.random()*2 - 1});
           self.birdSound2.volume = Math.random(); 
@@ -212,9 +208,8 @@ recognition.start()
           self.birdAudio2 = self.birdSound2.clone();
           });
           
-          self.birdName3 =  response.data.finches[1][0]
-          self.birdImage3 = response.data.finches[1][2]
-          self.birdNumber3 = response.data.finches[1][Math.floor(Math.random()*4+3)]
+          self.birdName3 =  response.data[2].species
+          self.birdNumber3 = response.data[2][soundConstructor]
           self.birdSound3 = new Pizzicato.Sound(self.birdNumber3, function() {
           self.birdSound3Pan = new Pizzicato.Effects.StereoPanner({pan: Math.random()*2 - 1});
           self.birdSound3.volume = Math.random(); 
@@ -222,9 +217,8 @@ recognition.start()
           self.birdAudio3 = self.birdSound3.clone();
           });
           
-          self.birdName4 =  response.data.finches[3][0]
-          self.birdImage4 = response.data.finches[3][2]
-          self.birdNumber4 = response.data.finches[3][Math.floor(Math.random()*4+3)]
+          self.birdName4 =  response.data[3].species
+          self.birdNumber4 = response.data[3][soundConstructor]
           self.birdSound4 = new Pizzicato.Sound(self.birdNumber4, function() {
           self.birdSound4Pan = new Pizzicato.Effects.StereoPanner({pan: Math.random()*2 - 1});
           self.birdSound4.volume = Math.random(); 
@@ -286,6 +280,7 @@ recognition.start()
     reset: function () {
         this.msg = "BYRD BOT"
         this.msg2 = ""
+        this.msg3 = ""
         this.card1 = false; 
         this.card2 = false; 
         this.card3 = false; 
