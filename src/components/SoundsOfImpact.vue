@@ -5,8 +5,8 @@
     <h3 class="messageTwo">{{ msg2 }}</h3> 
     <span></span>
     <button class="landscape" id="woodlands" v-if="isHidden3" v-on:click="; isWoodLand(); generateSoundscape(); isHidden3=false; isHidden2=true">Woodlands</button>  
-    <button class="landscape" id="coast" v-if="isHidden3" v-on:click="; isWoodLand(); generateSoundscape(); isHidden3=false; isHidden2=true">Coast</button>  
-    <button class="landscape" id="backyard" v-if="isHidden3" v-on:click="; isWoodLand(); generateSoundscape(); isHidden3=false; isHidden2=true">Backyard</button>  
+    <button class="landscape" id="coast" v-if="isHidden3" v-on:click="; isCoast(); generateSoundscape(); isHidden3=false; isHidden2=true">Coast</button>  
+    <button class="landscape" id="backyard" v-if="isHidden3" v-on:click="; isBackyard(); generateSoundscape(); isHidden3=false; isHidden2=true">Backyard</button>  
     <ul id="birds" >
       <li class="card" v-bind:style="{color: birdColor1}" v-show="card1"><!-- <img class="card" :alt="birdName1" :src="birdImage1"> -->{{birdName1}}</li>
       <li class="card" v-bind:style="{color: birdColor2}" v-show="card2"><!-- <img class="card" :alt="birdName2" :src="birdImage2"> -->{{birdName2}}</li>
@@ -172,6 +172,16 @@ recognition.start()
     this.woodLand = true
     this.msg3 = "Woodlands"
     this.activeColor = "green"
+  },
+    isCoast: function (){
+      alert('Coming soon! Current variables are set to Woodlands.')
+      this.msg3 = "Woodlands"
+      this.activeColor = "green"
+  },
+    isBackYard: function (){
+      alert('Coming soon! Current variables are set to Woodlands.')
+      this.msg3 = "Woodlands"
+      this.activeColor = "green"
   },
      generateSoundscape: function () {
      var self = this; 
