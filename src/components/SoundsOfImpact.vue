@@ -1,7 +1,7 @@
 <template>
   <div id="background">
+  <h2 id="time" class="messageOne">{{ msg }}</h2>
     <h3 id="messageTwo">{{ msg2 }}</h3> 
-
     <span></span>
     <button class="landscape" id="woodlands" v-if="isHidden3" v-on:click="; isWoodLand(); generateSoundscape(); isHidden3=false; isHidden2=true">Woodlands</button>  
     <button class="landscape" id="coast" v-if="isHidden3" v-on:click="; isCoast(); generateSoundscape(); isHidden3=false; isHidden2=true">Coast</button>  
@@ -12,9 +12,7 @@
       <li class="card" v-bind:style="{color: birdColor3}" v-show="card3"><!-- <img class="card" :alt="birdName3" :src="birdImage3"> -->{{birdName3}}</li>
       <li class="card" v-bind:style="{color: birdColor4}" v-show="card4"><!-- <img class="card" :alt="birdName4" :src="birdImage4"> -->{{birdName4}}</li>
       <li class="card" v-bind:style="{color: birdColor5}" v-show="card5"><!-- <img class="card" :alt="birdName4" :src="birdImage4"> -->{{birdName5}}</li>
-
     </ul>
-    <h2 id="time" class="messageOne">{{ msg }}</h2>
     <h1 class="messageThree" v-bind:style="{ color: activeColor}">{{ msg3 }}</h1> 
     <h3>{{ msg4 }}</h3> 
     <Modal v-show="isModalVisible" @voice="this.reInitiateVoiceControl" @close="isModalVisible = false"/> 
@@ -26,7 +24,7 @@
       <button id="aboutButton" v-if="!aboutHidden" v-on:click="isModalVisible=true">About</button>
       <button id="voiceButton" v-if="!voiceHidden" v-on:click="initiateVoiceControl()">Enable Voice Control</button>
     </p>
-    <canvas></canvas>
+    <p id="canvas"><canvas></canvas></p>
   </div>
 </template>
 
@@ -501,7 +499,7 @@ recognition.start()
           this.group.removeSound(this.birdAudio4)
           this.group.removeSound(this.birdAudio5)
           this.seventyStop = false
-          this.sleep(700).then(() => {
+          this.sleep(200).then(() => {
             this.loopOne()
           })
           
@@ -543,7 +541,7 @@ recognition.start()
           this.card5 = true; 
         }
         
-        this.sleep(700).then(() => {
+        this.sleep(500).then(() => {
           this.visualizeNineteenSeventy()
         })
         }
@@ -557,7 +555,7 @@ recognition.start()
           this.group.removeSound(this.birdSound4)
           this.group.removeSound(this.birdSound5)
           this.twentyStop = false
-          this.sleep(700).then(() => {
+          this.sleep(200).then(() => {
             this.loopTwo()
           })
         }
@@ -598,7 +596,7 @@ recognition.start()
           this.card5 = true; 
         }
         this.stop = true; 
-        this.sleep(700).then(() => {
+        this.sleep(500).then(() => {
           this.visualizeTwentyTwenty()
         })
         }
@@ -703,7 +701,9 @@ recognition.start()
 
 <!-- Add "scoped" attribute to limit CSS to self component only -->
 <style scoped>
-canvas { 
+#canvas { 
+height: 50px; 
+padding-top: -250px; 
 }
 #messageTwo {
 font-size: 50px;
