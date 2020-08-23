@@ -3,9 +3,9 @@
   <h2 id="time" class="messageOne">{{ msg }}</h2>
     <h3 id="messageTwo">{{ msg2 }}</h3> 
     <span></span>
-    <button class="landscape" id="woodlands" v-if="isHidden3" v-on:click="; isWoodLand(); generateSoundscape(); isHidden3=false; isHidden2=true">Woodlands</button>  
-    <button class="landscape" id="coast" v-if="isHidden3" v-on:click="; isCoast(); generateSoundscape(); isHidden3=false; isHidden2=true">Coast</button>  
-    <button class="landscape" id="backyard" v-if="isHidden3" v-on:click="; isBackyard(); generateSoundscape(); isHidden3=false; isHidden2=true">Backyard</button>  
+    <button class="landscape" id="woodlands" v-if="isHidden3" v-on:click="isWoodLand(); generateSoundscape(); isHidden3=false; isHidden2=true">Woodlands</button>  
+    <button class="landscape" id="coast" v-if="isHidden3" v-on:click="isCoast(); generateSoundscape(); isHidden3=false; isHidden2=true">Coast</button>  
+    <button class="landscape" id="backyard" v-if="isHidden3" v-on:click="isBackYard(); generateSoundscape(); isHidden3=false; isHidden2=true">Backyard</button>  
     <ul id="birds" >
       <li class="card" v-bind:style="{color: birdColor1}" v-show="card1"><!-- <img class="card" :alt="birdName1" :src="birdImage1"> -->{{birdName1}}</li>
       <li class="card" v-bind:style="{color: birdColor2}" v-show="card2"><!-- <img class="card" :alt="birdName2" :src="birdImage2"> -->{{birdName2}}</li>
@@ -73,16 +73,17 @@ export default {
       birdAudio4Pan: '',
       birdAudio5Pan: '', 
       group: [],
+      isHidden: false, 
       isHidden2: false, 
+      isHidden3: false, 
       aboutHidden: false, 
+      voiceHidden: false, 
       card1: false, 
       card2: false, 
       card3: false, 
       card4: false, 
       card5: false, 
       twenty: false, 
-      placeHolder: [], 
-      placeHolder2: [], 
       birdColor1: 'salmon', 
       birdColor2: 'turquoise', 
       birdColor3: 'violet',
@@ -207,11 +208,12 @@ recognition.start()
     this.resultsType = "Woodlands"
   },
 	isCoast: function (){
-         alert('Coming soon! For now, current variables are set to Woodlands.')
+      alert('Coming soon! For now, current variables are set to Woodlands.')
 //       this.coast = true
 //       this.msg3 = "Coast"
 //       this.activeColor = "lightblue"
 //       this.resultsType = "Coast"
+         this.woodLand = true //remove after updating data set
   },
     isBackYard: function (){
       alert('Coming soon! For now, current variables are set to Woodlands.')
@@ -219,6 +221,8 @@ recognition.start()
       //this.activeColor = "limegreen"
       //this.backYard = true
       //this.resultsType = "Back Yard"
+      this.woodLand = true //remove after updating data set
+
   },
      generateSoundscape: function () {
      var self = this; 
@@ -273,7 +277,7 @@ recognition.start()
           self.msg2 = "Soundscape Variables Generated"
           self.msg4 = "Select a Time Period to Listen"
           
-          var probability = Math.random() * 10
+          var probability = Math.random()*10
             console.log("Probability number is: " + probability)
             console.log(randomEntries[0].frequency_1970 * 100)
           
@@ -474,7 +478,7 @@ recognition.start()
               });
               self.flipCardE = false
             }
-          
+  
           self.group = new Pizzicato.Group([]);
        })
        .catch(function (error) {
@@ -527,7 +531,6 @@ recognition.start()
         if (this.flipCard1 == true) {
           this.card1 = true; 
         }
-        
         if (this.flipCard2 == true) {
           this.card2 = true; 
         }
@@ -539,6 +542,10 @@ recognition.start()
         }
         if (this.flipCard5 == true) {
           this.card5 = true; 
+        }
+        
+        if (this.flipCard1 == false && this.flipCard2 == false && this.flipCard3 == false && this.flipCard4 == false && this.flipCard5 == false ) {
+          this.msg4 = "Sorry. There are no birds out right now for this time period. Try selecting a different time period, or reset."
         }
         
         this.sleep(500).then(() => {
@@ -582,7 +589,6 @@ recognition.start()
         if (this.flipCardA == true) {
           this.card1 = true; 
         }
-        
         if (this.flipCardB == true) {
           this.card2 = true; 
         }
@@ -595,6 +601,9 @@ recognition.start()
         if (this.flipCardE == true) {
           this.card5 = true; 
         }
+        if (this.flipCardA == false && this.flipCardB == false && this.flipCardC== false && this.flipCardD == false && this.flipCardE == false ) {
+          this.msg4 = "Sorry. There are no birds out right now for this time period. Try selecting a different time period, or reset."
+        }
         this.stop = true; 
         this.sleep(500).then(() => {
           this.visualizeTwentyTwenty()
@@ -605,6 +614,10 @@ recognition.start()
       this.group.stop();
     },
     reset: function () {
+        this.group.stop()
+        this.woodLand = false; 
+        this.coast = false; 
+        this.backYard = false; 
         this.msg = "BYRD BOT"
         this.msg2 = ""
         this.msg3 = ""
@@ -618,8 +631,7 @@ recognition.start()
         canvas.width = 0
         canvas.height = 0
         if (this.stop == false){
-          this.placeHolder = new Pizzicato.Sound("https://wompwompwomp.com/audio/f06f6a8e.sad-trombone-56.mp3")
-          this.placeHolder2 = new Pizzicato.Sound("https://wompwompwomp.com/audio/f06f6a8e.sad-trombone-56.mp3")
+          this.group.stop()
           this.end()
         }
         if (this.stop == true){
