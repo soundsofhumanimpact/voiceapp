@@ -7,12 +7,12 @@
     <button class="landscape" id="coast" v-if="isHidden3" v-on:click="isCoast(); generateSoundscape(); isHidden3=false; isHidden2=true">Coast</button>  
     <button class="landscape" id="backyard" v-if="isHidden3" v-on:click="isBackYard(); generateSoundscape(); isHidden3=false; isHidden2=true">Backyard</button>  
     <ul id="birds" >
-      <li class="card" v-bind:style="{color: birdColor1, fontSize: birdSoundVolume1*30 +'px'}" v-show="card1"><!-- <img class="card" :alt="birdName1" :src="birdImage1"> -->{{birdName1}}</li>
-      <li class="card" v-bind:style="{color: birdColor2, fontSize: birdSoundVolume2*30 +'px'}" v-show="card2"><!-- <img class="card" :alt="birdName2" :src="birdImage2"> -->{{birdName2}}</li>
-      <li class="card" v-bind:style="{color: birdColor3, fontSize: birdSoundVolume3*30 +'px'}" v-show="card3"><!-- <img class="card" :alt="birdName3" :src="birdImage3"> -->{{birdName3}}</li>
-      <li class="card" v-bind:style="{color: birdColor4, fontSize: birdSoundVolume4*30 +'px'}" v-show="card4"><!-- <img class="card" :alt="birdName4" :src="birdImage4"> -->{{birdName4}}</li>
-      <li class="card" v-bind:style="{color: birdColor5, fontSize: birdSoundVolume5*30 +'px'}" v-show="card5"><!-- <img class="card" :alt="birdName5" :src="birdImage5"> -->{{birdName5}}</li>
-      <li class="card" v-bind:style="{color: birdColor6, fontSize: birdSoundVolume6*30 +'px'}" v-show="card6"><!-- <img class="card" :alt="birdName6" :src="birdImage6"> -->{{birdName6}}</li>
+      <li class="card" v-bind:style="{color: birdColor1, fontSize: birdSoundVolume1*40 +'px'}" v-show="card1"><!-- <img class="card" :alt="birdName1" :src="birdImage1"> -->{{birdName1}}</li>
+      <li class="card" v-bind:style="{color: birdColor2, fontSize: birdSoundVolume2*40 +'px'}" v-show="card2"><!-- <img class="card" :alt="birdName2" :src="birdImage2"> -->{{birdName2}}</li>
+      <li class="card" v-bind:style="{color: birdColor3, fontSize: birdSoundVolume3*40 +'px'}" v-show="card3"><!-- <img class="card" :alt="birdName3" :src="birdImage3"> -->{{birdName3}}</li>
+      <li class="card" v-bind:style="{color: birdColor4, fontSize: birdSoundVolume4*40 +'px'}" v-show="card4"><!-- <img class="card" :alt="birdName4" :src="birdImage4"> -->{{birdName4}}</li>
+      <li class="card" v-bind:style="{color: birdColor5, fontSize: birdSoundVolume5*40 +'px'}" v-show="card5"><!-- <img class="card" :alt="birdName5" :src="birdImage5"> -->{{birdName5}}</li>
+      <li class="card" v-bind:style="{color: birdColor6, fontSize: birdSoundVolume6*40 +'px'}" v-show="card6"><!-- <img class="card" :alt="birdName6" :src="birdImage6"> -->{{birdName6}}</li>
       <li class="card" v-bind:style="{color: birdColor7}" v-show="card7"><!-- <img class="card" :alt="birdName7" :src="birdImage7"> -->{{birdName7}}</li>
       <li class="card" v-bind:style="{color: birdColor8}" v-show="card8"><!-- <img class="card" :alt="birdName8" :src="birdImage8"> -->{{birdName8}}</li>
       <li class="card" v-bind:style="{color: birdColor9}" v-show="card9"><!-- <img class="card" :alt="birdName9" :src="birdImage9"> -->{{birdName9}}</li>
@@ -426,24 +426,20 @@ recognition.start()
      var numberOfFilteredObjects = Object.keys(self.filteredResults).length
      console.log("Total number of " + self.resultsType + " birds is: " + numberOfFilteredObjects)
      
+		
 		var randomEntries = [];
-
+		
+		
 		function getRandomEntry() {
-		return self.filteredResults[Math.round(Math.random() * (self.filteredResults.length - 1))];
-		}
-
-		function entryExists(soundScapeVariables) {
-		return randomEntries.indexOf(soundScapeVariables) > -1;
+		return self.filteredResults[Math.round(Math.random() * (self.filteredResults.length))];
 		}
 
 		for (var i=0; i<16; i++) {
 		var soundScapeVariables
-		do {
-
+		
 		soundScapeVariables = getRandomEntry();
 
-		} while(entryExists(soundScapeVariables))
-
+		
 		randomEntries.push(soundScapeVariables);
 
 		}
