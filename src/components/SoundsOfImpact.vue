@@ -226,13 +226,21 @@ recognition.start()
   },
      generateSoundscape: function () {
      var self = this; 
+     let churn = true; 
+     var returnedResults = []
      Pizzicato.context.resume();
-       axios.get("https://raw.githubusercontent.com/soundsofhumanimpact/data/master/birdsAndSounds.json")
+        axios.get("https://raw.githubusercontent.com/soundsofhumanimpact/data/master/bird_data_mod.json")
        .then(function (response) { 
+		
+		if (churn == true){
+		returnedResults = response.data.filter(function(item){
+		return item.sound1 !== "" && item.sound2 !== "" && item.sound3 !== "" && item.sound4 !== "" && item.sound5 !== ""
+		})
+		}
       
-      if (self.woodLand ==true) { 
-        self.filteredResults = response.data.filter(function(item){
-        return item.scape == "woodlands";         
+      if (self.woodLand == true) { 
+        self.filteredResults = returnedResults.filter(function(item){
+        return item.scape === "woodland"
         })
       }
       
@@ -272,7 +280,7 @@ recognition.start()
 		randomEntries.push(soundScapeVariables);
 
 		}
-		console.log("Random entries retrieved:" + randomEntries)
+		console.log("Random entries retrieved:" + soundScapeVariables)
 
           self.msg2 = "Soundscape Variables Generated"
           self.msg4 = "Select a Time Period to Listen"
@@ -282,7 +290,7 @@ recognition.start()
             console.log(randomEntries[0].frequency_1970 * 100)
           
           
-          var soundConstructor = "sound" + Math.floor(Math.random()*4+1) + "_url"
+          var soundConstructor = "sound" + Math.floor(Math.random()*4+1) 
 
 //BIRD 1          
           self.birdName1 = randomEntries[0].species
