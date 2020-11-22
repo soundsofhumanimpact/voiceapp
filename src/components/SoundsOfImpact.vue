@@ -676,7 +676,7 @@ recognition.start()
               self.birdSound6 = new Pizzicato.Sound(self.birdNumber6, function() {
               self.nineteenSeventyVolume6 = .25
               self.birdSound6.volume = .25 
-              self.birdSound6Pan = new Pizzicato.Effects.StereoPanner({pan: panValue5});
+              self.birdSound6Pan = new Pizzicato.Effects.StereoPanner({pan: panValue6});
               self.birdSound6.addEffect(self.birdSound6Pan)
               });
               self.flipCard6 = true
@@ -706,6 +706,47 @@ recognition.start()
               });
               self.flipCardF = false
             }
+
+//BIRD 7 - 60 Meters - 20% Volume 
+          self.birdName7 = randomEntries[6].species
+          self.birdNumber7 = randomEntries[6][soundConstructor]
+          var birdProbability7 = randomEntries[6].score_1970 * 100
+          var birdProbabilityG = randomEntries[6].score_2017 * 100
+          var panValue7 = Math.random()*2 - 1
+            if (probability <= birdProbability7) {
+              self.birdSound7 = new Pizzicato.Sound(self.birdNumber7, function() {
+              self.nineteenSeventyVolume7 = .20
+              self.birdSound7.volume = .20
+              self.birdSound7Pan = new Pizzicato.Effects.StereoPanner({pan: panValue7});
+              self.birdSound7.addEffect(self.birdSound7Pan)
+              });
+              self.flipCard7 = true
+            }
+            if (probability >= birdProbability7) {
+              self.birdSound7 = new Pizzicato.Sound(self.birdNumber7, function() {
+              self.birdSound7Pan = new Pizzicato.Effects.StereoPanner({pan: panValue7});
+              self.birdSound7.volume = 0
+              self.birdSound7.addEffect(self.birdSound7Pan)
+              });
+              self.flipCard5 = false
+            }
+            if (probability <= birdProbabilityG) {
+              self.birdAudio7 = new Pizzicato.Sound(self.birdNumber6, function() {
+              self.twentyTwentyVolume6 = .20
+              self.birdAudio7.volume = .20
+              self.birdAudio7Pan = new Pizzicato.Effects.StereoPanner({pan: panValue7});
+              self.birdAudio7.addEffect(self.birdAudio7Pan)
+              });
+              self.flipCardG = true
+            }
+            if (probability >= birdProbabilityG) {
+              self.birdAudio7 = new Pizzicato.Sound(self.birdNumber7, function() {
+              self.birdAudio7.volume = 0
+              self.birdAudio7Pan = new Pizzicato.Effects.StereoPanner({pan: panValue7});
+              self.birdAudio7.addEffect(self.birdAudio7Pan)
+              });
+              self.flipCardG = false
+            }
   
           self.group = new Pizzicato.Group([]);
        })
@@ -726,7 +767,7 @@ recognition.start()
         if (this.seventyStop == true) {
           this.group.stop()
           //this.group.removeSound(this.birdAudio1)
-          this.group.removeSound(this.birdAudio2)
+          //this.group.removeSound(this.birdAudio2)
           this.group.removeSound(this.birdAudio3)
           this.group.removeSound(this.birdAudio4)
           this.group.removeSound(this.birdAudio5)
@@ -741,7 +782,7 @@ recognition.start()
         this.msg4 = ""
         this.meters1 = '--------------------------------------------------------------------------------   10-40 Meters   --------------------------------------------------------------------------------', 
         this.meters2 = '--------------------------------------------------------------------------------   50 Meters   --------------------------------------------------------------------------------', 
-        this.meters3 = '--------------------------------------------------------------------------------   60 Meters+   -----------------------------------------------------------------------------------' 
+        this.meters3 = '--------------------------------------------------------------------------------   60+ Meters   -----------------------------------------------------------------------------------' 
         
         var canvas = document.getElementsByTagName("canvas")[0]
         canvas.width = 0
@@ -752,6 +793,7 @@ recognition.start()
         this.group.addSound(this.birdSound4)
         this.group.addSound(this.birdSound5)
         this.group.addSound(this.birdSound6)
+        this.group.addSound(this.birdSound7)
         
         this.msg = "1970"
         this.msg2 = ""
@@ -761,6 +803,7 @@ recognition.start()
         this.card4 = false;
         this.card5 = false;
         this.card6 = false;
+        this.card7 = false;
         this.stop = false; 
         
         this.birdSoundVolume1 = this.nineteenSeventyVolume1;
@@ -768,7 +811,8 @@ recognition.start()
         this.birdSoundVolume3 = this.nineteenSeventyVolume3; 
         this.birdSoundVolume4 = this.nineteenSeventyVolume4; 
         this.birdSoundVolume5 = this.nineteenSeventyVolume5; 
-        this.birdSoundVolume6 = this.nineteenSeventyVolume6;  
+        this.birdSoundVolume6 = this.nineteenSeventyVolume6;
+        this.birdSoundVolume7 = this.nineteenSeventyVolume7;    
         
         if (this.flipCard1 == true) {
           this.card1 = true; 
@@ -788,8 +832,11 @@ recognition.start()
         if (this.flipCard6 == true) {
           this.card6 = true; 
         }
+        if (this.flipCard7 == true) {
+          this.card7 = true; 
+        }
         
-        if (this.flipCard1 == false && this.flipCard2 == false && this.flipCard3 == false && this.flipCard4 == false && this.flipCard5 == false && this.flipCard6 == false ) {
+        if (this.flipCard1 == false && this.flipCard2 == false && this.flipCard3 == false && this.flipCard4 == false && this.flipCard5 == false && this.flipCard6 == false && this.flipCard7 == false ) {
           this.msg4 = "Sorry. There are no birds out right now for this time period. Try selecting a different time period, or reset."
         }
         
@@ -807,6 +854,7 @@ recognition.start()
           this.group.removeSound(this.birdSound4)
           this.group.removeSound(this.birdSound5)
           this.group.removeSound(this.birdSound6)
+          this.group.removeSound(this.birdSound7)
           this.twentyStop = false
           this.sleep(200).then(() => {
             this.loopTwo()
@@ -818,11 +866,12 @@ recognition.start()
         canvas.width = 0
         canvas.height = 0
         //this.group.addSound(this.birdAudio1)
-        this.group.addSound(this.birdAudio2)
+        //this.group.addSound(this.birdAudio2)
         this.group.addSound(this.birdAudio3)
         this.group.addSound(this.birdAudio4)
         this.group.addSound(this.birdAudio5)
         this.group.addSound(this.birdAudio6)
+        this.group.addSound(this.birdAudio7)
         
         this.msg = "Today"
         this.msg2 = ""
@@ -832,6 +881,7 @@ recognition.start()
         this.card4 = false;
         this.card5 = false;
         this.card6 = false;
+        this.card7 = false;
         this.stop = false; 
         
         this.birdSoundVolume1 = this.twentyTwentyVolume1;
@@ -840,12 +890,13 @@ recognition.start()
         this.birdSoundVolume4 = this.twentyTwentyVolume4;
         this.birdSoundVolume5 = this.twentyTwentyVolume5;
         this.birdSoundVolume6 = this.twentyTwentyVolume6; 
+        this.birdSoundVolume7 = this.twentyTwentyVolume7; 
         
         if (this.flipCardA == true) {
           //this.card1 = true; 
         }
         if (this.flipCardB == true) {
-          this.card2 = true; 
+          //this.card2 = true; 
         }
         if (this.flipCardC == true) {
           this.card3 = true; 
@@ -859,7 +910,10 @@ recognition.start()
          if (this.flipCardF == true) {
           this.card6 = true; 
         }
-        if (this.flipCardA == false && this.flipCardB == false && this.flipCardC== false && this.flipCardD == false && this.flipCardE == false && this.flipCardF == false ) {
+         if (this.flipCardG == true) {
+          this.card7 = true; 
+        }
+        if (this.flipCardA == false && this.flipCardB == false && this.flipCardC== false && this.flipCardD == false && this.flipCardE == false && this.flipCardF == false && this.flipCardG == false ) {
           this.msg4 = "Sorry. There are no birds out right now for this time period. Try selecting a different time period, or reset."
         }
         this.stop = true; 
@@ -890,6 +944,7 @@ recognition.start()
         this.card4 = false;
         this.card5 = false;
         this.card6 = false;
+        this.card7 = false;
         var canvas = document.getElementsByTagName("canvas")[0]
         canvas.width = 0
         canvas.height = 0
