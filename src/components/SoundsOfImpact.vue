@@ -766,7 +766,7 @@ recognition.start()
     nineteenSeventy: function (){
         if (this.seventyStop == true) {
           this.group.stop()
-          //this.group.removeSound(this.birdAudio1)
+          //turned offthis.group.removeSound(this.birdAudio1)
           //this.group.removeSound(this.birdAudio2)
           this.group.removeSound(this.birdAudio3)
           this.group.removeSound(this.birdAudio4)
