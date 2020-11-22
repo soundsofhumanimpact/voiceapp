@@ -1,18 +1,14 @@
 <template>
   <div id="background">
+  <h1 id="messageThree" v-bind:style="{ color: activeColor}">{{ msg3 }}</h1> 
   <h2 id="time" class="messageOne">{{ msg }}</h2>
     <h3 id="messageTwo">{{ msg2 }}</h3> 
     <span></span>
     <button class="landscape" id="woodlands" v-if="isHidden3" v-on:click="isWoodLand(); generateSoundscape(); isHidden3=false; isHidden2=true">Woodlands</button>  
     <button class="landscape" id="coast" v-if="isHidden3" v-on:click="isCoast(); generateSoundscape(); isHidden3=false; isHidden2=true">Coast</button>  
     <button class="landscape" id="backyard" v-if="isHidden3" v-on:click="isBackYard(); generateSoundscape(); isHidden3=false; isHidden2=true">Backyard</button>  
-    <ul id="birds" >
-      <li class="card" v-bind:style="{color: birdColor1, fontSize: birdSoundVolume1*40 +'px'}" v-show="card1"><!-- <img class="card" :alt="birdName1" :src="birdImage1"> -->{{birdName1}}</li>
-      <li class="card" v-bind:style="{color: birdColor2, fontSize: birdSoundVolume2*40 +'px'}" v-show="card2"><!-- <img class="card" :alt="birdName2" :src="birdImage2"> -->{{birdName2}}</li>
-      <li class="card" v-bind:style="{color: birdColor3, fontSize: birdSoundVolume3*40 +'px'}" v-show="card3"><!-- <img class="card" :alt="birdName3" :src="birdImage3"> -->{{birdName3}}</li>
-      <li class="card" v-bind:style="{color: birdColor4, fontSize: birdSoundVolume4*40 +'px'}" v-show="card4"><!-- <img class="card" :alt="birdName4" :src="birdImage4"> -->{{birdName4}}</li>
-      <li class="card" v-bind:style="{color: birdColor5, fontSize: birdSoundVolume5*40 +'px'}" v-show="card5"><!-- <img class="card" :alt="birdName5" :src="birdImage5"> -->{{birdName5}}</li>
-      <li class="card" v-bind:style="{color: birdColor6, fontSize: birdSoundVolume6*40 +'px'}" v-show="card6"><!-- <img class="card" :alt="birdName6" :src="birdImage6"> -->{{birdName6}}</li>
+    <ul class="birdBox" id="birds3" >
+      <li class="card" v-bind:style="{color: birdColor6, fontSize: birdSoundVolume6*50 +'px'}" v-show="card6"><!-- <img class="card" :alt="birdName6" :src="birdImage6"> -->{{birdName6}}</li>
       <li class="card" v-bind:style="{color: birdColor7}" v-show="card7"><!-- <img class="card" :alt="birdName7" :src="birdImage7"> -->{{birdName7}}</li>
       <li class="card" v-bind:style="{color: birdColor8}" v-show="card8"><!-- <img class="card" :alt="birdName8" :src="birdImage8"> -->{{birdName8}}</li>
       <li class="card" v-bind:style="{color: birdColor9}" v-show="card9"><!-- <img class="card" :alt="birdName9" :src="birdImage9"> -->{{birdName9}}</li>
@@ -23,8 +19,16 @@
       <li class="card" v-bind:style="{color: birdColor14}" v-show="card14"><!-- <img class="card" :alt="birdName14" :src="birdImage14"> -->{{birdName14}}</li>
       <li class="card" v-bind:style="{color: birdColor15}" v-show="card15"><!-- <img class="card" :alt="birdName15" :src="birdImage15"> -->{{birdName15}}</li>
       <li class="card" v-bind:style="{color: birdColor16}" v-show="card16"><!-- <img class="card" :alt="birdName16" :src="birdImage15"> -->{{birdName16}}</li>
-    </ul>
-    <h1 class="messageThree" v-bind:style="{ color: activeColor}">{{ msg3 }}</h1> 
+    </ul> <h4> {{ meters3 }} </h4>
+    <ul class="birdBox" id="birds2" >
+      <li class="card" v-bind:style="{color: birdColor5, fontSize: birdSoundVolume5*40 +'px'}" v-show="card5"><!-- <img class="card" :alt="birdName5" :src="birdImage5"> -->{{birdName5}}</li>
+    </ul> <h4> {{ meters2 }} </h4>
+     <ul class="birdBox" id="birds1" > 
+      <li class="card" v-bind:style="{color: birdColor1, fontSize: birdSoundVolume1*30 +'px'}" v-show="card1"><!-- <img class="card" :alt="birdName1" :src="birdImage1"> -->{{birdName1}}</li>
+      <li class="card" v-bind:style="{color: birdColor2, fontSize: birdSoundVolume2*30 +'px'}" v-show="card2"><!-- <img class="card" :alt="birdName2" :src="birdImage2"> -->{{birdName2}}</li>
+      <li class="card" v-bind:style="{color: birdColor3, fontSize: birdSoundVolume3*30 +'px'}" v-show="card3"><!-- <img class="card" :alt="birdName3" :src="birdImage3"> -->{{birdName3}}</li>
+      <li class="card" v-bind:style="{color: birdColor4, fontSize: birdSoundVolume4*30 +'px'}" v-show="card4"><!-- <img class="card" :alt="birdName4" :src="birdImage4"> -->{{birdName4}}</li>
+     </ul> <h4> {{ meters1 }} </h4>
     <h3>{{ msg4 }}</h3> 
     <Modal v-show="isModalVisible" @voice="this.reInitiateVoiceControl" @close="isModalVisible = false"/> 
     <button id="generateButton" v-if="!isHidden" v-on:click="aboutHidden=true; voiceHidden=true; isHidden=true; isHidden3=true; biome()">Generate Soundscape</button>
@@ -35,7 +39,7 @@
       <button id="aboutButton" v-if="!aboutHidden" v-on:click="isModalVisible=true">About</button>
       <button id="voiceButton" v-if="!voiceHidden" v-on:click="initiateVoiceControl()">Enable Voice Control</button>
     </p>
-    <p id="canvas"><canvas></canvas></p>
+    <canvas id="canvas"></canvas>
   </div>
 </template>
 
@@ -55,6 +59,9 @@ export default {
       msg2: '',
       msg3: '', 
       msg4: '',
+      meters1: '', 
+      meters2: '', 
+      meters3: '', 
          
       birdName1: '', 
       birdName2: '', 
@@ -718,7 +725,7 @@ recognition.start()
     nineteenSeventy: function (){
         if (this.seventyStop == true) {
           this.group.stop()
-          this.group.removeSound(this.birdAudio1)
+          //this.group.removeSound(this.birdAudio1)
           this.group.removeSound(this.birdAudio2)
           this.group.removeSound(this.birdAudio3)
           this.group.removeSound(this.birdAudio4)
@@ -732,6 +739,10 @@ recognition.start()
         }
         else {
         this.msg4 = ""
+        this.meters1 = '--------------------------------------------------------------------------------   10-40 Meters   --------------------------------------------------------------------------------', 
+        this.meters2 = '--------------------------------------------------------------------------------   50 Meters   --------------------------------------------------------------------------------', 
+        this.meters3 = '--------------------------------------------------------------------------------   60 Meters+   -----------------------------------------------------------------------------------' 
+        
         var canvas = document.getElementsByTagName("canvas")[0]
         canvas.width = 0
         canvas.height = 0
@@ -806,7 +817,7 @@ recognition.start()
         var canvas = document.getElementsByTagName("canvas")[0]
         canvas.width = 0
         canvas.height = 0
-        this.group.addSound(this.birdAudio1)
+        //this.group.addSound(this.birdAudio1)
         this.group.addSound(this.birdAudio2)
         this.group.addSound(this.birdAudio3)
         this.group.addSound(this.birdAudio4)
@@ -831,7 +842,7 @@ recognition.start()
         this.birdSoundVolume6 = this.twentyTwentyVolume6; 
         
         if (this.flipCardA == true) {
-          this.card1 = true; 
+          //this.card1 = true; 
         }
         if (this.flipCardB == true) {
           this.card2 = true; 
@@ -869,6 +880,10 @@ recognition.start()
         this.msg2 = ""
         this.msg3 = ""
         this.msg4 = ""
+        this.meters1 = ''
+        this.meters2 = ''
+        this.meters3 = ''
+        
         this.card1 = false; 
         this.card2 = false; 
         this.card3 = false; 
@@ -961,13 +976,24 @@ recognition.start()
 
 <!-- Add "scoped" attribute to limit CSS to self component only -->
 <style scoped>
-#canvas { 
-height: 50px; 
-padding-top: -250px; 
-}
+
 #messageTwo {
 font-size: 50px;
 }
+#messageThree {
+font-size: 30px;
+}
+#birds1 {
+}
+#birds2 {
+}
+#birds3 {
+}
+.birdBox {
+padding-bottom: 0; 
+z-index: 2
+}
+
 .card {
 border-style: solid; 
 border-width: 1px;
@@ -978,7 +1004,9 @@ height: 200px;
 width: 150px; 
 }
 #time {
-font-size: 100px;
+font-size: 65px;
+margin-top: -25px; 
+margin-bottom: -25px; 
 }
 #woodlands {
   background-color: green;
@@ -988,6 +1016,10 @@ font-size: 100px;
 }
 #backyard {
   background-color: limegreen;
+}
+h3 {
+margin-top: 0; 
+margin-bottom: 0; 
 }
 button {
   background-color: limegreen; /* Green */
@@ -1030,18 +1062,30 @@ background-color: mediumturquoise;
 #twentyTwentyButton {
 background-color: salmon; 
 }
-h3 {
+h4 {
   margin: 40px 0 0;
+  text-align: center;
+  margin-right: -25px; 
+  margin-top: 0px; 
+  margin-bottom: 40px; 
 }
 ul {
   list-style-type: none;
-  padding-bottom: 25px;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  margin-left: -25px; 
 }
 li {
   display: inline-block;
   margin: 0 10px;
+  
 }
 a {
   color: #42b983;
 }
+canvas {
+height: 150px; 
+width: 100%; 
+}
+
 </style>
