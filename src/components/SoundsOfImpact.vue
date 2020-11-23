@@ -8,11 +8,11 @@
     <button class="landscape" id="coast" v-if="isHidden3" v-on:click="isCoast(); generateSoundscape(); isHidden3=false; isHidden2=true">Coast</button>  
     <button class="landscape" id="backyard" v-if="isHidden3" v-on:click="isBackYard(); generateSoundscape(); isHidden3=false; isHidden2=true">Backyard</button>  
     <ul class="birdBox" id="birds3" >
-      <li class="card" v-bind:style="{color: birdColor6, fontSize: birdSoundVolume6*50 +'px'}" v-show="card6"><!-- <img class="card" :alt="birdName6" :src="birdImage6"> -->{{birdName6}}</li>
-      <li class="card" v-bind:style="{color: birdColor7}" v-show="card7"><!-- <img class="card" :alt="birdName7" :src="birdImage7"> -->{{birdName7}}</li>
-      <li class="card" v-bind:style="{color: birdColor8}" v-show="card8"><!-- <img class="card" :alt="birdName8" :src="birdImage8"> -->{{birdName8}}</li>
-      <li class="card" v-bind:style="{color: birdColor9}" v-show="card9"><!-- <img class="card" :alt="birdName9" :src="birdImage9"> -->{{birdName9}}</li>
-      <li class="card" v-bind:style="{color: birdColor10}" v-show="card10"><!-- <img class="card" :alt="birdName10" :src="birdImage10"> -->{{birdName10}}</li>
+      <li class="card" v-bind:style="{color: birdColor6, fontSize: birdSoundVolume6*100 +'px'}" v-show="card6"><!-- <img class="card" :alt="birdName6" :src="birdImage6"> -->{{birdName6}}</li>
+      <li class="card" v-bind:style="{color: birdColor7, fontSize: birdSoundVolume7*100 +'px'}" v-show="card7"><!-- <img class="card" :alt="birdName7" :src="birdImage7"> -->{{birdName7}}</li>
+      <li class="card" v-bind:style="{color: birdColor8, fontSize: birdSoundVolume8*100 +'px'}" v-show="card8"><!-- <img class="card" :alt="birdName8" :src="birdImage8"> -->{{birdName8}}</li>
+      <li class="card" v-bind:style="{color: birdColor9, fontSize: birdSoundVolume9*100 +'px'}" v-show="card9"><!-- <img class="card" :alt="birdName9" :src="birdImage9"> -->{{birdName9}}</li>
+      <li class="card" v-bind:style="{color: birdColor10, fontSize: birdSoundVolume10*100 +'px'}" v-show="card10"><!-- <img class="card" :alt="birdName10" :src="birdImage10"> -->{{birdName10}}</li>
       <li class="card" v-bind:style="{color: birdColor11}" v-show="card11"><!-- <img class="card" :alt="birdName11" :src="birdImage11"> -->{{birdName11}}</li>
       <li class="card" v-bind:style="{color: birdColor12}" v-show="card12"><!-- <img class="card" :alt="birdName12" :src="birdImage12"> -->{{birdName12}}</li>
       <li class="card" v-bind:style="{color: birdColor13}" v-show="card13"><!-- <img class="card" :alt="birdName13" :src="birdImage13"> -->{{birdName13}}</li>
@@ -21,14 +21,14 @@
       <li class="card" v-bind:style="{color: birdColor16}" v-show="card16"><!-- <img class="card" :alt="birdName16" :src="birdImage15"> -->{{birdName16}}</li>
     </ul> <h4> {{ meters3 }} </h4>
     <ul class="birdBox" id="birds2" >
-      <li class="card" v-bind:style="{color: birdColor5, fontSize: birdSoundVolume5*40 +'px'}" v-show="card5"><!-- <img class="card" :alt="birdName5" :src="birdImage5"> -->{{birdName5}}</li>
+      <li class="card" v-bind:style="{color: birdColor3, fontSize: birdSoundVolume3*50 +'px'}" v-show="card3"><!-- <img class="card" :alt="birdName3" :src="birdImage3"> -->{{birdName3}}</li>
+      <li class="card" v-bind:style="{color: birdColor4, fontSize: birdSoundVolume4*50 +'px'}" v-show="card4"><!-- <img class="card" :alt="birdName4" :src="birdImage4"> -->{{birdName4}}</li>
+      <li class="card" v-bind:style="{color: birdColor5, fontSize: birdSoundVolume5*50 +'px'}" v-show="card5"><!-- <img class="card" :alt="birdName5" :src="birdImage5"> -->{{birdName5}}</li>
     </ul> <h4> {{ meters2 }} </h4>
      <ul class="birdBox" id="birds1" > 
-      <li class="card" v-bind:style="{color: birdColor1, fontSize: birdSoundVolume1*30 +'px'}" v-show="card1"><!-- <img class="card" :alt="birdName1" :src="birdImage1"> -->{{birdName1}}</li>
-      <li class="card" v-bind:style="{color: birdColor2, fontSize: birdSoundVolume2*30 +'px'}" v-show="card2"><!-- <img class="card" :alt="birdName2" :src="birdImage2"> -->{{birdName2}}</li>
-      <li class="card" v-bind:style="{color: birdColor3, fontSize: birdSoundVolume3*30 +'px'}" v-show="card3"><!-- <img class="card" :alt="birdName3" :src="birdImage3"> -->{{birdName3}}</li>
-      <li class="card" v-bind:style="{color: birdColor4, fontSize: birdSoundVolume4*30 +'px'}" v-show="card4"><!-- <img class="card" :alt="birdName4" :src="birdImage4"> -->{{birdName4}}</li>
-     </ul> <h4> {{ meters1 }} </h4>
+      <li class="card" v-bind:style="{color: birdColor1, fontSize: birdSoundVolume1*50 +'px'}" v-show="card1"><!-- <img class="card" :alt="birdName1" :src="birdImage1"> -->{{birdName1}}</li>
+      <li class="card" v-bind:style="{color: birdColor2, fontSize: birdSoundVolume2*50 +'px'}" v-show="card2"><!-- <img class="card" :alt="birdName2" :src="birdImage2"> -->{{birdName2}}</li>
+	</ul> <h4> {{ meters1 }} </h4>
     <h3>{{ msg4 }}</h3> 
     <Modal v-show="isModalVisible" @voice="this.reInitiateVoiceControl" @close="isModalVisible = false"/> 
     <button id="generateButton" v-if="!isHidden" v-on:click="aboutHidden=true; voiceHidden=true; isHidden=true; isHidden3=true; biome()">Generate Soundscape</button>
@@ -461,7 +461,7 @@ recognition.start()
           
           var soundConstructor = "sound" + Math.floor(Math.random()*4+1) 
 
-//BIRD 1 - 10 Meters - 100% Volume          
+//BIRD 1 - 10-40 Meters - 100% Volume          
           self.birdName1 = randomEntries[0].species
           self.birdNumber1 = randomEntries[0][soundConstructor]
           var birdProbability1 = randomEntries[0].score_1970 * 100
@@ -502,7 +502,7 @@ recognition.start()
               self.flipCardA = false
             }
             
-//BIRD 2 - 20 Meters - 100% Volume            
+//BIRD 2 - 10-40 Meters - 100% Volume            
           self.birdName2 = randomEntries[1].species
           self.birdNumber2 = randomEntries[1][soundConstructor]
           var birdProbability2 = randomEntries[1].score_1970 * 100
@@ -529,7 +529,7 @@ recognition.start()
               self.birdAudio2 = new Pizzicato.Sound(self.birdNumber2, function() {
               self.twentyTwentyVolume2 = 1
               self.birdAudio2.volume = 1
-              self.birdAudio2Pan = new Pizzicato.Effects.StereoPanner({pan: panValue1});
+              self.birdAudio2Pan = new Pizzicato.Effects.StereoPanner({pan: panValue2});
               self.birdAudio2.addEffect(self.birdAudio2Pan)
               });
               self.flipCardB = true
@@ -537,13 +537,13 @@ recognition.start()
             if (probability >= birdProbabilityB) {
               self.birdAudio2 = new Pizzicato.Sound(self.birdNumber2, function() {
               self.birdAudio2.volume = 0
-              self.birdAudio2Pan = new Pizzicato.Effects.StereoPanner({pan: panValue1});
+              self.birdAudio2Pan = new Pizzicato.Effects.StereoPanner({pan: panValue2});
               self.birdAudio2.addEffect(self.birdAudio2Pan)
               });
               self.flipCardB = false
             }
             
-//BIRD 3 - 30 Meters - 100% Volume  
+//BIRD 3 - 50 Meters - 50% Volume  
           self.birdName3 = randomEntries[2].species
           self.birdNumber3 = randomEntries[2][soundConstructor]
           var birdProbability3 = randomEntries[2].score_1970 * 100
@@ -551,8 +551,8 @@ recognition.start()
           var panValue3 = Math.random()*2 - 1
             if (probability <= birdProbability3) {
               self.birdSound3 = new Pizzicato.Sound(self.birdNumber3, function() {
-              self.nineteenSeventyVolume3 = 1
-              self.birdSound3.volume = 1 
+              self.nineteenSeventyVolume3 = .5
+              self.birdSound3.volume = .5
               self.birdSound3Pan = new Pizzicato.Effects.StereoPanner({pan: panValue3});
               self.birdSound3.addEffect(self.birdSound3Pan)
               });
@@ -568,9 +568,9 @@ recognition.start()
             }
             if (probability <= birdProbabilityC) {
               self.birdAudio3 = new Pizzicato.Sound(self.birdNumber3, function() {
-              self.twentyTwentyVolume3 = 1
-              self.birdAudio3.volume = 1
-              self.birdAudio3Pan = new Pizzicato.Effects.StereoPanner({pan: panValue1});
+              self.twentyTwentyVolume3 = .5
+              self.birdAudio3.volume = .5
+              self.birdAudio3Pan = new Pizzicato.Effects.StereoPanner({pan: panValue3});
               self.birdAudio3.addEffect(self.birdAudio3Pan)
               });
               self.flipCardC = true
@@ -578,13 +578,13 @@ recognition.start()
             if (probability >= birdProbabilityC) {
               self.birdAudio3 = new Pizzicato.Sound(self.birdNumber3,  function() {
               self.birdAudio3.volume = 0
-              self.birdAudio3Pan = new Pizzicato.Effects.StereoPanner({pan: panValue1});
+              self.birdAudio3Pan = new Pizzicato.Effects.StereoPanner({pan: panValue3});
               self.birdAudio3.addEffect(self.birdAudio3Pan)
               });
               self.flipCardC = false
             }
 
-//BIRD 4 - 40 Meters - 100% Volume 
+//BIRD 4 - 50 Meters - 50% Volume 
           self.birdName4 = randomEntries[3].species
           self.birdNumber4 = randomEntries[3][soundConstructor]
           var birdProbability4 = randomEntries[3].score_1970 * 100
@@ -592,8 +592,8 @@ recognition.start()
           var panValue4 = Math.random()*2 - 1
             if (probability <= birdProbability4) {
               self.birdSound4 = new Pizzicato.Sound(self.birdNumber4, function() {
-              self.nineteenSeventyVolume4 = 1
-              self.birdSound4.volume = 1 
+              self.nineteenSeventyVolume4 = .5
+              self.birdSound4.volume = .5 
               self.birdSound4Pan = new Pizzicato.Effects.StereoPanner({pan: panValue4});
               self.birdSound4.addEffect(self.birdSound4Pan)
               });
@@ -609,9 +609,9 @@ recognition.start()
             }
             if (probability <= birdProbabilityD) {
               self.birdAudio4 = new Pizzicato.Sound(self.birdNumber4, function() {
-              self.twentyTwentyVolume4 = 1
-              self.birdAudio4.volume = 1
-              self.birdAudio4Pan = new Pizzicato.Effects.StereoPanner({pan: panValue1});
+              self.twentyTwentyVolume4 = .5
+              self.birdAudio4.volume = .5
+              self.birdAudio4Pan = new Pizzicato.Effects.StereoPanner({pan: panValue4});
               self.birdAudio4.addEffect(self.birdAudio4Pan)
               });
               self.flipCardD = true
@@ -619,7 +619,7 @@ recognition.start()
             if (probability >= birdProbabilityD) {
               self.birdAudio4 = new Pizzicato.Sound(self.birdNumber4, function() {
               self.birdAudio4.volume = 0
-              self.birdAudio4Pan = new Pizzicato.Effects.StereoPanner({pan: panValue1});
+              self.birdAudio4Pan = new Pizzicato.Effects.StereoPanner({pan: panValue4});
               self.birdAudio4.addEffect(self.birdAudio4Pan)
               });
               self.flipCardD = false
@@ -652,7 +652,7 @@ recognition.start()
               self.birdAudio5 = new Pizzicato.Sound(self.birdNumber5, function() {
               self.twentyTwentyVolume5 = .5
               self.birdAudio5.volume = .5
-              self.birdAudio5Pan = new Pizzicato.Effects.StereoPanner({pan: panValue1});
+              self.birdAudio5Pan = new Pizzicato.Effects.StereoPanner({pan: panValue5});
               self.birdAudio5.addEffect(self.birdAudio5Pan)
               });
               self.flipCardE = true
@@ -660,7 +660,7 @@ recognition.start()
             if (probability >= birdProbabilityE) {
               self.birdAudio5 = new Pizzicato.Sound(self.birdNumber5, function() {
               self.birdAudio5.volume = 0
-              self.birdAudio5Pan = new Pizzicato.Effects.StereoPanner({pan: panValue1});
+              self.birdAudio5Pan = new Pizzicato.Effects.StereoPanner({pan: panValue5});
               self.birdAudio5.addEffect(self.birdAudio5Pan)
               });
               self.flipCardE = false
@@ -687,7 +687,7 @@ recognition.start()
               self.birdSound6.volume = 0
               self.birdSound6.addEffect(self.birdSound6Pan)
               });
-              self.flipCard5 = false
+              self.flipCard6 = false
             }
             if (probability <= birdProbabilityF) {
               self.birdAudio6 = new Pizzicato.Sound(self.birdNumber6, function() {
@@ -728,11 +728,11 @@ recognition.start()
               self.birdSound7.volume = 0
               self.birdSound7.addEffect(self.birdSound7Pan)
               });
-              self.flipCard5 = false
+              self.flipCard7 = false
             }
             if (probability <= birdProbabilityG) {
               self.birdAudio7 = new Pizzicato.Sound(self.birdNumber6, function() {
-              self.twentyTwentyVolume6 = .20
+              self.twentyTwentyVolume7 = .20
               self.birdAudio7.volume = .20
               self.birdAudio7Pan = new Pizzicato.Effects.StereoPanner({pan: panValue7});
               self.birdAudio7.addEffect(self.birdAudio7Pan)
@@ -746,6 +746,129 @@ recognition.start()
               self.birdAudio7.addEffect(self.birdAudio7Pan)
               });
               self.flipCardG = false
+            }
+            
+//BIRD 8 - 70 Meters - 12% Volume 
+          self.birdName8 = randomEntries[7].species
+          self.birdNumber8 = randomEntries[7][soundConstructor]
+          var birdProbability8 = randomEntries[7].score_1970 * 100
+          var birdProbabilityH = randomEntries[7].score_2017 * 100
+          var panValue8 = Math.random()*2 - 1
+            if (probability <= birdProbability8) {
+              self.birdSound8 = new Pizzicato.Sound(self.birdNumber8, function() {
+              self.nineteenSeventyVolume8 = .12
+              self.birdSound8.volume = .12
+              self.birdSound8Pan = new Pizzicato.Effects.StereoPanner({pan: panValue8});
+              self.birdSound8.addEffect(self.birdSound8Pan)
+              });
+              self.flipCard8 = true
+            }
+            if (probability >= birdProbability8) {
+              self.birdSound8 = new Pizzicato.Sound(self.birdNumber8, function() {
+              self.birdSound8Pan = new Pizzicato.Effects.StereoPanner({pan: panValue8});
+              self.birdSound8.volume = 0
+              self.birdSound8.addEffect(self.birdSound8Pan)
+              });
+              self.flipCard5 = false
+            }
+            if (probability <= birdProbabilityH) {
+              self.birdAudio8 = new Pizzicato.Sound(self.birdNumber7, function() {
+              self.twentyTwentyVolume8 = .12
+              self.birdAudio8.volume = .12
+              self.birdAudio8Pan = new Pizzicato.Effects.StereoPanner({pan: panValue8});
+              self.birdAudio8.addEffect(self.birdAudio8Pan)
+              });
+              self.flipCardH = true
+            }
+            if (probability >= birdProbabilityH) {
+              self.birdAudio8 = new Pizzicato.Sound(self.birdNumber8, function() {
+              self.birdAudio8.volume = 0
+              self.birdAudio8Pan = new Pizzicato.Effects.StereoPanner({pan: panValue8});
+              self.birdAudio8.addEffect(self.birdAudio8Pan)
+              });
+              self.flipCardH = false
+            }
+            
+//BIRD 9 - 90 Meters - 08% Volume 
+          self.birdName9 = randomEntries[8].species
+          self.birdNumber9 = randomEntries[8][soundConstructor]
+          var birdProbability9 = randomEntries[8].score_1970 * 100
+          var birdProbabilityI = randomEntries[8].score_2017 * 100
+          var panValue9 = Math.random()*2 - 1
+            if (probability <= birdProbability9) {
+              self.birdSound9 = new Pizzicato.Sound(self.birdNumber9, function() {
+              self.nineteenSeventyVolume9 = .07
+              self.birdSound9.volume = .07
+              self.birdSound9Pan = new Pizzicato.Effects.StereoPanner({pan: panValue9});
+              self.birdSound9.addEffect(self.birdSound9Pan)
+              });
+              self.flipCard9 = true
+            }
+            if (probability >= birdProbability9) {
+              self.birdSound9 = new Pizzicato.Sound(self.birdNumber9, function() {
+              self.birdSound9Pan = new Pizzicato.Effects.StereoPanner({pan: panValue9});
+              self.birdSound9.volume = 0
+              self.birdSound9.addEffect(self.birdSound9Pan)
+              });
+              self.flipCard9 = false
+            }
+            if (probability <= birdProbabilityI) {
+              self.birdAudio9 = new Pizzicato.Sound(self.birdNumber8, function() {
+              self.twentyTwentyVolume9 = .07
+              self.birdAudio9.volume = .07
+              self.birdAudio9Pan = new Pizzicato.Effects.StereoPanner({pan: panValue9});
+              self.birdAudio9.addEffect(self.birdAudio9Pan)
+              });
+              self.flipCardI = true
+            }
+            if (probability >= birdProbabilityI) {
+              self.birdAudio9 = new Pizzicato.Sound(self.birdNumber9, function() {
+              self.birdAudio9.volume = 0
+              self.birdAudio9Pan = new Pizzicato.Effects.StereoPanner({pan: panValue9});
+              self.birdAudio9.addEffect(self.birdAudio9Pan)
+              });
+              self.flipCardI = false
+            }
+            
+//BIRD 10 - 100 Meters - 03% Volume 
+          self.birdName10 = randomEntries[9].species
+          self.birdNumber10 = randomEntries[9][soundConstructor]
+          var birdProbability10 = randomEntries[9].score_1970 * 100
+          var birdProbabilityJ = randomEntries[9].score_2017 * 100
+          var panValue10 = Math.random()*2 - 1
+            if (probability <= birdProbability10) {
+              self.birdSound10 = new Pizzicato.Sound(self.birdNumber10, function() {
+              self.nineteenSeventyVolume10 = .03
+              self.birdSound10.volume = .03
+              self.birdSound10Pan = new Pizzicato.Effects.StereoPanner({pan: panValue10});
+              self.birdSound10.addEffect(self.birdSound10Pan)
+              });
+              self.flipCard10 = true
+            }
+            if (probability >= birdProbability10) {
+              self.birdSound10 = new Pizzicato.Sound(self.birdNumber10, function() {
+              self.birdSound10Pan = new Pizzicato.Effects.StereoPanner({pan: panValue10});
+              self.birdSound10.volume = 0
+              self.birdSound10.addEffect(self.birdSound10Pan)
+              });
+              self.flipCard10 = false
+            }
+            if (probability <= birdProbabilityJ) {
+              self.birdAudio10 = new Pizzicato.Sound(self.birdNumber9, function() {
+              self.twentyTwentyVolume10 = .03
+              self.birdAudio10.volume = .03
+              self.birdAudio10Pan = new Pizzicato.Effects.StereoPanner({pan: panValue10});
+              self.birdAudio10.addEffect(self.birdAudio10Pan)
+              });
+              self.flipCardJ = true
+            }
+            if (probability >= birdProbabilityJ) {
+              self.birdAudio10 = new Pizzicato.Sound(self.birdNumber10, function() {
+              self.birdAudio10.volume = 0
+              self.birdAudio10Pan = new Pizzicato.Effects.StereoPanner({pan: panValue10});
+              self.birdAudio10.addEffect(self.birdAudio10Pan)
+              });
+              self.flipCardJ = false
             }
   
           self.group = new Pizzicato.Group([]);
@@ -766,12 +889,17 @@ recognition.start()
     nineteenSeventy: function (){
         if (this.seventyStop == true) {
           this.group.stop()
-          //turned offthis.group.removeSound(this.birdAudio1)
+          //turned off 
+          //this.group.removeSound(this.birdAudio1)
           //this.group.removeSound(this.birdAudio2)
-          this.group.removeSound(this.birdAudio3)
+          //this.group.removeSound(this.birdAudio3)
           this.group.removeSound(this.birdAudio4)
           this.group.removeSound(this.birdAudio5)
           this.group.removeSound(this.birdAudio6)
+          this.group.removeSound(this.birdAudio7)
+          this.group.removeSound(this.birdAudio8)
+          this.group.removeSound(this.birdAudio9)
+          this.group.removeSound(this.birdAudio10)
           this.seventyStop = false
           this.sleep(200).then(() => {
             this.loopOne()
@@ -794,6 +922,9 @@ recognition.start()
         this.group.addSound(this.birdSound5)
         this.group.addSound(this.birdSound6)
         this.group.addSound(this.birdSound7)
+        this.group.addSound(this.birdSound8)
+        this.group.addSound(this.birdSound9)
+        this.group.addSound(this.birdSound10)
         
         this.msg = "1970"
         this.msg2 = ""
@@ -804,6 +935,9 @@ recognition.start()
         this.card5 = false;
         this.card6 = false;
         this.card7 = false;
+        this.card8 = false;
+        this.card9 = false;
+        this.card10 = false;
         this.stop = false; 
         
         this.birdSoundVolume1 = this.nineteenSeventyVolume1;
@@ -812,7 +946,10 @@ recognition.start()
         this.birdSoundVolume4 = this.nineteenSeventyVolume4; 
         this.birdSoundVolume5 = this.nineteenSeventyVolume5; 
         this.birdSoundVolume6 = this.nineteenSeventyVolume6;
-        this.birdSoundVolume7 = this.nineteenSeventyVolume7;    
+        this.birdSoundVolume7 = this.nineteenSeventyVolume7;   
+        this.birdSoundVolume8 = this.nineteenSeventyVolume8;  
+        this.birdSoundVolume9 = this.nineteenSeventyVolume9;  
+        this.birdSoundVolume10 = this.nineteenSeventyVolume10;   
         
         if (this.flipCard1 == true) {
           this.card1 = true; 
@@ -835,8 +972,17 @@ recognition.start()
         if (this.flipCard7 == true) {
           this.card7 = true; 
         }
+         if (this.flipCard8 == true) {
+          this.card8 = true; 
+        }
+         if (this.flipCard9 == true) {
+          this.card9 = true; 
+        }
+         if (this.flipCard10 == true) {
+          this.card10 = true; 
+        }
         
-        if (this.flipCard1 == false && this.flipCard2 == false && this.flipCard3 == false && this.flipCard4 == false && this.flipCard5 == false && this.flipCard6 == false && this.flipCard7 == false ) {
+        if (this.flipCard1 == false && this.flipCard2 == false && this.flipCard3 == false && this.flipCard4 == false && this.flipCard5 == false && this.flipCard6 == false && this.flipCard7 == false && this.flipCard8 == false && this.flipCard9 == false && this.flipCard10 == false ) {
           this.msg4 = "Sorry. There are no birds out right now for this time period. Try selecting a different time period, or reset."
         }
         
@@ -855,6 +1001,9 @@ recognition.start()
           this.group.removeSound(this.birdSound5)
           this.group.removeSound(this.birdSound6)
           this.group.removeSound(this.birdSound7)
+          this.group.removeSound(this.birdSound8)
+          this.group.removeSound(this.birdSound9)
+          this.group.removeSound(this.birdSound10)
           this.twentyStop = false
           this.sleep(200).then(() => {
             this.loopTwo()
@@ -871,11 +1020,14 @@ recognition.start()
         canvas.height = 0
         //this.group.addSound(this.birdAudio1)
         //this.group.addSound(this.birdAudio2)
-        this.group.addSound(this.birdAudio3)
+        //this.group.addSound(this.birdAudio3)
         this.group.addSound(this.birdAudio4)
         this.group.addSound(this.birdAudio5)
         this.group.addSound(this.birdAudio6)
         this.group.addSound(this.birdAudio7)
+        this.group.addSound(this.birdAudio8)
+        this.group.addSound(this.birdAudio9)
+        this.group.addSound(this.birdAudio10)
         
         this.msg = "Today"
         this.msg2 = ""
@@ -886,6 +1038,9 @@ recognition.start()
         this.card5 = false;
         this.card6 = false;
         this.card7 = false;
+        this.card8 = false;
+        this.card9 = false;
+        this.card10 = false;
         this.stop = false; 
         
         this.birdSoundVolume1 = this.twentyTwentyVolume1;
@@ -895,6 +1050,9 @@ recognition.start()
         this.birdSoundVolume5 = this.twentyTwentyVolume5;
         this.birdSoundVolume6 = this.twentyTwentyVolume6; 
         this.birdSoundVolume7 = this.twentyTwentyVolume7; 
+        this.birdSoundVolume8 = this.twentyTwentyVolume8; 
+        this.birdSoundVolume9 = this.twentyTwentyVolume9; 
+        this.birdSoundVolume10 = this.twentyTwentyVolume10; 
         
         if (this.flipCardA == true) {
           //this.card1 = true; 
@@ -903,7 +1061,7 @@ recognition.start()
           //this.card2 = true; 
         }
         if (this.flipCardC == true) {
-          this.card3 = true; 
+          //this.card3 = true; 
         }
         if (this.flipCardD == true) {
           this.card4 = true; 
@@ -917,7 +1075,17 @@ recognition.start()
          if (this.flipCardG == true) {
           this.card7 = true; 
         }
-        if (this.flipCardA == false && this.flipCardB == false && this.flipCardC== false && this.flipCardD == false && this.flipCardE == false && this.flipCardF == false && this.flipCardG == false ) {
+        if (this.flipCardH == true) {
+          this.card8 = true; 
+        }
+        if (this.flipCardI == true) {
+          this.card9 = true; 
+        }
+        if (this.flipCardJ == true) {
+          this.card10 = true; 
+        }
+        
+        if (this.flipCardA == false && this.flipCardB == false && this.flipCardC== false && this.flipCardD == false && this.flipCardE == false && this.flipCardF == false && this.flipCardG == false && this.flipCardH == false && this.flipCardI == false && this.flipCardJ == false  ) {
           this.msg4 = "Sorry. There are no birds out right now for this time period. Try selecting a different time period, or reset."
         }
         this.stop = true; 
@@ -949,6 +1117,9 @@ recognition.start()
         this.card5 = false;
         this.card6 = false;
         this.card7 = false;
+        this.card8 = false;
+        this.card9 = false;
+        this.card10 = false;
         var canvas = document.getElementsByTagName("canvas")[0]
         canvas.width = 0
         canvas.height = 0
