@@ -8,11 +8,11 @@
     <button class="landscape" id="coast" v-if="isHidden3" v-on:click="isCoast(); generateSoundscape(); isHidden3=false; isHidden2=true">Coast</button>  
     <button class="landscape" id="backyard" v-if="isHidden3" v-on:click="isBackYard(); generateSoundscape(); isHidden3=false; isHidden2=true">Backyard</button>  
     <ul class="birdBox" id="birds3" >
-      <li class="card" v-bind:style="{color: birdColor6, fontSize: birdSoundVolume6*100 +'px'}" v-show="card6"><!-- <img class="card" :alt="birdName6" :src="birdImage6"> -->{{birdName6}}</li>
-      <li class="card" v-bind:style="{color: birdColor7, fontSize: birdSoundVolume7*100 +'px'}" v-show="card7"><!-- <img class="card" :alt="birdName7" :src="birdImage7"> -->{{birdName7}}</li>
-      <li class="card" v-bind:style="{color: birdColor8, fontSize: birdSoundVolume8*100 +'px'}" v-show="card8"><!-- <img class="card" :alt="birdName8" :src="birdImage8"> -->{{birdName8}}</li>
-      <li class="card" v-bind:style="{color: birdColor9, fontSize: birdSoundVolume9*100 +'px'}" v-show="card9"><!-- <img class="card" :alt="birdName9" :src="birdImage9"> -->{{birdName9}}</li>
-      <li class="card" v-bind:style="{color: birdColor10, fontSize: birdSoundVolume10*100 +'px'}" v-show="card10"><!-- <img class="card" :alt="birdName10" :src="birdImage10"> -->{{birdName10}}</li>
+      <li class="card" v-bind:style="{color: birdColor6, fontSize: birdSoundVolume6/2 +'px'}" v-show="card6"><!-- <img class="card" :alt="birdName6" :src="birdImage6"> -->{{birdName6}}</li>
+      <li class="card" v-bind:style="{color: birdColor7, fontSize: birdSoundVolume7/2 +'px'}" v-show="card7"><!-- <img class="card" :alt="birdName7" :src="birdImage7"> -->{{birdName7}}</li>
+      <li class="card" v-bind:style="{color: birdColor8, fontSize: birdSoundVolume8/2 +'px'}" v-show="card8"><!-- <img class="card" :alt="birdName8" :src="birdImage8"> -->{{birdName8}}</li>
+      <li class="card" v-bind:style="{color: birdColor9, fontSize: birdSoundVolume9/2 +'px'}" v-show="card9"><!-- <img class="card" :alt="birdName9" :src="birdImage9"> -->{{birdName9}}</li>
+      <li class="card" v-bind:style="{color: birdColor10, fontSize: birdSoundVolume10/2 +'px'}" v-show="card10"><!-- <img class="card" :alt="birdName10" :src="birdImage10"> -->{{birdName10}}</li>
       <li class="card" v-bind:style="{color: birdColor11}" v-show="card11"><!-- <img class="card" :alt="birdName11" :src="birdImage11"> -->{{birdName11}}</li>
       <li class="card" v-bind:style="{color: birdColor12}" v-show="card12"><!-- <img class="card" :alt="birdName12" :src="birdImage12"> -->{{birdName12}}</li>
       <li class="card" v-bind:style="{color: birdColor13}" v-show="card13"><!-- <img class="card" :alt="birdName13" :src="birdImage13"> -->{{birdName13}}</li>
@@ -21,13 +21,13 @@
       <li class="card" v-bind:style="{color: birdColor16}" v-show="card16"><!-- <img class="card" :alt="birdName16" :src="birdImage15"> -->{{birdName16}}</li>
     </ul> <h4> {{ meters3 }} </h4>
     <ul class="birdBox" id="birds2" >
-      <li class="card" v-bind:style="{color: birdColor3, fontSize: birdSoundVolume3*50 +'px'}" v-show="card3"><!-- <img class="card" :alt="birdName3" :src="birdImage3"> -->{{birdName3}}</li>
-      <li class="card" v-bind:style="{color: birdColor4, fontSize: birdSoundVolume4*50 +'px'}" v-show="card4"><!-- <img class="card" :alt="birdName4" :src="birdImage4"> -->{{birdName4}}</li>
-      <li class="card" v-bind:style="{color: birdColor5, fontSize: birdSoundVolume5*50 +'px'}" v-show="card5"><!-- <img class="card" :alt="birdName5" :src="birdImage5"> -->{{birdName5}}</li>
+      <li class="card" v-bind:style="{color: birdColor3, fontSize: birdSoundVolume3/2 +'px'}" v-show="card3"><!-- <img class="card" :alt="birdName3" :src="birdImage3"> -->{{birdName3}}</li>
+      <li class="card" v-bind:style="{color: birdColor4, fontSize: birdSoundVolume4/2 +'px'}" v-show="card4"><!-- <img class="card" :alt="birdName4" :src="birdImage4"> -->{{birdName4}}</li>
+      <li class="card" v-bind:style="{color: birdColor5, fontSize: birdSoundVolume5/2 +'px'}" v-show="card5"><!-- <img class="card" :alt="birdName5" :src="birdImage5"> -->{{birdName5}}</li>
     </ul> <h4> {{ meters2 }} </h4>
      <ul class="birdBox" id="birds1" > 
-      <li class="card" v-bind:style="{color: birdColor1, fontSize: birdSoundVolume1*50 +'px'}" v-show="card1"><!-- <img class="card" :alt="birdName1" :src="birdImage1"> -->{{birdName1}}</li>
-      <li class="card" v-bind:style="{color: birdColor2, fontSize: birdSoundVolume2*50 +'px'}" v-show="card2"><!-- <img class="card" :alt="birdName2" :src="birdImage2"> -->{{birdName2}}</li>
+      <li class="card" v-bind:style="{color: birdColor1, fontSize: birdSoundVolume1/2 +'px'}" v-show="card1"><!-- <img class="card" :alt="birdName1" :src="birdImage1"> -->{{birdName1}}</li>
+      <li class="card" v-bind:style="{color: birdColor2, fontSize: birdSoundVolume2/2 +'px'}" v-show="card2"><!-- <img class="card" :alt="birdName2" :src="birdImage2"> -->{{birdName2}}</li>
 	</ul> <h4> {{ meters1 }} </h4>
     <h3>{{ msg4 }}</h3> 
     <Modal v-show="isModalVisible" @voice="this.reInitiateVoiceControl" @close="isModalVisible = false"/> 
@@ -469,7 +469,7 @@ recognition.start()
           var panValue1 = Math.random()*2 - 1
             if (probability <= birdProbability1) {
               self.birdSound1 = new Pizzicato.Sound(self.birdNumber1, function() {
-              self.nineteenSeventyVolume1 = 1
+              self.nineteenSeventyVolume1 = birdProbability1
               self.birdSound1.volume = 1
               self.birdSound1Pan = new Pizzicato.Effects.StereoPanner({pan: panValue1});
               self.birdSound1.addEffect(self.birdSound1Pan)
@@ -486,7 +486,7 @@ recognition.start()
             }
             if (probability <= birdProbabilityA) {
               self.birdAudio1 = new Pizzicato.Sound(self.birdNumber1, function() {
-              self.twentyTwentyVolume1 = 1
+              self.twentyTwentyVolume1 = birdProbabilityA
               self.birdAudio1.volume = 1
               self.birdAudio1Pan = new Pizzicato.Effects.StereoPanner({pan: panValue1});
               self.birdAudio1.addEffect(self.birdAudio1Pan)
@@ -510,7 +510,7 @@ recognition.start()
           var panValue2 = Math.random()*2 - 1
             if (probability <= birdProbability2) {
               self.birdSound2 = new Pizzicato.Sound(self.birdNumber2, function() {
-              self.nineteenSeventyVolume2 = 1
+              self.nineteenSeventyVolume2 = birdProbability2
               self.birdSound2.volume = 1 
               self.birdSound2Pan = new Pizzicato.Effects.StereoPanner({pan: panValue2});
               self.birdSound2.addEffect(self.birdSound2Pan)
@@ -527,7 +527,7 @@ recognition.start()
             }
             if (probability <= birdProbabilityB) {
               self.birdAudio2 = new Pizzicato.Sound(self.birdNumber2, function() {
-              self.twentyTwentyVolume2 = 1
+              self.twentyTwentyVolume2 = birdProbabilityB
               self.birdAudio2.volume = 1
               self.birdAudio2Pan = new Pizzicato.Effects.StereoPanner({pan: panValue2});
               self.birdAudio2.addEffect(self.birdAudio2Pan)
@@ -551,7 +551,7 @@ recognition.start()
           var panValue3 = Math.random()*2 - 1
             if (probability <= birdProbability3) {
               self.birdSound3 = new Pizzicato.Sound(self.birdNumber3, function() {
-              self.nineteenSeventyVolume3 = .5
+              self.nineteenSeventyVolume3 = birdProbability3
               self.birdSound3.volume = .5
               self.birdSound3Pan = new Pizzicato.Effects.StereoPanner({pan: panValue3});
               self.birdSound3.addEffect(self.birdSound3Pan)
@@ -568,7 +568,7 @@ recognition.start()
             }
             if (probability <= birdProbabilityC) {
               self.birdAudio3 = new Pizzicato.Sound(self.birdNumber3, function() {
-              self.twentyTwentyVolume3 = .5
+              self.twentyTwentyVolume3 = birdProbabilityC
               self.birdAudio3.volume = .5
               self.birdAudio3Pan = new Pizzicato.Effects.StereoPanner({pan: panValue3});
               self.birdAudio3.addEffect(self.birdAudio3Pan)
@@ -592,7 +592,7 @@ recognition.start()
           var panValue4 = Math.random()*2 - 1
             if (probability <= birdProbability4) {
               self.birdSound4 = new Pizzicato.Sound(self.birdNumber4, function() {
-              self.nineteenSeventyVolume4 = .5
+              self.nineteenSeventyVolume4 = birdProbability4
               self.birdSound4.volume = .5 
               self.birdSound4Pan = new Pizzicato.Effects.StereoPanner({pan: panValue4});
               self.birdSound4.addEffect(self.birdSound4Pan)
@@ -609,7 +609,7 @@ recognition.start()
             }
             if (probability <= birdProbabilityD) {
               self.birdAudio4 = new Pizzicato.Sound(self.birdNumber4, function() {
-              self.twentyTwentyVolume4 = .5
+              self.twentyTwentyVolume4 = birdProbabilityD
               self.birdAudio4.volume = .5
               self.birdAudio4Pan = new Pizzicato.Effects.StereoPanner({pan: panValue4});
               self.birdAudio4.addEffect(self.birdAudio4Pan)
@@ -633,7 +633,7 @@ recognition.start()
           var panValue5 = Math.random()*2 - 1
             if (probability <= birdProbability5) {
               self.birdSound5 = new Pizzicato.Sound(self.birdNumber5, function() {
-              self.nineteenSeventyVolume5 = .5
+              self.nineteenSeventyVolume5 = birdProbability5
               self.birdSound5.volume = .5 
               self.birdSound5Pan = new Pizzicato.Effects.StereoPanner({pan: panValue5});
               self.birdSound5.addEffect(self.birdSound5Pan)
@@ -650,7 +650,7 @@ recognition.start()
             }
             if (probability <= birdProbabilityE) {
               self.birdAudio5 = new Pizzicato.Sound(self.birdNumber5, function() {
-              self.twentyTwentyVolume5 = .5
+              self.twentyTwentyVolume5 = birdProbabilityE
               self.birdAudio5.volume = .5
               self.birdAudio5Pan = new Pizzicato.Effects.StereoPanner({pan: panValue5});
               self.birdAudio5.addEffect(self.birdAudio5Pan)
@@ -674,7 +674,7 @@ recognition.start()
           var panValue6 = Math.random()*2 - 1
             if (probability <= birdProbability6) {
               self.birdSound6 = new Pizzicato.Sound(self.birdNumber6, function() {
-              self.nineteenSeventyVolume6 = .25
+              self.nineteenSeventyVolume6 = birdProbability6
               self.birdSound6.volume = .25 
               self.birdSound6Pan = new Pizzicato.Effects.StereoPanner({pan: panValue6});
               self.birdSound6.addEffect(self.birdSound6Pan)
@@ -691,7 +691,7 @@ recognition.start()
             }
             if (probability <= birdProbabilityF) {
               self.birdAudio6 = new Pizzicato.Sound(self.birdNumber6, function() {
-              self.twentyTwentyVolume6 = .25
+              self.twentyTwentyVolume6 = birdProbabilityF
               self.birdAudio6.volume = .25
               self.birdAudio6Pan = new Pizzicato.Effects.StereoPanner({pan: panValue6});
               self.birdAudio6.addEffect(self.birdAudio6Pan)
@@ -715,7 +715,7 @@ recognition.start()
           var panValue7 = Math.random()*2 - 1
             if (probability <= birdProbability7) {
               self.birdSound7 = new Pizzicato.Sound(self.birdNumber7, function() {
-              self.nineteenSeventyVolume7 = .20
+              self.nineteenSeventyVolume7 = birdProbability7
               self.birdSound7.volume = .20
               self.birdSound7Pan = new Pizzicato.Effects.StereoPanner({pan: panValue7});
               self.birdSound7.addEffect(self.birdSound7Pan)
@@ -732,7 +732,7 @@ recognition.start()
             }
             if (probability <= birdProbabilityG) {
               self.birdAudio7 = new Pizzicato.Sound(self.birdNumber6, function() {
-              self.twentyTwentyVolume7 = .20
+              self.twentyTwentyVolume7 = birdProbabilityG
               self.birdAudio7.volume = .20
               self.birdAudio7Pan = new Pizzicato.Effects.StereoPanner({pan: panValue7});
               self.birdAudio7.addEffect(self.birdAudio7Pan)
@@ -756,7 +756,7 @@ recognition.start()
           var panValue8 = Math.random()*2 - 1
             if (probability <= birdProbability8) {
               self.birdSound8 = new Pizzicato.Sound(self.birdNumber8, function() {
-              self.nineteenSeventyVolume8 = .12
+              self.nineteenSeventyVolume8 = birdProbability8
               self.birdSound8.volume = .12
               self.birdSound8Pan = new Pizzicato.Effects.StereoPanner({pan: panValue8});
               self.birdSound8.addEffect(self.birdSound8Pan)
@@ -773,7 +773,7 @@ recognition.start()
             }
             if (probability <= birdProbabilityH) {
               self.birdAudio8 = new Pizzicato.Sound(self.birdNumber7, function() {
-              self.twentyTwentyVolume8 = .12
+              self.twentyTwentyVolume8 = birdProbabilityH
               self.birdAudio8.volume = .12
               self.birdAudio8Pan = new Pizzicato.Effects.StereoPanner({pan: panValue8});
               self.birdAudio8.addEffect(self.birdAudio8Pan)
@@ -797,7 +797,7 @@ recognition.start()
           var panValue9 = Math.random()*2 - 1
             if (probability <= birdProbability9) {
               self.birdSound9 = new Pizzicato.Sound(self.birdNumber9, function() {
-              self.nineteenSeventyVolume9 = .07
+              self.nineteenSeventyVolume9 = birdProbability9
               self.birdSound9.volume = .07
               self.birdSound9Pan = new Pizzicato.Effects.StereoPanner({pan: panValue9});
               self.birdSound9.addEffect(self.birdSound9Pan)
@@ -814,7 +814,7 @@ recognition.start()
             }
             if (probability <= birdProbabilityI) {
               self.birdAudio9 = new Pizzicato.Sound(self.birdNumber8, function() {
-              self.twentyTwentyVolume9 = .07
+              self.twentyTwentyVolume9 = birdProbabilityI
               self.birdAudio9.volume = .07
               self.birdAudio9Pan = new Pizzicato.Effects.StereoPanner({pan: panValue9});
               self.birdAudio9.addEffect(self.birdAudio9Pan)
@@ -838,7 +838,7 @@ recognition.start()
           var panValue10 = Math.random()*2 - 1
             if (probability <= birdProbability10) {
               self.birdSound10 = new Pizzicato.Sound(self.birdNumber10, function() {
-              self.nineteenSeventyVolume10 = .03
+              self.nineteenSeventyVolume10 = birdProbability10
               self.birdSound10.volume = .03
               self.birdSound10Pan = new Pizzicato.Effects.StereoPanner({pan: panValue10});
               self.birdSound10.addEffect(self.birdSound10Pan)
@@ -855,7 +855,7 @@ recognition.start()
             }
             if (probability <= birdProbabilityJ) {
               self.birdAudio10 = new Pizzicato.Sound(self.birdNumber9, function() {
-              self.twentyTwentyVolume10 = .03
+              self.twentyTwentyVolume10 = birdProbabilityJ
               self.birdAudio10.volume = .03
               self.birdAudio10Pan = new Pizzicato.Effects.StereoPanner({pan: panValue10});
               self.birdAudio10.addEffect(self.birdAudio10Pan)
