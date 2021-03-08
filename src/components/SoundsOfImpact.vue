@@ -33,7 +33,8 @@
     <Modal v-show="isModalVisible" @voice="this.reInitiateVoiceControl" @close="isModalVisible = false"/> 
     <button id="generateButton" v-if="!isHidden" v-on:click="aboutHidden=true; voiceHidden=true; isHidden=true; isHidden3=true; biome()">Generate Soundscape</button>
     <button id="nineteenSeventyButton" v-if="isHidden2" v-on:click="nineteenSeventy">Play 1970</button>
-    <button id="twentyTwentyButton" v-if="isHidden2" v-on:click="twentyTwenty">Play Today</button>
+    <button id="twentyTwentyButton" v-if="isHidden2" v-on:click="twentyTwenty">Play 2017</button>
+    <button id="twentyTwentyFiftyFive" v-if="isHidden2" v-on:click="fiftyFifty">Play 2055</button>
     <p>
       <button id="resetButton" v-if="isHidden2" v-on:click="aboutHidden=false; isHidden=false; isHidden2=false; reset(); voiceHidden=false">Reset</button>
       <button id="aboutButton" v-if="!aboutHidden" v-on:click="isModalVisible=true">About</button>
@@ -886,6 +887,10 @@ recognition.start()
         loopTwo: function () {
       this.twentyTwenty()
     },
+    
+        loopThree: function () {
+      this.fiftyFifty()
+    },
     nineteenSeventy: function (){
         if (this.seventyStop == true) {
           this.group.stop()
@@ -1029,7 +1034,7 @@ recognition.start()
         this.group.addSound(this.birdAudio9)
         this.group.addSound(this.birdAudio10)
         
-        this.msg = "Today"
+        this.msg = "2017"
         this.msg2 = ""
         this.card1 = false; 
         this.card2 = false; 
@@ -1071,6 +1076,109 @@ recognition.start()
         }
          if (this.flipCardF == true) {
           this.card6 = true; 
+        }
+         if (this.flipCardG == true) {
+          this.card7 = true; 
+        }
+        if (this.flipCardH == true) {
+          this.card8 = true; 
+        }
+        if (this.flipCardI == true) {
+          this.card9 = true; 
+        }
+        if (this.flipCardJ == true) {
+          this.card10 = true; 
+        }
+        
+        if (this.flipCardA == false && this.flipCardB == false && this.flipCardC== false && this.flipCardD == false && this.flipCardE == false && this.flipCardF == false && this.flipCardG == false && this.flipCardH == false && this.flipCardI == false && this.flipCardJ == false  ) {
+          this.msg4 = "Sorry. There are no birds out right now for this time period. Try selecting a different time period, or reset."
+        }
+        this.stop = true; 
+        this.sleep(500).then(() => {
+          this.visualizeTwentyTwenty()
+        })
+        }
+    },
+    fiftyFifty: function (){
+        if (this.twentyStop == true) {
+          this.group.stop()
+          //this.group.removeSound(this.birdAudio1)
+          //this.group.removeSound(this.birdAudio2)
+          //this.group.removeSound(this.birdAudio3)
+          this.group.removeSound(this.birdAudio4)
+          this.group.removeSound(this.birdAudio5)
+          this.group.removeSound(this.birdAudio6)
+          //this.group.removeSound(this.birdAudio7)
+          //this.group.removeSound(this.birdAudio8)
+          //this.group.removeSound(this.birdAudio9)
+          //this.group.removeSound(this.birdAudio10)
+          this.twentyStop = false
+          this.sleep(200).then(() => {
+            this.loopThree()
+          })
+        }
+        else {
+        this.msg4 = ""
+        //this.meters1 = '--------------------------------------------------------------------------------   10-40 Meters   --------------------------------------------------------------------------------', 
+        //this.meters2 = '--------------------------------------------------------------------------------   50 Meters   --------------------------------------------------------------------------------', 
+        //this.meters3 = '--------------------------------------------------------------------------------   60+ Meters   -----------------------------------------------------------------------------------' 
+        
+        var canvas = document.getElementsByTagName("canvas")[0]
+        canvas.width = 0
+        canvas.height = 0
+        //this.group.addSound(this.birdAudio1)
+        //this.group.addSound(this.birdAudio2)
+        //this.group.addSound(this.birdAudio3)
+        //this.group.addSound(this.birdAudio4)
+        //this.group.addSound(this.birdAudio5)
+        //this.group.addSound(this.birdAudio6)
+        //this.group.addSound(this.birdAudio7)
+        //this.group.addSound(this.birdAudio8)
+        //this.group.addSound(this.birdAudio9)
+        //this.group.addSound(this.birdAudio10)
+        
+        this.msg = "2055"
+        this.msg2 = ""
+        this.card1 = false; 
+        this.card2 = false; 
+        this.card3 = false; 
+        this.card4 = false;
+        this.card5 = false;
+        this.card6 = false;
+        this.card7 = false;
+        this.card8 = false;
+        this.card9 = false;
+        this.card10 = false;
+        this.stop = false; 
+        
+        this.birdSoundVolume1 = this.twentyTwentyVolume1;
+        this.birdSoundVolume2 = this.twentyTwentyVolume2;
+        this.birdSoundVolume3 = this.twentyTwentyVolume3;
+        this.birdSoundVolume4 = this.twentyTwentyVolume4;
+        this.birdSoundVolume5 = this.twentyTwentyVolume5;
+        this.birdSoundVolume6 = this.twentyTwentyVolume6; 
+        this.birdSoundVolume7 = this.twentyTwentyVolume7; 
+        this.birdSoundVolume8 = this.twentyTwentyVolume8; 
+        this.birdSoundVolume9 = this.twentyTwentyVolume9; 
+        this.birdSoundVolume10 = this.twentyTwentyVolume10; 
+        
+        if (this.flipCardA == true) {
+          //this.card1 = true; 
+        }
+        if (this.flipCardB == true) {
+          //this.card2 = true; 
+        }
+        if (this.flipCardC == true) {
+          //this.card3 = true; 
+        }
+        if (this.flipCardD == true) {
+          //this.card4 = true; 
+        }
+        if (this.flipCardE == true) {
+          //this.card5 = true; 
+        }
+         if (this.flipCardF == true) {
+          //this.card6 = true; 
         }
          if (this.flipCardG == true) {
           this.card7 = true; 
