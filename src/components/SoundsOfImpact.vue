@@ -3,10 +3,13 @@
   <h1 id="messageThree" v-bind:style="{ color: activeColor}">{{ msg3 }}</h1> 
   <h2 id="time" class="messageOne">{{ msg }}</h2>
     <h3 id="messageTwo">{{ msg2 }}</h3> 
-    <span></span>
-    <button class="landscape" id="woodlands" v-if="isHidden3" v-on:click="isWoodLand(); generateSoundscape(); isHidden3=false; isHidden2=true">Woodlands</button>  
-    <button class="landscape" id="coast" v-if="isHidden3" v-on:click="isCoast(); generateSoundscape(); isHidden3=false; isHidden2=true">Coast</button>  
-    <button class="landscape" id="backyard" v-if="isHidden3" v-on:click="isBackYard(); generateSoundscape(); isHidden3=false; isHidden2=true">Backyard</button>  
+      <p><button class="landscape" id="woodlands" v-if="isHidden3" v-on:click="isWoodLand(); generateSoundscape(); isHidden3=false; isHidden2=true">Listen to Soundscape</button><p>
+
+    <span>
+    <iframe id="survey" v-if="isHidden3" src="https://docs.google.com/forms/d/e/1FAIpQLSeZH1_xjV_WbZ0Ive4t8VSOkBQi8ugxsZUmIVgmZj-d4b_gzA/viewform?embedded=true" width="640" height="2336" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+    </span> 
+   <!-- <button class="landscape" id="coast" v-if="isHidden3" v-on:click="isCoast(); generateSoundscape(); isHidden3=false; isHidden2=true">Coast</button>  
+    <button class="landscape" id="backyard" v-if="isHidden3" v-on:click="isBackYard(); generateSoundscape(); isHidden3=false; isHidden2=true">Backyard</button>-->  
     <ul class="birdBox" id="birds3" >
       <li class="card" v-bind:style="{color: birdColor6, fontSize: birdSoundVolume6/2 +'px'}" v-show="card6"><!-- <img class="card" :alt="birdName6" :src="birdImage6"> -->{{birdName6}}</li>
       <li class="card" v-bind:style="{color: birdColor7, fontSize: birdSoundVolume7/2 +'px'}" v-show="card7"><!-- <img class="card" :alt="birdName7" :src="birdImage7"> -->{{birdName7}}</li>
@@ -38,7 +41,7 @@
     <p>
       <button id="resetButton" v-if="isHidden2" v-on:click="aboutHidden=false; isHidden=false; isHidden2=false; reset(); voiceHidden=false">Reset</button>
       <button id="aboutButton" v-if="!aboutHidden" v-on:click="isModalVisible=true">About</button>
-      <button id="voiceButton" v-if="!voiceHidden" v-on:click="initiateVoiceControl()">Enable Voice Control</button>
+     <!-- <button id="voiceButton" v-if="!voiceHidden" v-on:click="initiateVoiceControl()">Enable Voice Control</button>-->
     </p>
     <canvas id="canvas"></canvas>
   </div>
@@ -439,12 +442,12 @@ recognition.start()
        }
   },
   biome: function (){
-  this.msg2 = "Select a Biome"
+  this.msg2 = "Help Us Learn About Environmental Communication?"
   this.msg = ""
   },
   isWoodLand: function (){
     this.woodLand = true
-    this.msg3 = "Woodlands"
+    this.msg3 = ""
     this.activeColor = "green"
     this.resultsType = "Woodlands"
   },
@@ -1746,8 +1749,7 @@ border-width: 1px;
 padding: 5px; 
 }
 .landscape {
-height: 200px; 
-width: 150px; 
+height: 100px; 
 }
 #time {
 font-size: 65px;
@@ -1755,7 +1757,7 @@ margin-top: -25px;
 margin-bottom: -25px; 
 }
 #woodlands {
-  background-color: green;
+  background-color: purple;
 }
 #coast {
   background-color: lightblue;
