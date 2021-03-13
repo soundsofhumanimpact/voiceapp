@@ -149,6 +149,24 @@ export default {
       birdAudio15: '',
       birdAudio16: '',
       
+      birdSong1: '',
+      birdSong2: '', 
+      birdSong3: '', 
+      birdSong4: '', 
+      birdSong5: '', 
+      birdSong6: '', 
+      birdSong7: '', 
+      birdSong8: '', 
+      birdSong9: '', 
+      birdSong10: '', 
+      birdSong11: '', 
+      birdSong12: '', 
+      birdSong13: '', 
+      birdSong14: '', 
+      birdSong15: '', 
+      birdSong16: '',  
+      
+      
       birdSoundVolume1: '',
       birdSoundVolume2: '',
       birdSoundVolume3: '',
@@ -172,6 +190,10 @@ export default {
       nineteenSeventyVolume4: '', 
       nineteenSeventyVolume5: '', 
       nineteenSeventyVolume6: '', 
+      nineteenSeventyVolume7: '', 
+      nineteenSeventyVolume8: '', 
+      nineteenSeventyVolume9: '', 
+      nineteenSeventyVolume10: '', 
       
       twentyTwentyVolume1: '',
       twentyTwentyVolume2: '',
@@ -179,6 +201,21 @@ export default {
       twentyTwentyVolume4: '',
       twentyTwentyVolume5: '',
       twentyTwentyVolume6: '', 
+      twentyTwentyVolume7: '', 
+      twentyTwentyVolume8: '', 
+      twentyTwentyVolume9: '', 
+      twentyTwentyVolume10: '', 
+      
+      twentySixtyFiveVolume1: '',
+      twentySixtyFiveVolume2: '',
+      twentySixtyFiveVolume3: '',
+      twentySixtyFiveVolume4: '',
+      twentySixtyFiveVolume5: '',
+      twentySixtyFiveVolume6: '',
+      twentySixtyFiveVolume7: '',
+      twentySixtyFiveVolume8: '',
+      twentySixtyFiveVolume9: '',
+      twentySixtyFiveVolume10: '', 
       
       birdAudio1Pan: '',
       birdAudio2Pan: '',
@@ -196,6 +233,17 @@ export default {
       birdAudio14Pan: '',
       birdAudio15Pan: '',
       birdAudio16Pan: '', 
+       
+       birdSongAudio1Pan: '',
+       birdSongAudio2Pan: '',
+       birdSongAudio3Pan: '',
+       birdSongAudio4Pan: '',
+       birdSongAudio5Pan: '',
+       birdSongAudio6Pan: '',
+       birdSongAudio7Pan: '',
+       birdSongAudio8Pan: '',
+       birdSongAudio9Pan: '', 
+       birdSongAudio10Pan: '', 
       
       card1: false, 
       card2: false, 
@@ -266,6 +314,23 @@ export default {
       flipCardO: false,
       flipCardP: false,
       
+      flipCardOne: false, 
+      flipCardTwo: false, 
+      flipCardThree: false, 
+      flipCardFour: false, 
+      flipCardFive: false, 
+      flipCardSix: false,
+      flipCardSeven: false,
+      flipCardEight: false,
+      flipCardNine: false,
+      flipCardTen: false,
+      flipCardElevent: false,
+      flipCardTwelve: false,
+      flipCardThirteen: false,
+      flipCardFourteen: false,
+      flipCardFifteen: false,
+      flipCardSixteen: false,
+      
       
       twenty: false, 
       group: [],
@@ -285,6 +350,7 @@ export default {
       filteredResults: [], 
       seventyStop: false, 
       twentyStop: false, 
+      sixtyFiveStop: false,
       resultsType: '', 
     }
   },
@@ -795,7 +861,10 @@ recognition.start()
           self.birdNumber9 = randomEntries[8][soundConstructor]
           var birdProbability9 = randomEntries[8].score_1970 * 100
           var birdProbabilityI = randomEntries[8].score_2017 * 100
+          var birdProbabilityNine = randomEntries[8].score_2017 * 100
           var panValue9 = Math.random()*2 - 1
+         
+          //1970
             if (probability <= birdProbability9) {
               self.birdSound9 = new Pizzicato.Sound(self.birdNumber9, function() {
               self.nineteenSeventyVolume9 = birdProbability9
@@ -813,6 +882,8 @@ recognition.start()
               });
               self.flipCard9 = false
             }
+            
+            //2017
             if (probability <= birdProbabilityI) {
               self.birdAudio9 = new Pizzicato.Sound(self.birdNumber8, function() {
               self.twentyTwentyVolume9 = birdProbabilityI
@@ -831,12 +902,34 @@ recognition.start()
               self.flipCardI = false
             }
             
+            //2065
+            if (probability <= birdProbabilityNine) {
+              self.birdSong9 = new Pizzicato.Sound(self.birdNumber9, function() {
+              self.twentySixtyFiveVolume9 = birdProbabilityNine
+              self.birdSong9.volume = .03
+              self.birdSong9Pan = new Pizzicato.Effects.StereoPanner({pan: panValue9});
+              self.birdSong9.addEffect(self.birdSong9Pan)
+              });
+              self.flipCardNine = true
+            }
+            if (probability >= birdProbabilityNine) {
+              self.birdSong9 = new Pizzicato.Sound(self.birdNumber9, function() {
+              self.birdSong9.volume = 0
+              self.birdSong9Pan = new Pizzicato.Effects.StereoPanner({pan: panValue9});
+              self.birdSong9.addEffect(self.birdSong9Pan)
+              });
+              self.flipCardNine = false
+            }
+            
 //BIRD 10 - 100 Meters - 03% Volume 
           self.birdName10 = randomEntries[9].species
           self.birdNumber10 = randomEntries[9][soundConstructor]
           var birdProbability10 = randomEntries[9].score_1970 * 100
           var birdProbabilityJ = randomEntries[9].score_2017 * 100
+          var birdProbabilityTen = randomEntries[9].score_2065 * 100
           var panValue10 = Math.random()*2 - 1
+          
+          //1970
             if (probability <= birdProbability10) {
               self.birdSound10 = new Pizzicato.Sound(self.birdNumber10, function() {
               self.nineteenSeventyVolume10 = birdProbability10
@@ -854,8 +947,10 @@ recognition.start()
               });
               self.flipCard10 = false
             }
+            
+            //2017
             if (probability <= birdProbabilityJ) {
-              self.birdAudio10 = new Pizzicato.Sound(self.birdNumber9, function() {
+              self.birdAudio10 = new Pizzicato.Sound(self.birdNumber10, function() {
               self.twentyTwentyVolume10 = birdProbabilityJ
               self.birdAudio10.volume = .03
               self.birdAudio10Pan = new Pizzicato.Effects.StereoPanner({pan: panValue10});
@@ -870,6 +965,25 @@ recognition.start()
               self.birdAudio10.addEffect(self.birdAudio10Pan)
               });
               self.flipCardJ = false
+            }
+            
+            //2065
+            if (probability <= birdProbabilityTen) {
+              self.birdSong10 = new Pizzicato.Sound(self.birdNumber10, function() {
+              self.twentySixtyFiveVolume10 = birdProbabilityTen
+              self.birdSong10.volume = .03
+              self.birdSong10Pan = new Pizzicato.Effects.StereoPanner({pan: panValue10});
+              self.birdSong10.addEffect(self.birdSong10Pan)
+              });
+              self.flipCardTen = true
+            }
+            if (probability >= birdProbabilityTen) {
+              self.birdSong10 = new Pizzicato.Sound(self.birdNumber10, function() {
+              self.birdSong10.volume = 0
+              self.birdSong10Pan = new Pizzicato.Effects.StereoPanner({pan: panValue10});
+              self.birdSong10.addEffect(self.birdSong10Pan)
+              });
+              self.flipCardTen = false
             }
   
           self.group = new Pizzicato.Group([]);
@@ -897,7 +1011,7 @@ recognition.start()
           //turned off 
           //this.group.removeSound(this.birdAudio1)
           //this.group.removeSound(this.birdAudio2)
-          //this.group.removeSound(this.birdAudio3)
+          this.group.removeSound(this.birdAudio3)
           this.group.removeSound(this.birdAudio4)
           this.group.removeSound(this.birdAudio5)
           this.group.removeSound(this.birdAudio6)
@@ -909,7 +1023,24 @@ recognition.start()
           this.sleep(200).then(() => {
             this.loopOne()
           })
+        }
+        if (this.sixtyFiveStop == true) {
+          this.group.stop()
+          //this.group.removeSound(this.birdSong1)
+          //this.group.removeSound(this.birdSong2)
+          //this.group.removeSound(this.birdSong3)
+          //this.group.removeSound(this.birdSong4)
+          //this.group.removeSound(this.birdSong5)
+          //this.group.removeSound(this.birdSong6)
+          //this.group.removeSound(this.birdSong7)
+          //this.group.removeSound(this.birdSong8)
+          this.group.removeSound(this.birdSong9)
+          this.group.removeSound(this.birdSong10)
           
+          this.sixtyFiveStop = false
+          this.sleep(200).then(() => {
+            this.loopOne()
+          })
         }
         else {
         this.msg4 = ""
@@ -1014,6 +1145,37 @@ recognition.start()
             this.loopTwo()
           })
         }
+        if (this.sixtyFiveStop == true) {
+          this.group.stop()
+          //this.group.removeSound(this.birdSong1)
+          //this.group.removeSound(this.birdSong2)
+          //this.group.removeSound(this.birdSong3)
+          //this.group.removeSound(this.birdSong4)
+          //this.group.removeSound(this.birdSong5)
+          //this.group.removeSound(this.birdSong6)
+          //this.group.removeSound(this.birdSong7)
+          //this.group.removeSound(this.birdSong8)
+          this.group.removeSound(this.birdSong9)
+          this.group.removeSound(this.birdSong10)
+          
+          this.sixtyFiveStop = false
+          this.sleep(200).then(() => {
+            this.loopTwo()
+          })
+        }
+        
+//         
+//                   this.group.removeSound(this.birdSound1)
+//           this.group.removeSound(this.birdSound2)
+//           this.group.removeSound(this.birdSound3)
+//           this.group.removeSound(this.birdSound4)
+//           this.group.removeSound(this.birdSound5)
+//           this.group.removeSound(this.birdSound6)
+//           this.group.removeSound(this.birdSound7)
+//           this.group.removeSound(this.birdSound8)
+//           this.group.removeSound(this.birdSound9)
+//           this.group.removeSound(this.birdSound10)
+        
         else {
         this.msg4 = ""
         //this.meters1 = '--------------------------------------------------------------------------------   10-40 Meters   --------------------------------------------------------------------------------', 
@@ -1033,6 +1195,7 @@ recognition.start()
         this.group.addSound(this.birdAudio8)
         this.group.addSound(this.birdAudio9)
         this.group.addSound(this.birdAudio10)
+        
         
         this.msg = "2017"
         this.msg2 = ""
@@ -1100,21 +1263,40 @@ recognition.start()
         }
     },
     fiftyFifty: function (){
-        if (this.twentyStop == true) {
+        if (this.seventyStop == true) {
           this.group.stop()
           //this.group.removeSound(this.birdAudio1)
           //this.group.removeSound(this.birdAudio2)
-          //this.group.removeSound(this.birdAudio3)
-          //this.group.removeSound(this.birdAudio4)
-          //this.group.removeSound(this.birdAudio5)
-         //s this.group.removeSound(this.birdAudio6)
-          //this.group.removeSound(this.birdAudio7)
-          //this.group.removeSound(this.birdAudio8)
-          //this.group.removeSound(this.birdAudio9)
-          //this.group.removeSound(this.birdAudio10)
-          this.twentyStop = false
+          this.group.removeSound(this.birdAudio3)
+          this.group.removeSound(this.birdAudio4)
+          this.group.removeSound(this.birdAudio5)
+          this.group.removeSound(this.birdAudio6)
+          this.group.removeSound(this.birdAudio7)
+          this.group.removeSound(this.birdAudio8)
+          this.group.removeSound(this.birdAudio9)
+          this.group.removeSound(this.birdAudio10)
+          
+          this.seventyStop = false
           this.sleep(200).then(() => {
             this.loopThree()
+          })
+        }
+        
+        if (this.twentyStop == true) {
+          this.group.stop()
+          this.group.removeSound(this.birdSound1)
+          this.group.removeSound(this.birdSound2)
+          this.group.removeSound(this.birdSound3)
+          this.group.removeSound(this.birdSound4)
+          this.group.removeSound(this.birdSound5)
+          this.group.removeSound(this.birdSound6)
+          this.group.removeSound(this.birdSound7)
+          this.group.removeSound(this.birdSound8)
+          this.group.removeSound(this.birdSound9)
+          this.group.removeSound(this.birdSound10)
+          this.twentyStop = false
+          this.sleep(200).then(() => {
+            this.loopTwo()
           })
         }
         else {
@@ -1126,16 +1308,16 @@ recognition.start()
         var canvas = document.getElementsByTagName("canvas")[0]
         canvas.width = 0
         canvas.height = 0
-        //this.group.addSound(this.birdAudio1)
-        //this.group.addSound(this.birdAudio2)
-        //this.group.addSound(this.birdAudio3)
-        //this.group.addSound(this.birdAudio4)
-        //this.group.addSound(this.birdAudio5)
-        //this.group.addSound(this.birdAudio6)
-        //this.group.addSound(this.birdAudio7)
-        //this.group.addSound(this.birdAudio8)
-        //this.group.addSound(this.birdAudio9)
-        //this.group.addSound(this.birdAudio10)
+        //this.group.addSound(this.birdSong1)
+        //this.group.addSound(this.birdSong2)
+        //this.group.addSound(this.birdSong3)
+        //this.group.addSound(this.birdSong4)
+        //this.group.addSound(this.birdSong5)
+        //this.group.addSound(this.birdSong6)
+        //this.group.addSound(this.birdSong7)
+        //this.group.addSound(this.birdSong8)
+        this.group.addSound(this.birdSong9)
+        this.group.addSound(this.birdSong10)
         
         this.msg = "2065"
         this.msg2 = ""
@@ -1151,45 +1333,45 @@ recognition.start()
         this.card10 = false;
         this.stop = false; 
         
-        this.birdSoundVolume1 = this.twentyTwentyVolume1;
-        this.birdSoundVolume2 = this.twentyTwentyVolume2;
-        this.birdSoundVolume3 = this.twentyTwentyVolume3;
-        this.birdSoundVolume4 = this.twentyTwentyVolume4;
-        this.birdSoundVolume5 = this.twentyTwentyVolume5;
-        this.birdSoundVolume6 = this.twentyTwentyVolume6; 
-        this.birdSoundVolume7 = this.twentyTwentyVolume7; 
-        this.birdSoundVolume8 = this.twentyTwentyVolume8; 
-        this.birdSoundVolume9 = this.twentyTwentyVolume9; 
-        this.birdSoundVolume10 = this.twentyTwentyVolume10; 
+        this.birdSoundVolume1 = this.twentySixtyFiveVolume1;
+        this.birdSoundVolume2 = this.twentySixtyFiveVolume2;
+        this.birdSoundVolume3 = this.twentySixtyFiveVolume3;
+        this.birdSoundVolume4 = this.twentySixtyFiveVolume4;
+        this.birdSoundVolume5 = this.twentySixtyFiveVolume5;
+        this.birdSoundVolume6 = this.twentySixtyFiveVolume6; 
+        this.birdSoundVolume7 = this.twentySixtyFiveVolume7; 
+        this.birdSoundVolume8 = this.ttwentySixtyFiveVolume8; 
+        this.birdSoundVolume9 = this.twentySixtyFiveVolume9; 
+        this.birdSoundVolume10 = this.twentySixtyFiveVolume10; 
         
-        if (this.flipCardA == true) {
-          //this.card1 = true; 
+        if (this.flipCardOne == true) {
+          this.card1 = true; 
         }
-        if (this.flipCardB == true) {
-          //this.card2 = true; 
+        if (this.flipCardTwo == true) {
+          this.card2 = true; 
         }
-        if (this.flipCardC == true) {
-          //this.card3 = true; 
+        if (this.flipCardThree == true) {
+          this.card3 = true; 
         }
-        if (this.flipCardD == true) {
-          //this.card4 = true; 
+        if (this.flipCardFour == true) {
+          this.card4 = true; 
         }
-        if (this.flipCardE == true) {
-          //this.card5 = true; 
+        if (this.flipCardFive == true) {
+          this.card5 = true; 
         }
-         if (this.flipCardF == true) {
-          //this.card6 = true; 
+         if (this.flipCardSix == true) {
+          this.card6 = true; 
         }
-         if (this.flipCardG == true) {
+         if (this.flipCardSeven == true) {
           this.card7 = true; 
         }
-        if (this.flipCardH == true) {
+        if (this.flipCardEight == true) {
           this.card8 = true; 
         }
-        if (this.flipCardI == true) {
+        if (this.flipCardNine == true) {
           this.card9 = true; 
         }
-        if (this.flipCardJ == true) {
+        if (this.flipCardTen == true) {
           this.card10 = true; 
         }
         
@@ -1198,7 +1380,7 @@ recognition.start()
         }
         this.stop = true; 
         this.sleep(500).then(() => {
-          this.visualizeTwentyTwenty()
+          this.visualizeTwentySixtyFive()
         })
         }
     },
@@ -1243,6 +1425,7 @@ recognition.start()
        var audioContext = Pizzicato.context;
        this.group.play()
        this.twentyStop = true
+       this.sixtyFiveStop = true
 
        
        var canvas = document.getElementsByTagName("canvas")[0]
@@ -1276,6 +1459,7 @@ recognition.start()
        var audioContext = Pizzicato.context;
        this.group.play()
        this.seventyStop = true
+       this.sixtyFiveStop = true
        
        var canvas = document.getElementsByTagName("canvas")[0]
        canvas.width = window.innerWidth
@@ -1298,6 +1482,39 @@ recognition.start()
 
           var centerY = canvas.height / 3
           ctx.strokeStyle = 'salmon'
+          scope.draw(ctx, 0, centerY, undefined, centerY)
+
+          window.requestAnimationFrame(drawLoop)
+       }
+      drawLoop()
+    }, 
+      visualizeTwentySixtyFive: function () {
+       var audioContext = Pizzicato.context;
+       this.group.play()
+       this.seventyStop = true
+       this.twentyStop = true
+       
+       var canvas = document.getElementsByTagName("canvas")[0]
+       canvas.width = window.innerWidth
+       canvas.height = window.innerHeight
+       
+       var analyser = Pizzicato.context.createAnalyser();
+       this.group.connect(analyser);
+       
+       var scope = new Oscilloscope(analyser)
+
+       analyser.connect(audioContext.destination)
+
+       var ctx = canvas.getContext('2d')
+       ctx.lineWidth = 3
+       ctx.shadowBlur = 4
+       ctx.shadowColor = 'white'
+
+       function drawLoop () {
+          ctx.clearRect(0, 0, canvas.width, canvas.height)
+
+          var centerY = canvas.height / 3
+          ctx.strokeStyle = 'orange'
           scope.draw(ctx, 0, centerY, undefined, centerY)
 
           window.requestAnimationFrame(drawLoop)
