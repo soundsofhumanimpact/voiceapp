@@ -34,7 +34,7 @@
     <button id="generateButton" v-if="!isHidden" v-on:click="aboutHidden=true; voiceHidden=true; isHidden=true; isHidden3=true; biome()">Generate Soundscape</button>
     <button id="nineteenSeventyButton" v-if="isHidden2" v-on:click="nineteenSeventy">Play 1970</button>
     <button id="twentyTwentyButton" v-if="isHidden2" v-on:click="twentyTwenty">Play 2017</button>
-    <button id="twentyTwentyFiftyFive" v-if="isHidden2" v-on:click="fiftyFifty">Play 2055</button>
+    <button id="twentyTwentyFiftyFive" v-if="isHidden2" v-on:click="fiftyFifty">Play 2065</button>
     <p>
       <button id="resetButton" v-if="isHidden2" v-on:click="aboutHidden=false; isHidden=false; isHidden2=false; reset(); voiceHidden=false">Reset</button>
       <button id="aboutButton" v-if="!aboutHidden" v-on:click="isModalVisible=true">About</button>
@@ -404,7 +404,7 @@ recognition.start()
      let churn = true; 
      var returnedResults = []
      Pizzicato.context.resume();
-        axios.get("https://raw.githubusercontent.com/soundsofhumanimpact/data/master/bird_data_mod.json")
+        axios.get("https://raw.githubusercontent.com/soundsofhumanimpact/data/master/bird_data_simple_future.json")
        .then(function (response) { 
 		
 		if (churn == true){
@@ -456,7 +456,7 @@ recognition.start()
           self.msg2 = "Soundscape Variables Generated"
           self.msg4 = "Select a Time Period to Listen"
           
-          var probability = Math.random()*10
+          var probability = Math.random()*100
             console.log("Probability number is: " + probability)
           
           
@@ -1025,7 +1025,7 @@ recognition.start()
         canvas.height = 0
         //this.group.addSound(this.birdAudio1)
         //this.group.addSound(this.birdAudio2)
-        //this.group.addSound(this.birdAudio3)
+        this.group.addSound(this.birdAudio3)
         this.group.addSound(this.birdAudio4)
         this.group.addSound(this.birdAudio5)
         this.group.addSound(this.birdAudio6)
@@ -1066,7 +1066,7 @@ recognition.start()
           //this.card2 = true; 
         }
         if (this.flipCardC == true) {
-          //this.card3 = true; 
+          this.card3 = true; 
         }
         if (this.flipCardD == true) {
           this.card4 = true; 
@@ -1105,9 +1105,9 @@ recognition.start()
           //this.group.removeSound(this.birdAudio1)
           //this.group.removeSound(this.birdAudio2)
           //this.group.removeSound(this.birdAudio3)
-          this.group.removeSound(this.birdAudio4)
-          this.group.removeSound(this.birdAudio5)
-          this.group.removeSound(this.birdAudio6)
+          //this.group.removeSound(this.birdAudio4)
+          //this.group.removeSound(this.birdAudio5)
+         //s this.group.removeSound(this.birdAudio6)
           //this.group.removeSound(this.birdAudio7)
           //this.group.removeSound(this.birdAudio8)
           //this.group.removeSound(this.birdAudio9)
@@ -1137,7 +1137,7 @@ recognition.start()
         //this.group.addSound(this.birdAudio9)
         //this.group.addSound(this.birdAudio10)
         
-        this.msg = "2055"
+        this.msg = "2065"
         this.msg2 = ""
         this.card1 = false; 
         this.card2 = false; 
