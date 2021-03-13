@@ -525,6 +525,7 @@ recognition.start()
           self.msg2 = "Soundscape Variables Generated"
           self.msg4 = "Select a Time Period to Listen"
           
+          //die roll
           var probability = Math.random()*100
             console.log("Probability number is: " + probability)
           
@@ -581,7 +582,7 @@ recognition.start()
             if (probability <= birdProbabilityOne) {
               self.birdSong1 = new Pizzicato.Sound(self.birdNumber1, function() {
               self.twentySixtyFiveVolume1 = birdProbabilityOne
-              self.birdSong1.volume = .03
+              self.birdSong1.volume = 1
               self.birdSong1Pan = new Pizzicato.Effects.StereoPanner({pan: panValue1});
               self.birdSong1.addEffect(self.birdSong1Pan)
               });
@@ -646,7 +647,7 @@ recognition.start()
             if (probability <= birdProbabilityTwo) {
               self.birdSong2 = new Pizzicato.Sound(self.birdNumber2, function() {
               self.twentySixtyFiveVolume2 = birdProbabilityTwo
-              self.birdSong2.volume = .03
+              self.birdSong2.volume = 1
               self.birdSong2Pan = new Pizzicato.Effects.StereoPanner({pan: panValue2});
               self.birdSong2.addEffect(self.birdSong2Pan)
               });
@@ -711,7 +712,7 @@ recognition.start()
             if (probability <= birdProbabilityThree) {
               self.birdSong3 = new Pizzicato.Sound(self.birdNumber3, function() {
               self.twentySixtyFiveVolume3 = birdProbabilityThree
-              self.birdSong3.volume = .03
+              self.birdSong3.volume = .5
               self.birdSong3Pan = new Pizzicato.Effects.StereoPanner({pan: panValue3});
               self.birdSong3.addEffect(self.birdSong3Pan)
               });
@@ -776,7 +777,7 @@ recognition.start()
             if (probability <= birdProbabilityFour) {
               self.birdSong4 = new Pizzicato.Sound(self.birdNumber4, function() {
               self.twentySixtyFiveVolume4 = birdProbabilityFour
-              self.birdSong4.volume = .03
+              self.birdSong4.volume = .5
               self.birdSong4Pan = new Pizzicato.Effects.StereoPanner({pan: panValue4});
               self.birdSong4.addEffect(self.birdSong4Pan)
               });
@@ -841,7 +842,7 @@ recognition.start()
             if (probability <= birdProbabilityFive) {
               self.birdSong5 = new Pizzicato.Sound(self.birdNumber5, function() {
               self.twentySixtyFiveVolume5 = birdProbabilityFive
-              self.birdSong5.volume = .03
+              self.birdSong5.volume = .5
               self.birdSong5Pan = new Pizzicato.Effects.StereoPanner({pan: panValue5});
               self.birdSong5.addEffect(self.birdSong5Pan)
               });
@@ -906,7 +907,7 @@ recognition.start()
             if (probability <= birdProbabilitySix) {
               self.birdSong6 = new Pizzicato.Sound(self.birdNumber6, function() {
               self.twentySixtyFiveVolume6 = birdProbabilitySix
-              self.birdSong6.volume = .03
+              self.birdSong6.volume = .25
               self.birdSong6Pan = new Pizzicato.Effects.StereoPanner({pan: panValue6});
               self.birdSong6.addEffect(self.birdSong6Pan)
               });
@@ -971,7 +972,7 @@ recognition.start()
             if (probability <= birdProbabilitySeven) {
               self.birdSong7 = new Pizzicato.Sound(self.birdNumber7, function() {
               self.twentySixtyFiveVolume7 = birdProbabilitySeven
-              self.birdSong7.volume = .03
+              self.birdSong7.volume = .20
               self.birdSong7Pan = new Pizzicato.Effects.StereoPanner({pan: panValue7});
               self.birdSong7.addEffect(self.birdSong7Pan)
               });
@@ -1035,7 +1036,7 @@ recognition.start()
             if (probability <= birdProbabilityEight) {
               self.birdSong8 = new Pizzicato.Sound(self.birdNumber8, function() {
               self.twentySixtyFiveVolume8 = birdProbabilityEight
-              self.birdSong8.volume = .03
+              self.birdSong8.volume = .12
               self.birdSong8Pan = new Pizzicato.Effects.StereoPanner({pan: panValue8});
               self.birdSong8.addEffect(self.birdSong8Pan)
               });
@@ -1100,7 +1101,7 @@ recognition.start()
             if (probability <= birdProbabilityNine) {
               self.birdSong9 = new Pizzicato.Sound(self.birdNumber9, function() {
               self.twentySixtyFiveVolume9 = birdProbabilityNine
-              self.birdSong9.volume = .03
+              self.birdSong9.volume = .07
               self.birdSong9Pan = new Pizzicato.Effects.StereoPanner({pan: panValue9});
               self.birdSong9.addEffect(self.birdSong9Pan)
               });
