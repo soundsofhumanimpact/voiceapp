@@ -3,10 +3,10 @@
   <h1 id="messageThree" v-bind:style="{ color: activeColor}">{{ msg3 }}</h1> 
   <h2 id="time" class="messageOne">{{ msg }}</h2>
     <h3 id="messageTwo">{{ msg2 }}</h3> 
-      <p><button class="landscape" id="woodlands" v-if="isHidden3" v-on:click="isWoodLand(); generateSoundscape(); isHidden3=false; isHidden2=true">Listen to Soundscape</button><p>
+      <p><button class="landscape" id="woodlands" v-if="isHidden3" v-on:click="isWoodLand(); generateSoundscape(); isHidden3=false; isHidden4=false; isHidden2=true; other()">Listen to Soundscape</button><p>
 
     <span>
-    <iframe id="survey" v-if="isHidden3" src="https://docs.google.com/forms/d/e/1FAIpQLSeZH1_xjV_WbZ0Ive4t8VSOkBQi8ugxsZUmIVgmZj-d4b_gzA/viewform?embedded=true" width="640" height="2336" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+    <iframe id="survey" v-if="isHidden4" src="https://docs.google.com/forms/d/e/1FAIpQLSeZH1_xjV_WbZ0Ive4t8VSOkBQi8ugxsZUmIVgmZj-d4b_gzA/viewform?embedded=true" width="640" height="2336" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
     </span> 
    <!-- <button class="landscape" id="coast" v-if="isHidden3" v-on:click="isCoast(); generateSoundscape(); isHidden3=false; isHidden2=true">Coast</button>  
     <button class="landscape" id="backyard" v-if="isHidden3" v-on:click="isBackYard(); generateSoundscape(); isHidden3=false; isHidden2=true">Backyard</button>-->  
@@ -34,16 +34,19 @@
 	</ul> <h4> {{ meters1 }} </h4>
     <h3>{{ msg4 }}</h3> 
     <Modal v-show="isModalVisible" @voice="this.reInitiateVoiceControl" @close="isModalVisible = false"/> 
-    <button id="generateButton" v-if="!isHidden" v-on:click="aboutHidden=true; voiceHidden=true; isHidden=true; isHidden3=true; biome()">Generate Soundscape</button>
+    <button id="generateButton" v-if="!isHidden" v-on:click="aboutHidden=true; voiceHidden=true; isHidden=true; isHidden3=true;">Generate Soundscape</button>
     <button id="nineteenSeventyButton" v-if="isHidden2" v-on:click="nineteenSeventy">Play 1970</button>
     <button id="twentyTwentyButton" v-if="isHidden2" v-on:click="twentyTwenty">Play 2017</button>
     <button id="twentyTwentyFiftyFive" v-if="isHidden2" v-on:click="fiftyFifty">Play 2065</button>
     <p>
       <button id="resetButton" v-if="isHidden2" v-on:click="aboutHidden=false; isHidden=false; isHidden2=false; reset(); voiceHidden=false">Reset</button>
-      <button id="aboutButton" v-if="!aboutHidden" v-on:click="isModalVisible=true">About</button>
+     <p v-if="!isHidden"><br><br><br><br>Are you interested to help us learn more about environmental communication by filling out brief survey before and after interacting with Byrd Bot?
+     <!-- <button id="aboutButton" v-if="!aboutHidden" v-on:click="isModalVisible=true">About</button>-->
      <!-- <button id="voiceButton" v-if="!voiceHidden" v-on:click="initiateVoiceControl()">Enable Voice Control</button>-->
+     <br><button id="aboutButton" v-on:click="aboutHidden=true; voiceHidden=true; isHidden=true; isHidden3=true; isHidden4=true; biome()">Yes</button>
     </p>
     <canvas id="canvas"></canvas>
+    <iframe id="survey" v-if="surveyShow" src="https://docs.google.com/forms/d/e/1FAIpQLScEwpGGtoaN_ArWoJG3Qn7hGaNANefUaZnJu5fV4J33-ircuA/viewform?embedded=true" width="640" height="2511" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
   </div>
 </template>
 
@@ -340,6 +343,7 @@ export default {
       isHidden: false, 
       isHidden2: false, 
       isHidden3: false, 
+      isHidden4: false, 
       aboutHidden: false, 
       voiceHidden: false, 
       isModalVisible: false,
@@ -355,6 +359,8 @@ export default {
       twentyStop: false, 
       sixtyFiveStop: false,
       resultsType: '', 
+      survey: false, 
+      surveyShow: false
     }
   },
 mounted: function () {
@@ -442,8 +448,20 @@ recognition.start()
        }
   },
   biome: function (){
-  this.msg2 = "Help Us Learn About Environmental Communication?"
+  this.msg2 = "Survey"
   this.msg = ""
+    this.survey = true
+  },
+    other: function (){
+  this.msg2 = ""
+  this.msg = ""
+  
+  if (this.survey == true) {
+	this.surveyShow = true 
+  }
+  else {
+  this.surveyShow = false
+  }
   },
   isWoodLand: function (){
     this.woodLand = true
