@@ -3,9 +3,16 @@
   <h1 id="messageThree" v-bind:style="{ color: activeColor}">{{ msg3 }}</h1> 
   <h2 id="time" class="messageOne">{{ msg }}</h2>
     <h3 id="messageTwo">{{ msg2 }}</h3> 
+    <p id="overview" v-if="!isHidden">There are around 3 billion fewer birds alive in North America today than there were in 1970. 3 billion is one of those numbers that is so big, it is difficult to understand.<br><br>Interested to learn what 3 billion less birds in the environment sounds like, we built Byrd Bot, an online tool that generates artificial bird soundscapes that simulate what the woods would sound like at 3 different points in time: 1970, 2017, and 2065.<br><br>Users can compare the soundscapes to experience decades of past or projected future environmental change, expressed in the form of bird songs.<br><br>Click “Generate Soundscape” and the system will create a unique soundscape for you to comparatively listen across time periods.</p> 
+    <button id="generateButton" v-if="!isHidden" v-on:click="aboutHidden=true; voiceHidden=true; isHidden=true; isHidden3=true;">Generate Soundscape</button>
       <p><button class="landscape" id="woodlands" v-if="isHidden3" v-on:click="isWoodLand(); generateSoundscape(); isHidden3=false; isHidden4=false; isHidden2=true; other()">Listen to Soundscape</button><p>
-
     <span>
+    <p>
+     <p id="surveyQuestion" v-if="!isHidden"><br><br><br><br>Are you interested to help us learn more about environmental communication by filling out brief survey before and after interacting with Byrd Bot?
+     <!-- <button id="aboutButton" v-if="!aboutHidden" v-on:click="isModalVisible=true">About</button>-->
+     <!-- <button id="voiceButton" v-if="!voiceHidden" v-on:click="initiateVoiceControl()">Enable Voice Control</button>-->
+     <br><button id="aboutButton" v-on:click="aboutHidden=true; voiceHidden=true; isHidden=true; isHidden3=true; isHidden4=true; biome()">Yes</button>
+    </p>
     <iframe id="survey" v-if="isHidden4" src="https://docs.google.com/forms/d/e/1FAIpQLSeZH1_xjV_WbZ0Ive4t8VSOkBQi8ugxsZUmIVgmZj-d4b_gzA/viewform?embedded=true" width="640" height="2336" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
     </span> 
    <!-- <button class="landscape" id="coast" v-if="isHidden3" v-on:click="isCoast(); generateSoundscape(); isHidden3=false; isHidden2=true">Coast</button>  
@@ -34,17 +41,10 @@
 	</ul> <h4> {{ meters1 }} </h4>
     <h3>{{ msg4 }}</h3> 
     <Modal v-show="isModalVisible" @voice="this.reInitiateVoiceControl" @close="isModalVisible = false"/> 
-    <button id="generateButton" v-if="!isHidden" v-on:click="aboutHidden=true; voiceHidden=true; isHidden=true; isHidden3=true;">Generate Soundscape</button>
     <button id="nineteenSeventyButton" v-if="isHidden2" v-on:click="nineteenSeventy">Play 1970</button>
     <button id="twentyTwentyButton" v-if="isHidden2" v-on:click="twentyTwenty">Play 2017</button>
     <button id="twentyTwentyFiftyFive" v-if="isHidden2" v-on:click="fiftyFifty">Play 2065</button>
-    <p>
-      <button id="resetButton" v-if="isHidden2" v-on:click="aboutHidden=false; isHidden=false; isHidden2=false; reset(); voiceHidden=false">Reset</button>
-     <p v-if="!isHidden"><br><br><br><br>Are you interested to help us learn more about environmental communication by filling out brief survey before and after interacting with Byrd Bot?
-     <!-- <button id="aboutButton" v-if="!aboutHidden" v-on:click="isModalVisible=true">About</button>-->
-     <!-- <button id="voiceButton" v-if="!voiceHidden" v-on:click="initiateVoiceControl()">Enable Voice Control</button>-->
-     <br><button id="aboutButton" v-on:click="aboutHidden=true; voiceHidden=true; isHidden=true; isHidden3=true; isHidden4=true; biome()">Yes</button>
-    </p>
+    <p><button id="resetButton" v-if="isHidden2" v-on:click="aboutHidden=false; isHidden=false; isHidden2=false; reset(); voiceHidden=false">Reset</button></p>
     <canvas id="canvas"></canvas>
     <iframe id="survey" v-if="surveyShow" src="https://docs.google.com/forms/d/e/1FAIpQLScEwpGGtoaN_ArWoJG3Qn7hGaNANefUaZnJu5fV4J33-ircuA/viewform?embedded=true" width="640" height="2511" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
   </div>
@@ -1744,7 +1744,19 @@ recognition.start()
 
 <!-- Add "scoped" attribute to limit CSS to self component only -->
 <style scoped>
-
+#surveyQuestion {
+width: 40%; 
+float: right;
+text-align: center;  
+margin-right: 4.5%; 
+}
+#overview {
+font-size: 20px; 
+width: 50%; 
+text-align: left;
+float: left;  
+margin-top: 5%
+}
 #messageTwo {
 font-size: 50px;
 }
@@ -1802,6 +1814,7 @@ button {
 }
 #generateButton {
 background-color: mediumturquoise;
+margin-top: 15%; 
 }
 #voiceButton {
 background-color: orange; 
