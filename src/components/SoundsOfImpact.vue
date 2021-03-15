@@ -3,7 +3,7 @@
   <h1 id="messageThree" v-bind:style="{ color: activeColor}">{{ msg3 }}</h1> 
   <h2 id="time" class="messageOne">{{ msg }}</h2>
     <h3 id="messageTwo">{{ msg2 }}</h3> 
-    <p id="overview" v-if="!isHidden">There are around 3 billion fewer birds alive in North America today than there were in 1970. 3 billion is one of those numbers that is so big, it is difficult to understand.<br><br>Interested to learn what 3 billion less birds in the environment sounds like, we built Byrd Bot, an online tool that generates artificial bird soundscapes that simulate what the woods would sound like at 3 different points in time: 1970, 2017, and 2065.<br><br>Users can compare the soundscapes to experience decades of past or projected future environmental change, expressed in the form of bird songs.<br><br>Click “Generate Soundscape” and the system will create a unique soundscape for you to comparatively listen across time periods.</p> 
+    <p id="overview" v-if="!isHidden">There are around 3 billion fewer birds alive in North America today than there were in 1970. 3 billion is one of those numbers that is so big, it is difficult to understand.<br><br>Interested to learn what 3 billion less birds in the environment sounds like, we built Byrd Bot, an online tool that generates artificial bird soundscapes that simulate what the woods would sound like at 3 different points in time: 1970, 2017, and 2065.<br><br>Users can compare the soundscapes to experience decades of past or projected future environmental change, expressed in the form of bird songs.<br><br>Click “Generate Soundscape” and the system will create a unique soundscape that spans across time periods.</p> 
     <button id="generateButton" v-if="!isHidden" v-on:click="aboutHidden=true; voiceHidden=true; isHidden=true; isHidden3=true;">Generate Soundscape</button>
       <p><button class="landscape" id="woodlands" v-if="isHidden3" v-on:click="isWoodLand(); generateSoundscape(); isHidden3=false; isHidden4=false; isHidden2=true; other()">Listen to Soundscape</button><p>
     <span>
@@ -1756,7 +1756,8 @@ font-size: 20px;
 width: 50%; 
 text-align: left;
 float: left;  
-margin-top: 5%
+margin-top: 5%; 
+margin-left: 25px; 
 }
 #messageTwo {
 font-size: 50px;
