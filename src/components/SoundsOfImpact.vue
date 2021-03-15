@@ -570,6 +570,7 @@ recognition.start()
             }
             if (probability >= birdProbability1) {
               self.birdSound1 = new Pizzicato.Sound(self.birdNumber1, function() {
+              self.birdSound1.volume = 0
               self.birdSound1Pan = new Pizzicato.Effects.StereoPanner({pan: panValue1});
               self.birdSound1.volume = self.birdSoundVolume1
               self.birdSound1.addEffect(self.birdSound1Pan)
