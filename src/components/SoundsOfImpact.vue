@@ -8,7 +8,7 @@
       <p><button class="landscape" id="woodlands" v-if="isHidden3" v-on:click="isWoodLand(); generateSoundscape(); isHidden3=false; isHidden4=false; isHidden2=true; other()">Listen to Soundscape</button><p>
     <span>
     <p>
-     <p id="surveyQuestion" v-if="!isHidden"><br><br><br><br>Are you interested to help us learn more about environmental communication by filling out brief survey before and after interacting with Byrd Bot?
+     <p id="surveyQuestion" v-if="!isHidden"><br><br><br><br>Are you interested to help us learn more about environmental communication by filling out a brief survey before and after interacting with Byrd Bot?
      <!-- <button id="aboutButton" v-if="!aboutHidden" v-on:click="isModalVisible=true">About</button>-->
      <!-- <button id="voiceButton" v-if="!voiceHidden" v-on:click="initiateVoiceControl()">Enable Voice Control</button>-->
      <br><button id="aboutButton" v-on:click="aboutHidden=true; voiceHidden=true; isHidden=true; isHidden3=true; isHidden4=true; biome()">Yes</button>
