@@ -13,7 +13,7 @@
      <!-- <button id="voiceButton" v-if="!voiceHidden" v-on:click="initiateVoiceControl()">Enable Voice Control</button>-->
      <br><button id="aboutButton" v-on:click="aboutHidden=true; voiceHidden=true; isHidden=true; isHidden3=true; isHidden4=true; biome()">Yes</button>
     </p>
-    <iframe id="survey" v-if="isHidden4" src="https://docs.google.com/forms/d/e/1FAIpQLSeZH1_xjV_WbZ0Ive4t8VSOkBQi8ugxsZUmIVgmZj-d4b_gzA/viewform?embedded=true" width="640" height="2336" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+    <iframe id="survey" v-if="isHidden4" src="https://rowan.co1.qualtrics.com/jfe/form/SV_5ulN08dAFJakrwW" width="640" height="2336" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
     </span> 
    <!-- <button class="landscape" id="coast" v-if="isHidden3" v-on:click="isCoast(); generateSoundscape(); isHidden3=false; isHidden2=true">Coast</button>  
     <button class="landscape" id="backyard" v-if="isHidden3" v-on:click="isBackYard(); generateSoundscape(); isHidden3=false; isHidden2=true">Backyard</button>-->  
@@ -44,9 +44,9 @@
     <button id="nineteenSeventyButton" v-if="isHidden2" v-on:click="nineteenSeventy">Play 1970</button>
     <button id="twentyTwentyButton" v-if="isHidden2" v-on:click="twentyTwenty">Play 2017</button>
     <button id="twentyTwentyFiftyFive" v-if="isHidden2" v-on:click="fiftyFifty">Play 2065</button>
-    <p><button id="resetButton" v-if="isHidden2" v-on:click="aboutHidden=false; isHidden=false; isHidden2=false; reset(); voiceHidden=false">Reset</button></p>
+    <p><button id="resetButton" v-if="isHidden2" v-on:click="aboutHidden=false; isHidden=false; isHidden2=false; surveyShow=false; reset(); voiceHidden=false">Reset</button></p>
     <canvas id="canvas"></canvas>
-    <iframe id="survey" v-if="surveyShow" src="https://docs.google.com/forms/d/e/1FAIpQLScEwpGGtoaN_ArWoJG3Qn7hGaNANefUaZnJu5fV4J33-ircuA/viewform?embedded=true" width="640" height="2511" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+    <iframe id="survey" v-if="surveyShow" src="https://rowan.co1.qualtrics.com/jfe/form/SV_0P7c1zqwJGzN3q6" width="640" height="2511" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
   </div>
 </template>
 
