@@ -17,12 +17,14 @@
     </span> 
    <!-- <button class="landscape" id="coast" v-if="isHidden3" v-on:click="isCoast(); generateSoundscape(); isHidden3=false; isHidden2=true">Coast</button>  
     <button class="landscape" id="backyard" v-if="isHidden3" v-on:click="isBackYard(); generateSoundscape(); isHidden3=false; isHidden2=true">Backyard</button>-->  
+    <!--code for tracking frequency with box size fontSize: birdSoundVolume10/2 +'px' -->
+
     <ul class="birdBox" id="birds3" >
-      <li class="card" v-bind:style="{color: birdColor6, fontSize: birdSoundVolume6/2 +'px'}" v-show="card6"><!-- <img class="card" :alt="birdName6" :src="birdImage6"> -->{{birdName6}}</li>
-      <li class="card" v-bind:style="{color: birdColor7, fontSize: birdSoundVolume7/2 +'px'}" v-show="card7"><!-- <img class="card" :alt="birdName7" :src="birdImage7"> -->{{birdName7}}</li>
-      <li class="card" v-bind:style="{color: birdColor8, fontSize: birdSoundVolume8/2 +'px'}" v-show="card8"><!-- <img class="card" :alt="birdName8" :src="birdImage8"> -->{{birdName8}}</li>
-      <li class="card" v-bind:style="{color: birdColor9, fontSize: birdSoundVolume9/2 +'px'}" v-show="card9"><!-- <img class="card" :alt="birdName9" :src="birdImage9"> -->{{birdName9}}</li>
-      <li class="card" v-bind:style="{color: birdColor10, fontSize: birdSoundVolume10/2 +'px'}" v-show="card10"><!-- <img class="card" :alt="birdName10" :src="birdImage10"> -->{{birdName10}}</li>
+      <li class="card" v-bind:style="{color: birdColor6, fontSize: 30 +'px'}" v-show="card6"><!-- <img class="card" :alt="birdName6" :src="birdImage6"> -->{{birdName6}}</li>
+      <li class="card" v-bind:style="{color: birdColor7, fontSize: 30 +'px'}" v-show="card7"><!-- <img class="card" :alt="birdName7" :src="birdImage7"> -->{{birdName7}}</li>
+      <li class="card" v-bind:style="{color: birdColor8, fontSize: 30 +'px'}" v-show="card8"><!-- <img class="card" :alt="birdName8" :src="birdImage8"> -->{{birdName8}}</li>
+      <li class="card" v-bind:style="{color: birdColor9, fontSize: 30 +'px'}" v-show="card9"><!-- <img class="card" :alt="birdName9" :src="birdImage9"> -->{{birdName9}}</li>
+      <li class="card" v-bind:style="{color: birdColor10, fontSize: 30 +'px'}" v-show="card10"><!-- <img class="card" :alt="birdName10" :src="birdImage10"> -->{{birdName10}}</li>
       <li class="card" v-bind:style="{color: birdColor11}" v-show="card11"><!-- <img class="card" :alt="birdName11" :src="birdImage11"> -->{{birdName11}}</li>
       <li class="card" v-bind:style="{color: birdColor12}" v-show="card12"><!-- <img class="card" :alt="birdName12" :src="birdImage12"> -->{{birdName12}}</li>
       <li class="card" v-bind:style="{color: birdColor13}" v-show="card13"><!-- <img class="card" :alt="birdName13" :src="birdImage13"> -->{{birdName13}}</li>
@@ -31,13 +33,13 @@
       <li class="card" v-bind:style="{color: birdColor16}" v-show="card16"><!-- <img class="card" :alt="birdName16" :src="birdImage15"> -->{{birdName16}}</li>
     </ul> <h4> {{ meters3 }} </h4>
     <ul class="birdBox" id="birds2" >
-      <li class="card" v-bind:style="{color: birdColor3, fontSize: birdSoundVolume3/2 +'px'}" v-show="card3"><!-- <img class="card" :alt="birdName3" :src="birdImage3"> -->{{birdName3}}</li>
-      <li class="card" v-bind:style="{color: birdColor4, fontSize: birdSoundVolume4/2 +'px'}" v-show="card4"><!-- <img class="card" :alt="birdName4" :src="birdImage4"> -->{{birdName4}}</li>
-      <li class="card" v-bind:style="{color: birdColor5, fontSize: birdSoundVolume5/2 +'px'}" v-show="card5"><!-- <img class="card" :alt="birdName5" :src="birdImage5"> -->{{birdName5}}</li>
+      <li class="card" v-bind:style="{color: birdColor3, fontSize: 50 +'px'}" v-show="card3"><!-- <img class="card" :alt="birdName3" :src="birdImage3"> -->{{birdName3}}</li>
+      <li class="card" v-bind:style="{color: birdColor4, fontSize: 50 +'px'}" v-show="card4"><!-- <img class="card" :alt="birdName4" :src="birdImage4"> -->{{birdName4}}</li>
+      <li class="card" v-bind:style="{color: birdColor5, fontSize: 50 +'px'}" v-show="card5"><!-- <img class="card" :alt="birdName5" :src="birdImage5"> -->{{birdName5}}</li>
     </ul> <h4> {{ meters2 }} </h4>
      <ul class="birdBox" id="birds1" > 
-      <li class="card" v-bind:style="{color: birdColor1, fontSize: birdSoundVolume1/2 +'px'}" v-show="card1"><!-- <img class="card" :alt="birdName1" :src="birdImage1"> -->{{birdName1}}</li>
-      <li class="card" v-bind:style="{color: birdColor2, fontSize: birdSoundVolume2/2 +'px'}" v-show="card2"><!-- <img class="card" :alt="birdName2" :src="birdImage2"> -->{{birdName2}}</li>
+      <li class="card" v-bind:style="{color: birdColor1, fontSize: 100 +'px'}" v-show="card1"><!-- <img class="card" :alt="birdName1" :src="birdImage1"> -->{{birdName1}}</li>
+      <li class="card" v-bind:style="{color: birdColor2, fontSize: 100 +'px'}" v-show="card2"><!-- <img class="card" :alt="birdName2" :src="birdImage2"> -->{{birdName2}}</li>
 	</ul> <h4> {{ meters1 }} </h4>
     <h3>{{ msg4 }}</h3> 
     <Modal v-show="isModalVisible" @voice="this.reInitiateVoiceControl" @close="isModalVisible = false"/> 
@@ -544,19 +546,12 @@ recognition.start()
           self.msg4 = "Select a Time Period to Listen"
           
           //die roll
-          var probability = Math.random()*100
+          var probability = Math.random()* 100
             console.log("Probability number is: " + probability)
           
           
           var soundConstructor = "sound" + Math.floor(Math.random()*4+1) 
-
-//BIRD 1 - 10-40 Meters - 100% Volume          
-          self.birdName1 = randomEntries[0].species
-          self.birdNumber1 = randomEntries[0][soundConstructor]
-          var birdProbability1 = randomEntries[0].score_1970 * 100
-          var birdProbabilityA = randomEntries[0].score_2017 * 100
-          var birdProbabilityOne = randomEntries[0].score_2065 * 100
-          var panValue1 = Math.random()*2 - 1
+          
 var reverb1 = new Pizzicato.Effects.Reverb({
 	time: 0.01,
 	decay: 0.01,
@@ -587,6 +582,17 @@ var reverb5 = new Pizzicato.Effects.Reverb({
 	reverse: false,
 	mix: 1
 	});
+
+//BIRD 1 - 10-40 Meters - 100% Volume          
+          self.birdName1 = randomEntries[0].species
+          self.birdNumber1 = randomEntries[0][soundConstructor]
+          var birdProbability1 = randomEntries[0].frequency_1970 * 10000
+          console.log("70:" + birdProbability1)
+          var birdProbabilityA = randomEntries[0].frequency_2017 * 10000
+          console.log("17:" + birdProbabilityA)
+          var birdProbabilityOne = randomEntries[0].frequency_2065 * 10000
+          console.log("65:" + birdProbabilityOne)
+          var panValue1 = Math.random()*2 - 1
          
             //1970
             if (probability <= birdProbability1) {
@@ -655,9 +661,9 @@ var reverb5 = new Pizzicato.Effects.Reverb({
 //BIRD 2 - 10-40 Meters - 100% Volume            
           self.birdName2 = randomEntries[1].species
           self.birdNumber2 = randomEntries[1][soundConstructor]
-          var birdProbability2 = randomEntries[1].score_1970 * 100
-          var birdProbabilityB = randomEntries[1].score_2017 * 100
-          var birdProbabilityTwo = randomEntries[1].score_2065 * 100
+          var birdProbability2 = randomEntries[1].frequency_1970 * 10000
+          var birdProbabilityB = randomEntries[1].frequency_2017 * 10000
+          var birdProbabilityTwo = randomEntries[1].frequency_2065 * 10000
           var panValue2 = Math.random()*2 - 1
           
           //1970
@@ -726,9 +732,9 @@ var reverb5 = new Pizzicato.Effects.Reverb({
 //BIRD 3 - 50 Meters - 50% Volume  
           self.birdName3 = randomEntries[2].species
           self.birdNumber3 = randomEntries[2][soundConstructor]
-          var birdProbability3 = randomEntries[2].score_1970 * 100
-          var birdProbabilityC = randomEntries[2].score_2017 * 100
-          var birdProbabilityThree = randomEntries[2].score_2065 * 100
+          var birdProbability3 = randomEntries[2].frequency_1970 * 10000
+          var birdProbabilityC = randomEntries[2].frequency_2017 * 10000
+          var birdProbabilityThree = randomEntries[2].frequency_2065 * 10000
           var panValue3 = Math.random()*2 - 1
           
             //1970
@@ -797,9 +803,9 @@ var reverb5 = new Pizzicato.Effects.Reverb({
 //BIRD 4 - 50 Meters - 50% Volume 
           self.birdName4 = randomEntries[3].species
           self.birdNumber4 = randomEntries[3][soundConstructor]
-          var birdProbability4 = randomEntries[3].score_1970 * 100
-          var birdProbabilityD = randomEntries[3].score_2017 * 100
-          var birdProbabilityFour = randomEntries[3].score_2065 * 100
+          var birdProbability4 = randomEntries[3].frequency_1970 * 10000
+          var birdProbabilityD = randomEntries[3].frequency_2017 * 10000
+          var birdProbabilityFour = randomEntries[3].frequency_2065 * 10000
           var panValue4 = Math.random()*2 - 1
           
             //1970
@@ -868,9 +874,9 @@ var reverb5 = new Pizzicato.Effects.Reverb({
 //BIRD 5 - 50 Meters - 50% Volume 
           self.birdName5 = randomEntries[4].species
           self.birdNumber5 = randomEntries[4][soundConstructor]
-          var birdProbability5 = randomEntries[4].score_1970 * 100
-          var birdProbabilityE = randomEntries[4].score_2017 * 100
-          var birdProbabilityFive = randomEntries[4].score_2065 * 100
+          var birdProbability5 = randomEntries[4].frequency_1970 * 10000
+          var birdProbabilityE = randomEntries[4].frequency_2017 * 10000
+          var birdProbabilityFive = randomEntries[4].frequency_2065 * 10000
           var panValue5 = Math.random()*2 - 1
           
             //1970
@@ -939,9 +945,9 @@ var reverb5 = new Pizzicato.Effects.Reverb({
 //BIRD 6 - 60 Meters - 25% Volume 
           self.birdName6 = randomEntries[5].species
           self.birdNumber6 = randomEntries[5][soundConstructor]
-          var birdProbability6 = randomEntries[5].score_1970 * 100
-          var birdProbabilityF = randomEntries[5].score_2017 * 100
-          var birdProbabilitySix = randomEntries[5].score_2065 * 100
+          var birdProbability6 = randomEntries[5].frequency_1970 * 10000
+          var birdProbabilityF = randomEntries[5].frequency_2017 * 10000
+          var birdProbabilitySix = randomEntries[5].frequency_2065 * 10000
           var panValue6 = Math.random()*2 - 1
           
             //1970
@@ -1010,9 +1016,9 @@ var reverb5 = new Pizzicato.Effects.Reverb({
 //BIRD 7 - 60 Meters - 20% Volume 
           self.birdName7 = randomEntries[6].species
           self.birdNumber7 = randomEntries[6][soundConstructor]
-          var birdProbability7 = randomEntries[6].score_1970 * 100
-          var birdProbabilityG = randomEntries[6].score_2017 * 100
-          var birdProbabilitySeven = randomEntries[6].score_2065 * 100
+          var birdProbability7 = randomEntries[6].frequency_1970 * 10000
+          var birdProbabilityG = randomEntries[6].frequency_2017 * 10000
+          var birdProbabilitySeven = randomEntries[6].frequency_2065 * 10000
           var panValue7 = Math.random()*2 - 1
           
           //1970
@@ -1081,9 +1087,9 @@ var reverb5 = new Pizzicato.Effects.Reverb({
 //BIRD 8 - 70 Meters - 12% Volume 
           self.birdName8 = randomEntries[7].species
           self.birdNumber8 = randomEntries[7][soundConstructor]
-          var birdProbability8 = randomEntries[7].score_1970 * 100
-          var birdProbabilityH = randomEntries[7].score_2017 * 100
-          var birdProbabilityEight = randomEntries[7].score_2065 * 100
+          var birdProbability8 = randomEntries[7].frequency_1970 * 10000
+          var birdProbabilityH = randomEntries[7].frequency_2017 * 10000
+          var birdProbabilityEight = randomEntries[7].frequency_2065 * 10000
           var panValue8 = Math.random()*2 - 1
           
           //1970
@@ -1151,9 +1157,9 @@ var reverb5 = new Pizzicato.Effects.Reverb({
 //BIRD 9 - 90 Meters - 08% Volume 
           self.birdName9 = randomEntries[8].species
           self.birdNumber9 = randomEntries[8][soundConstructor]
-          var birdProbability9 = randomEntries[8].score_1970 * 100
-          var birdProbabilityI = randomEntries[8].score_2017 * 100
-          var birdProbabilityNine = randomEntries[8].score_2065 * 100
+          var birdProbability9 = randomEntries[8].frequency_1970 * 10000
+          var birdProbabilityI = randomEntries[8].frequency_2017 * 10000
+          var birdProbabilityNine = randomEntries[8].frequency_2065 * 10000
           var panValue9 = Math.random()*2 - 1
          
           //1970
@@ -1222,9 +1228,9 @@ var reverb5 = new Pizzicato.Effects.Reverb({
 //BIRD 10 - 100 Meters - 03% Volume 
           self.birdName10 = randomEntries[9].species
           self.birdNumber10 = randomEntries[9][soundConstructor]
-          var birdProbability10 = randomEntries[9].score_1970 * 100
-          var birdProbabilityJ = randomEntries[9].score_2017 * 100
-          var birdProbabilityTen = randomEntries[9].score_2065 * 100
+          var birdProbability10 = randomEntries[9].frequency_1970 * 10000
+          var birdProbabilityJ = randomEntries[9].frequency_2017 * 10000
+          var birdProbabilityTen = randomEntries[9].frequency_2065 * 10000
           var panValue10 = Math.random()*2 - 1
           
           //1970
