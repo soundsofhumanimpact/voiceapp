@@ -557,14 +557,45 @@ recognition.start()
           var birdProbabilityA = randomEntries[0].score_2017 * 100
           var birdProbabilityOne = randomEntries[0].score_2065 * 100
           var panValue1 = Math.random()*2 - 1
-          
+var reverb1 = new Pizzicato.Effects.Reverb({
+	time: 0.01,
+	decay: 0.01,
+	reverse: false,
+	mix: 0.7
+	});
+var reverb2 = new Pizzicato.Effects.Reverb({
+	time: 0.01,
+	decay: 0.01,
+	reverse: false,
+	mix: 0.8
+	});
+var reverb3 = new Pizzicato.Effects.Reverb({
+	time: 0.01,
+	decay: 0.01,
+	reverse: false,
+	mix: 0.9
+	});
+var reverb4 = new Pizzicato.Effects.Reverb({
+	time: 0.01,
+	decay: 0.01,
+	reverse: false,
+	mix: 1
+	});
+var reverb5 = new Pizzicato.Effects.Reverb({
+	time: 0.01,
+	decay: 0.01,
+	reverse: false,
+	mix: 1
+	});
+         
             //1970
             if (probability <= birdProbability1) {
               self.birdSound1 = new Pizzicato.Sound(self.birdNumber1, function() {
               self.nineteenSeventyVolume1 = birdProbability1
-              self.birdSound1.volume = 1
+              self.birdSound1.volume = .7
               self.birdSound1Pan = new Pizzicato.Effects.StereoPanner({pan: panValue1});
               self.birdSound1.addEffect(self.birdSound1Pan)
+              self.birdSound1.addEffect(reverb1)
               });
               self.flipCard1 = true
             }
@@ -574,6 +605,7 @@ recognition.start()
               self.birdSound1Pan = new Pizzicato.Effects.StereoPanner({pan: panValue1});
               self.birdSound1.volume = self.birdSoundVolume1
               self.birdSound1.addEffect(self.birdSound1Pan)
+              self.birdSound1.addEffect(reverb1)
               });
               self.flipCard1 = false
             }
@@ -582,9 +614,10 @@ recognition.start()
             if (probability <= birdProbabilityA) {
               self.birdAudio1 = new Pizzicato.Sound(self.birdNumber1, function() {
               self.twentyTwentyVolume1 = birdProbabilityA
-              self.birdAudio1.volume = 1
+              self.birdAudio1.volume = .7
               self.birdAudio1Pan = new Pizzicato.Effects.StereoPanner({pan: panValue1});
               self.birdAudio1.addEffect(self.birdAudio1Pan)
+              self.birdAudio1.addEffect(reverb1)
               });
               self.flipCardA = true
             }
@@ -593,6 +626,7 @@ recognition.start()
               self.birdAudio1.volume = 0
               self.birdAudio1Pan = new Pizzicato.Effects.StereoPanner({pan: panValue1});
               self.birdAudio1.addEffect(self.birdAudio1Pan)
+              self.birdAudio1.addEffect(reverb1)
               });
               self.flipCardA = false
             }
@@ -601,9 +635,10 @@ recognition.start()
             if (probability <= birdProbabilityOne) {
               self.birdSong1 = new Pizzicato.Sound(self.birdNumber1, function() {
               self.twentySixtyFiveVolume1 = birdProbabilityOne
-              self.birdSong1.volume = 1
+              self.birdSong1.volume = .7
               self.birdSong1Pan = new Pizzicato.Effects.StereoPanner({pan: panValue1});
               self.birdSong1.addEffect(self.birdSong1Pan)
+              self.birdSong1.addEffect(reverb1)
               });
               self.flipCardOne = true
             }
@@ -612,6 +647,7 @@ recognition.start()
               self.birdSong1.volume = 0
               self.birdSong1Pan = new Pizzicato.Effects.StereoPanner({pan: panValue1});
               self.birdSong1.addEffect(self.birdSong1Pan)
+              self.birdSong1.addEffect(reverb1)
               });
               self.flipCardOne = false
             }
@@ -628,9 +664,10 @@ recognition.start()
             if (probability <= birdProbability2) {
               self.birdSound2 = new Pizzicato.Sound(self.birdNumber2, function() {
               self.nineteenSeventyVolume2 = birdProbability2
-              self.birdSound2.volume = 1 
+              self.birdSound2.volume = .7
               self.birdSound2Pan = new Pizzicato.Effects.StereoPanner({pan: panValue2});
               self.birdSound2.addEffect(self.birdSound2Pan)
+              self.birdSound2.addEffect(reverb1)
               });
               self.flipCard2 = true
             }
@@ -639,6 +676,7 @@ recognition.start()
               self.birdSound2Pan = new Pizzicato.Effects.StereoPanner({pan: panValue2});
               self.birdSound2.volume = 0
               self.birdSound2.addEffect(self.birdSound2Pan)
+              self.birdSound2.addEffect(reverb1)
               });
               self.flipCard2 = false
             }
@@ -647,9 +685,10 @@ recognition.start()
             if (probability <= birdProbabilityB) {
               self.birdAudio2 = new Pizzicato.Sound(self.birdNumber2, function() {
               self.twentyTwentyVolume2 = birdProbabilityB
-              self.birdAudio2.volume = 1
+              self.birdAudio2.volume = .7
               self.birdAudio2Pan = new Pizzicato.Effects.StereoPanner({pan: panValue2});
               self.birdAudio2.addEffect(self.birdAudio2Pan)
+              self.birdAudio2.addEffect(reverb1)
               });
               self.flipCardB = true
             }
@@ -658,6 +697,7 @@ recognition.start()
               self.birdAudio2.volume = 0
               self.birdAudio2Pan = new Pizzicato.Effects.StereoPanner({pan: panValue2});
               self.birdAudio2.addEffect(self.birdAudio2Pan)
+              self.birdAudio2.addEffect(reverb1)
               });
               self.flipCardB = false
             }
@@ -666,9 +706,10 @@ recognition.start()
             if (probability <= birdProbabilityTwo) {
               self.birdSong2 = new Pizzicato.Sound(self.birdNumber2, function() {
               self.twentySixtyFiveVolume2 = birdProbabilityTwo
-              self.birdSong2.volume = 1
+              self.birdSong2.volume = .7
               self.birdSong2Pan = new Pizzicato.Effects.StereoPanner({pan: panValue2});
               self.birdSong2.addEffect(self.birdSong2Pan)
+              self.birdSong2.addEffect(reverb1)
               });
               self.flipCardTwo = true
             }
@@ -677,6 +718,7 @@ recognition.start()
               self.birdSong2.volume = 0
               self.birdSong2Pan = new Pizzicato.Effects.StereoPanner({pan: panValue2});
               self.birdSong2.addEffect(self.birdSong2Pan)
+              self.birdSong2.addEffect(reverb1)
               });
               self.flipCardTwo = false
             }
@@ -693,9 +735,10 @@ recognition.start()
             if (probability <= birdProbability3) {
               self.birdSound3 = new Pizzicato.Sound(self.birdNumber3, function() {
               self.nineteenSeventyVolume3 = birdProbability3
-              self.birdSound3.volume = .5
+              self.birdSound3.volume = .4
               self.birdSound3Pan = new Pizzicato.Effects.StereoPanner({pan: panValue3});
               self.birdSound3.addEffect(self.birdSound3Pan)
+              self.birdSound3.addEffect(reverb2)
               });
               self.flipCard3 = true
             }
@@ -704,6 +747,7 @@ recognition.start()
               self.birdSound3Pan = new Pizzicato.Effects.StereoPanner({pan: panValue3});
               self.birdSound3.volume = 0
               self.birdSound3.addEffect(self.birdSound3Pan)
+              self.birdSound3.addEffect(reverb2)
               });
               self.flipCard3 = false
             }
@@ -712,9 +756,10 @@ recognition.start()
             if (probability <= birdProbabilityC) {
               self.birdAudio3 = new Pizzicato.Sound(self.birdNumber3, function() {
               self.twentyTwentyVolume3 = birdProbabilityC
-              self.birdAudio3.volume = .5
+              self.birdAudio3.volume = .4
               self.birdAudio3Pan = new Pizzicato.Effects.StereoPanner({pan: panValue3});
               self.birdAudio3.addEffect(self.birdAudio3Pan)
+              self.birdAudio3.addEffect(reverb2)
               });
               self.flipCardC = true
             }
@@ -723,6 +768,7 @@ recognition.start()
               self.birdAudio3.volume = 0
               self.birdAudio3Pan = new Pizzicato.Effects.StereoPanner({pan: panValue3});
               self.birdAudio3.addEffect(self.birdAudio3Pan)
+              self.birdAudio3.addEffect(reverb2)
               });
               self.flipCardC = false
             }
@@ -731,9 +777,10 @@ recognition.start()
             if (probability <= birdProbabilityThree) {
               self.birdSong3 = new Pizzicato.Sound(self.birdNumber3, function() {
               self.twentySixtyFiveVolume3 = birdProbabilityThree
-              self.birdSong3.volume = .5
+              self.birdSong3.volume = .4
               self.birdSong3Pan = new Pizzicato.Effects.StereoPanner({pan: panValue3});
               self.birdSong3.addEffect(self.birdSong3Pan)
+              self.birdSong3.addEffect(reverb2)
               });
               self.flipCardThree = true
             }
@@ -742,6 +789,7 @@ recognition.start()
               self.birdSong3.volume = 0
               self.birdSong3Pan = new Pizzicato.Effects.StereoPanner({pan: panValue3});
               self.birdSong3.addEffect(self.birdSong3Pan)
+              self.birdSong3.addEffect(reverb2)
               });
               self.flipCardThree = false
             }
@@ -758,9 +806,10 @@ recognition.start()
             if (probability <= birdProbability4) {
               self.birdSound4 = new Pizzicato.Sound(self.birdNumber4, function() {
               self.nineteenSeventyVolume4 = birdProbability4
-              self.birdSound4.volume = .5 
+              self.birdSound4.volume = .4
               self.birdSound4Pan = new Pizzicato.Effects.StereoPanner({pan: panValue4});
               self.birdSound4.addEffect(self.birdSound4Pan)
+              self.birdSound4.addEffect(reverb2)
               });
               self.flipCard4 = true
             }
@@ -769,6 +818,7 @@ recognition.start()
               self.birdSound4Pan = new Pizzicato.Effects.StereoPanner({pan: panValue4});
               self.birdSound4.volume = 0
               self.birdSound4.addEffect(self.birdSound4Pan)
+              self.birdSound4.addEffect(reverb2)
               });
               self.flipCard4 = false
             }
@@ -777,9 +827,10 @@ recognition.start()
             if (probability <= birdProbabilityD) {
               self.birdAudio4 = new Pizzicato.Sound(self.birdNumber4, function() {
               self.twentyTwentyVolume4 = birdProbabilityD
-              self.birdAudio4.volume = .5
+              self.birdAudio4.volume = .4
               self.birdAudio4Pan = new Pizzicato.Effects.StereoPanner({pan: panValue4});
               self.birdAudio4.addEffect(self.birdAudio4Pan)
+              self.birdAudio4.addEffect(reverb2)
               });
               self.flipCardD = true
             }
@@ -788,6 +839,7 @@ recognition.start()
               self.birdAudio4.volume = 0
               self.birdAudio4Pan = new Pizzicato.Effects.StereoPanner({pan: panValue4});
               self.birdAudio4.addEffect(self.birdAudio4Pan)
+              self.birdAudio4.addEffect(reverb2)
               });
               self.flipCardD = false
             }
@@ -796,9 +848,10 @@ recognition.start()
             if (probability <= birdProbabilityFour) {
               self.birdSong4 = new Pizzicato.Sound(self.birdNumber4, function() {
               self.twentySixtyFiveVolume4 = birdProbabilityFour
-              self.birdSong4.volume = .5
+              self.birdSong4.volume = .4
               self.birdSong4Pan = new Pizzicato.Effects.StereoPanner({pan: panValue4});
               self.birdSong4.addEffect(self.birdSong4Pan)
+              self.birdSong4.addEffect(reverb2)
               });
               self.flipCardFour = true
             }
@@ -807,6 +860,7 @@ recognition.start()
               self.birdSong4.volume = 0
               self.birdSong4Pan = new Pizzicato.Effects.StereoPanner({pan: panValue4});
               self.birdSong4.addEffect(self.birdSong4Pan)
+              self.birdSong4.addEffect(reverb2)
               });
               self.flipCardFour = false
             }
@@ -823,9 +877,10 @@ recognition.start()
             if (probability <= birdProbability5) {
               self.birdSound5 = new Pizzicato.Sound(self.birdNumber5, function() {
               self.nineteenSeventyVolume5 = birdProbability5
-              self.birdSound5.volume = .5 
+              self.birdSound5.volume = .4 
               self.birdSound5Pan = new Pizzicato.Effects.StereoPanner({pan: panValue5});
               self.birdSound5.addEffect(self.birdSound5Pan)
+              self.birdSound5.addEffect(reverb2)
               });
               self.flipCard5 = true
             }
@@ -834,6 +889,7 @@ recognition.start()
               self.birdSound5Pan = new Pizzicato.Effects.StereoPanner({pan: panValue5});
               self.birdSound5.volume = 0
               self.birdSound5.addEffect(self.birdSound5Pan)
+              self.birdSound5.addEffect(reverb2)
               });
               self.flipCard5 = false
             }
@@ -842,9 +898,10 @@ recognition.start()
             if (probability <= birdProbabilityE) {
               self.birdAudio5 = new Pizzicato.Sound(self.birdNumber5, function() {
               self.twentyTwentyVolume5 = birdProbabilityE
-              self.birdAudio5.volume = .5
+              self.birdAudio5.volume = .4
               self.birdAudio5Pan = new Pizzicato.Effects.StereoPanner({pan: panValue5});
               self.birdAudio5.addEffect(self.birdAudio5Pan)
+              self.birdAudio5.addEffect(reverb2)
               });
               self.flipCardE = true
             }
@@ -853,6 +910,7 @@ recognition.start()
               self.birdAudio5.volume = 0
               self.birdAudio5Pan = new Pizzicato.Effects.StereoPanner({pan: panValue5});
               self.birdAudio5.addEffect(self.birdAudio5Pan)
+              self.birdAudio5.addEffect(reverb2)
               });
               self.flipCardE = false
             }
@@ -861,9 +919,10 @@ recognition.start()
             if (probability <= birdProbabilityFive) {
               self.birdSong5 = new Pizzicato.Sound(self.birdNumber5, function() {
               self.twentySixtyFiveVolume5 = birdProbabilityFive
-              self.birdSong5.volume = .5
+              self.birdSong5.volume = .4
               self.birdSong5Pan = new Pizzicato.Effects.StereoPanner({pan: panValue5});
               self.birdSong5.addEffect(self.birdSong5Pan)
+              self.birdSong5.addEffect(reverb2)
               });
               self.flipCardFive = true
             }
@@ -872,6 +931,7 @@ recognition.start()
               self.birdSong5.volume = 0
               self.birdSong5Pan = new Pizzicato.Effects.StereoPanner({pan: panValue5});
               self.birdSong5.addEffect(self.birdSong5Pan)
+              self.birdSong5.addEffect(reverb2)
               });
               self.flipCardFive = false
             }
@@ -891,6 +951,7 @@ recognition.start()
               self.birdSound6.volume = .25 
               self.birdSound6Pan = new Pizzicato.Effects.StereoPanner({pan: panValue6});
               self.birdSound6.addEffect(self.birdSound6Pan)
+              self.birdSound6.addEffect(reverb3)
               });
               self.flipCard6 = true
             }
@@ -899,6 +960,7 @@ recognition.start()
               self.birdSound6Pan = new Pizzicato.Effects.StereoPanner({pan: panValue6});
               self.birdSound6.volume = 0
               self.birdSound6.addEffect(self.birdSound6Pan)
+              self.birdSound6.addEffect(reverb3)
               });
               self.flipCard6 = false
             }
@@ -910,6 +972,7 @@ recognition.start()
               self.birdAudio6.volume = .25
               self.birdAudio6Pan = new Pizzicato.Effects.StereoPanner({pan: panValue6});
               self.birdAudio6.addEffect(self.birdAudio6Pan)
+              self.birdAudio6.addEffect(reverb3)
               });
               self.flipCardF = true
             }
@@ -918,6 +981,7 @@ recognition.start()
               self.birdAudio6.volume = 0
               self.birdAudio6Pan = new Pizzicato.Effects.StereoPanner({pan: panValue6});
               self.birdAudio6.addEffect(self.birdAudio6Pan)
+              self.birdAudio6.addEffect(reverb3)
               });
               self.flipCardF = false
             }
@@ -929,6 +993,7 @@ recognition.start()
               self.birdSong6.volume = .25
               self.birdSong6Pan = new Pizzicato.Effects.StereoPanner({pan: panValue6});
               self.birdSong6.addEffect(self.birdSong6Pan)
+              self.birdSong6.addEffect(reverb3)
               });
               self.flipCardSix = true
             }
@@ -937,6 +1002,7 @@ recognition.start()
               self.birdSong6.volume = 0
               self.birdSong6Pan = new Pizzicato.Effects.StereoPanner({pan: panValue6});
               self.birdSong6.addEffect(self.birdSong6Pan)
+              self.birdSong6.addEffect(reverb3)
               });
               self.flipCardSix = false
             }
@@ -956,6 +1022,7 @@ recognition.start()
               self.birdSound7.volume = .20
               self.birdSound7Pan = new Pizzicato.Effects.StereoPanner({pan: panValue7});
               self.birdSound7.addEffect(self.birdSound7Pan)
+              self.birdSound7.addEffect(reverb4)
               });
               self.flipCard7 = true
             }
@@ -964,6 +1031,7 @@ recognition.start()
               self.birdSound7Pan = new Pizzicato.Effects.StereoPanner({pan: panValue7});
               self.birdSound7.volume = 0
               self.birdSound7.addEffect(self.birdSound7Pan)
+              self.birdSound7.addEffect(reverb4)
               });
               self.flipCard7 = false
             }
@@ -975,6 +1043,7 @@ recognition.start()
               self.birdAudio7.volume = .20
               self.birdAudio7Pan = new Pizzicato.Effects.StereoPanner({pan: panValue7});
               self.birdAudio7.addEffect(self.birdAudio7Pan)
+              self.birdAudio7.addEffect(reverb4)
               });
               self.flipCardG = true
             }
@@ -983,6 +1052,7 @@ recognition.start()
               self.birdAudio7.volume = 0
               self.birdAudio7Pan = new Pizzicato.Effects.StereoPanner({pan: panValue7});
               self.birdAudio7.addEffect(self.birdAudio7Pan)
+              self.birdAudio7.addEffect(reverb4)
               });
               self.flipCardG = false
             }
@@ -994,6 +1064,7 @@ recognition.start()
               self.birdSong7.volume = .20
               self.birdSong7Pan = new Pizzicato.Effects.StereoPanner({pan: panValue7});
               self.birdSong7.addEffect(self.birdSong7Pan)
+              self.birdSong7.addEffect(reverb4)
               });
               self.flipCardSeven = true
             }
@@ -1002,6 +1073,7 @@ recognition.start()
               self.birdSong7.volume = 0
               self.birdSong7Pan = new Pizzicato.Effects.StereoPanner({pan: panValue7});
               self.birdSong7.addEffect(self.birdSong7Pan)
+              self.birdSong7.addEffect(reverb4)
               });
               self.flipCardSeven = false
             }
@@ -1021,6 +1093,7 @@ recognition.start()
               self.birdSound8.volume = .12
               self.birdSound8Pan = new Pizzicato.Effects.StereoPanner({pan: panValue8});
               self.birdSound8.addEffect(self.birdSound8Pan)
+              self.birdSound8.addEffect(reverb5)
               });
               self.flipCard8 = true
             }
@@ -1029,6 +1102,7 @@ recognition.start()
               self.birdSound8Pan = new Pizzicato.Effects.StereoPanner({pan: panValue8});
               self.birdSound8.volume = 0
               self.birdSound8.addEffect(self.birdSound8Pan)
+              self.birdSound8.addEffect(reverb5)
               });
               self.flipCard5 = false
             }
@@ -1040,6 +1114,7 @@ recognition.start()
               self.birdAudio8.volume = .12
               self.birdAudio8Pan = new Pizzicato.Effects.StereoPanner({pan: panValue8});
               self.birdAudio8.addEffect(self.birdAudio8Pan)
+              self.birdAudio8.addEffect(reverb5)
               });
               self.flipCardH = true
             }
@@ -1048,6 +1123,7 @@ recognition.start()
               self.birdAudio8.volume = 0
               self.birdAudio8Pan = new Pizzicato.Effects.StereoPanner({pan: panValue8});
               self.birdAudio8.addEffect(self.birdAudio8Pan)
+              self.birdAudio8.addEffect(reverb5)
               });
               self.flipCardH = false
             }
@@ -1058,6 +1134,7 @@ recognition.start()
               self.birdSong8.volume = .12
               self.birdSong8Pan = new Pizzicato.Effects.StereoPanner({pan: panValue8});
               self.birdSong8.addEffect(self.birdSong8Pan)
+              self.birdSong8.addEffect(reverb5)
               });
               self.flipCardEight = true
             }
@@ -1066,6 +1143,7 @@ recognition.start()
               self.birdSong8.volume = 0
               self.birdSong8Pan = new Pizzicato.Effects.StereoPanner({pan: panValue8});
               self.birdSong8.addEffect(self.birdSong8Pan)
+              self.birdSong8.addEffect(reverb5)
               });
               self.flipCardEight = false
             }
@@ -1085,6 +1163,7 @@ recognition.start()
               self.birdSound9.volume = .07
               self.birdSound9Pan = new Pizzicato.Effects.StereoPanner({pan: panValue9});
               self.birdSound9.addEffect(self.birdSound9Pan)
+              self.birdSound9.addEffect(reverb5)
               });
               self.flipCard9 = true
             }
@@ -1093,6 +1172,7 @@ recognition.start()
               self.birdSound9Pan = new Pizzicato.Effects.StereoPanner({pan: panValue9});
               self.birdSound9.volume = 0
               self.birdSound9.addEffect(self.birdSound9Pan)
+              self.birdSound9.addEffect(reverb5)
               });
               self.flipCard9 = false
             }
@@ -1104,6 +1184,7 @@ recognition.start()
               self.birdAudio9.volume = .07
               self.birdAudio9Pan = new Pizzicato.Effects.StereoPanner({pan: panValue9});
               self.birdAudio9.addEffect(self.birdAudio9Pan)
+              self.birdAudio9.addEffect(reverb5)
               });
               self.flipCardI = true
             }
@@ -1112,6 +1193,7 @@ recognition.start()
               self.birdAudio9.volume = 0
               self.birdAudio9Pan = new Pizzicato.Effects.StereoPanner({pan: panValue9});
               self.birdAudio9.addEffect(self.birdAudio9Pan)
+              self.birdAudio9.addEffect(reverb5)
               });
               self.flipCardI = false
             }
@@ -1123,6 +1205,7 @@ recognition.start()
               self.birdSong9.volume = .07
               self.birdSong9Pan = new Pizzicato.Effects.StereoPanner({pan: panValue9});
               self.birdSong9.addEffect(self.birdSong9Pan)
+              self.birdSong9.addEffect(reverb5)
               });
               self.flipCardNine = true
             }
@@ -1131,6 +1214,7 @@ recognition.start()
               self.birdSong9.volume = 0
               self.birdSong9Pan = new Pizzicato.Effects.StereoPanner({pan: panValue9});
               self.birdSong9.addEffect(self.birdSong9Pan)
+              self.birdSong9.addEffect(reverb5)
               });
               self.flipCardNine = false
             }
@@ -1150,6 +1234,7 @@ recognition.start()
               self.birdSound10.volume = .03
               self.birdSound10Pan = new Pizzicato.Effects.StereoPanner({pan: panValue10});
               self.birdSound10.addEffect(self.birdSound10Pan)
+              self.birdSound10.addEffect(reverb5)
               });
               self.flipCard10 = true
             }
@@ -1158,6 +1243,7 @@ recognition.start()
               self.birdSound10Pan = new Pizzicato.Effects.StereoPanner({pan: panValue10});
               self.birdSound10.volume = 0
               self.birdSound10.addEffect(self.birdSound10Pan)
+              self.birdSound10.addEffect(reverb5)
               });
               self.flipCard10 = false
             }
@@ -1169,6 +1255,7 @@ recognition.start()
               self.birdAudio10.volume = .03
               self.birdAudio10Pan = new Pizzicato.Effects.StereoPanner({pan: panValue10});
               self.birdAudio10.addEffect(self.birdAudio10Pan)
+              self.birdAudio10.addEffect(reverb5)
               });
               self.flipCardJ = true
             }
@@ -1177,6 +1264,7 @@ recognition.start()
               self.birdAudio10.volume = 0
               self.birdAudio10Pan = new Pizzicato.Effects.StereoPanner({pan: panValue10});
               self.birdAudio10.addEffect(self.birdAudio10Pan)
+              self.birdAudio10.addEffect(reverb5)
               });
               self.flipCardJ = false
             }
@@ -1188,6 +1276,7 @@ recognition.start()
               self.birdSong10.volume = .03
               self.birdSong10Pan = new Pizzicato.Effects.StereoPanner({pan: panValue10});
               self.birdSong10.addEffect(self.birdSong10Pan)
+              self.birdSong10.addEffect(reverb5)
               });
               self.flipCardTen = true
             }
@@ -1196,6 +1285,7 @@ recognition.start()
               self.birdSong10.volume = 0
               self.birdSong10Pan = new Pizzicato.Effects.StereoPanner({pan: panValue10});
               self.birdSong10.addEffect(self.birdSong10Pan)
+              self.birdSong10.addEffect(reverb5)
               });
               self.flipCardTen = false
             }
